@@ -5,9 +5,10 @@ import axios from 'axios'
 
 const Home = () => {
     
-
+    
     const [homeFirstBenefits, setHomeFirstBenefits] = useState({})
     const [homeSecondBenefits, setHomeSecondBenefits] = useState({})
+    
     
     useEffect(() => {
         scrollTo(0,0)
@@ -21,6 +22,8 @@ const Home = () => {
         fetchData()
     }, [])
      
+    
+    // Tableau des feedbacks utilisateurs
     const clientsReviews = [
         {
             id:1,
@@ -54,6 +57,7 @@ const Home = () => {
     
     ]
     
+    // Tableau des tutoriels
     const tutorialArray = [
         { 
             id:3,
@@ -81,19 +85,27 @@ const Home = () => {
         }
     ]
     
+    
     return (
        <>
        <div className="home-scroll-inspector"></div>
+       
        <main className="home-container container">
-           <div className="home-headline-background">
+       
+           {/******** En-tête de la page d'accueil **********/}
+           <header className="home-headline-background">
               
                <h1 className="home-headline-title">Réussissez tout vos examens</h1>
                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, assumenda ratione sed voluptates odit repudiandae nesciunt eius nisi facilis tempore.</p>
                <NavLink className="home-headline-calltoaction" to="/inscription"> Devenir un meilleur élève </NavLink>          
               
-           </div>
+           </header>
            
+           
+           {/********* Contenu principal de la page d'accueil ********/}
            <article className="home-article">
+           
+              {/********* Section des cards des tutoriels **********/}
               <section>
                     <h1 className="home-section-h1">Obtenez de meilleurs notes</h1>
                     
@@ -116,6 +128,8 @@ const Home = () => {
                     </div>  
               </section>
               
+              
+              {/********** Première Section d'un résumé d'un article du blog *********/}
               <section className="home-benefits-section">
                     <h1>Répétition espacée</h1>
                     <div className="home-benefits-flex-right">
@@ -128,6 +142,8 @@ const Home = () => {
                     </div>
               </section>
               
+              
+              {/********* Deuxième section d'un résumé d'un article du blog *********/}
               <section className="home-benefits-section">
                     <h1>Rappels actifs</h1>
                     <div className="home-benefits-flex-left">
@@ -145,6 +161,7 @@ const Home = () => {
        </main>
        
        
+       {/*********** Bloc du slider des feedbacks utilisateurs ***********/}
        <article className="home-client-feedback-block">
            <h1>Ce que nos utilisateurs pensent de nous</h1>
            <section className="home-client-feedback-section">
@@ -158,6 +175,7 @@ const Home = () => {
        </article>
        
        
+       {/************** Bloc des cards de présentation de l'équipe *********/}
        <article className="home-team-presentation-article">
            <h1>Notre équipe de choc</h1>
            <section className="home-team-presentation-section">
