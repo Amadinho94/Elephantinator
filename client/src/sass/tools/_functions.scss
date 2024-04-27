@@ -1,0 +1,50 @@
+/***** CENTERED BLOC ***/
+%centered-block {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/***** GENERALITIES ***/
+%margin-bottom-top {
+  margin-top:6rem;
+  margin-bottom:6rem;
+}
+
+/***** NAVLINK ****/
+%navlink {
+  border-radius : 20px;
+  text-decoration:none;
+  padding:1rem;
+  margin:0.3rem;
+  transition:all 0.6s ease-in-out;
+}
+
+
+%hoverandactive-header-navlink {
+    color: $accent-color;
+    background: $transparent;
+}
+
+%home-navlink-basis {
+    background:$secondary-color;
+    color:$accent-color;
+}
+
+%home-hover-navlink {
+    color:$accent-color;
+    background: $darkest-secondary-color;
+    cursor: pointer;
+}
+
+/***** ANIMATION ******/
+%animation-timeline {
+    animation-timeline:view();
+    animation-range-end:cover 30%;
+    animation-range-start:cover 0%;
+}
+
+/***** FLEX VERTICAL ALIGNEMENT ***/
+%flex-vertical-align-center {
+    display:flex;
+    align-items:center;
+}

@@ -1,0 +1,142 @@
+/*******  LOGIN PAGE *********/
+.loginpage-main {
+    padding-bottom:15rem;
+    text-align:center;
+}
+
+.loginpage-article {
+    @extend %centered-block;
+    padding:4rem;
+    text-align:center;
+}
+
+.loginpage-input {
+    display:block;
+    @extend %centered-block;
+    margin-top:2rem;
+     width:80%;
+    margin-bottom:2rem;
+    padding:1rem;
+    border-radius:10px;
+    border:0 solid $accent-color;
+}
+
+.loginpage-button {
+    padding-top:1rem;
+    padding-bottom:1rem;
+    border-radius:20px;
+    border:0;
+    font-size:2rem;
+    color:$accent-color;
+    background:$secondary-color;
+    display:block;
+    @extend %centered-block;
+    width:20rem;
+}
+
+
+.loginpage-button:hover {
+    background: $darkest-secondary-color;
+    cursor:pointer;
+    color:$accent-color;
+}
+
+
+
+
+.loginpage-input-label {
+  position: relative;
+  border:0;
+  padding:0;
+}
+
+.input-icon {
+    position: absolute;
+    left:12%;
+    top:10%;
+}
+
+.loginpage-input-label input {
+  background : transparent;
+  border:1px solid $accent-color;
+  color: $accent-color;
+  padding:1rem;
+  border-radius:5px;
+  outline:none;
+  margin-top:0;
+  padding-left:4rem;
+}
+
+.loginpage-input-label label {
+  position: absolute;
+  font-size:2rem;
+  top : 30%;
+  left: 22%;
+  pointer-events:none;
+  transform: translateY(-50%);
+}
+
+.loginpage-input-label input:focus~ label,
+.loginpage-input-label input:valid ~ label {
+  top:0;
+  font-size:1.5rem;
+  background : $primary-color;
+  padding-left:3px;
+  padding-right:3px;
+}
+
+
+
+.loginpage-navlink-register {
+    color:$accent-color;
+}
+
+.loginpage-navlink-register:hover {
+    color:$secondary-color;
+}
+
+
+/********* MEDIA QUERIES *************/
+/**********  TABLETTE **************/
+@media screen and (min-width:600px) and (max-width:900px) {
+    
+    .loginpage-article {
+        max-width:75%;
+    }
+    
+    .loginpage-input-label label {
+      left: 18%;
+    }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width:900px) {
+    
+    // .loginpage-input-label label {
+    //   left: 55px;
+    // }
+
+    .loginpage-input {
+        width:90%;
+    }
+
+    .loginpage-article {
+        max-width:40%;
+        border:2px solid $secondary-color;
+        border-radius:20px;
+        background: $transparent;
+    }
+    
+    .loginpage-input-label label {
+      left: 14%;
+    }
+    
+    .input-icon {
+        position: absolute;
+        left:7%;
+    }
+    
+    .loginpage-input-label input:focus~ label,
+    .loginpage-input-label input:valid ~ label {
+      background : #242028;
+    }
+}

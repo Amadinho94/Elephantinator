@@ -1,0 +1,177 @@
+.adminformpage-section {
+    text-align:center;
+    padding:3rem;
+    width:100%;
+    margin-top:6rem;
+}
+
+.admindashboard-title-navlink {
+    text-decoration:none;
+    color:$accent-color;
+}
+
+.admindashboard-title-navlink:hover {
+    text-decoration:underline;
+    color:$secondary-color;
+}
+
+.adminformpage-input-label {
+  position: relative;
+  border:0;
+  padding:0;
+}
+
+.adminformpage-input {
+    display:block;
+    @extend %centered-block;
+    width: 90%;
+    margin-bottom:2rem;
+}
+
+.adminformpage-input-label input {
+  background : transparent;
+  border:1px solid $accent-color;
+  color: $accent-color;
+  padding:1rem;
+  border-radius:5px;
+  outline:none;
+  display:block;
+}
+
+
+.adminformpage-input-label label {
+  position: absolute;
+  font-size:1.8rem;
+  top : 30%;
+  left: 10%;
+  pointer-events:none;
+  transform: translateY(-50%);
+}
+
+.adminformpage-input-label input:focus~ label,
+.adminformpage-input-label input:valid ~ label {
+  top:0;
+  font-size:1.5rem;
+  background : $primary-color;
+  padding-left:3px;
+  padding-right:3px;
+}
+
+.adminformpage-input-label textarea:focus~ label,
+.adminformpage-input-label textarea:valid ~ label {
+  top:0;
+  font-size:1.5rem;
+  background : $primary-color;
+  padding-left:3px;
+  padding-right:3px;
+}
+
+
+
+// .adminformpage-select {
+//     display:block;
+//     border-radius:5px;
+//     @extend %centered-block;
+//     padding:1rem;
+//     width: 90%;
+//     margin-bottom:1rem;
+//     background:$transparent;
+//     color:$accent-color;
+//     font-size:1.5rem;
+// }
+
+.adminformpage-select:hover {
+    cursor:pointer;
+    background : $less-transparent;
+}
+
+// .adminformpage-select > option {
+//     color:black;
+// }
+
+.adminformpage-textarea {
+    display:block;
+    width: 90%;
+    @extend %centered-block;
+    border:1px solid $accent-color;
+    margin-bottom:2rem;
+    padding:1rem;
+    border-radius:10px;
+    height:100px;
+    background:transparent;
+    color:$accent-color;
+}
+
+.adminformpage-form-button {
+    padding-top:1rem;
+    padding-bottom:1rem;
+    border-radius:20px;
+    border:0;
+    font-size:2rem;
+    color: $accent-color;
+    background:$secondary-color;
+    display:block;
+    @extend %centered-block;
+    width:20rem;
+}
+
+.adminformpage-form-button:hover {
+    background: $darkest-secondary-color;
+    cursor:pointer;
+    color:$accent-color;
+}
+
+
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width:600px) and (max-width:900px) {
+    
+    /****** CONTACT PAGE *****/
+    .adminformpage-section {
+        max-width:80%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+
+/**********  DESKTOP **************/
+@media screen and (min-width:900px) {
+    
+    /****** CONTACT PAGE *****/
+    .adminformpage-section {
+        max-width:60%;
+        margin-left:auto;
+        margin-right:auto;
+        border-radius:20px;
+        border:2px solid $secondary-color;
+        background:$transparent;
+    }
+    
+    .adminformpage-input-label textarea:focus~ label,
+    .adminformpage-input-label textarea:valid ~ label {
+      background : #242028;
+    }
+    
+    .adminformpage-input {
+        width: 90%;
+     }
+    
+    // .adminformpage-select {
+    //     width: 90%;
+    // }
+
+    .adminformpage-textarea {
+        width: 90%;
+        height:200px;
+    }
+    
+    .adminformpage-input-label label {
+      left: 8%;
+    }
+    
+    .adminformpage-input-label input:focus~ label,
+    .adminformpage-input-label input:valid ~ label {
+      background : #242028;
+    }
+}

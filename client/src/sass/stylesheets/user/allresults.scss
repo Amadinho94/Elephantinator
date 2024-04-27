@@ -1,0 +1,86 @@
+.allresults-main {
+    text-align:center;
+}
+
+.allresults-article {
+    background:$lighter-primary-color;
+    border-radius:20px;
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+    padding:3rem;
+    margin-top:3rem;
+    margin-bottom:3rem;
+}
+
+.allresults-list {
+    list-style:none;
+    padding:1rem;
+}
+
+.allresults-list li {
+    padding:1rem;
+    border-radius:20px;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:1rem;
+    margin-bottom:1rem;
+    transition:all 0.5s ease-in-out;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.allresults-list li > p {
+    width:85%;
+}
+
+.allresults-list li:hover {
+    background:$transparent;
+}
+
+.allresults-deleteone-button {
+     transition:all 0.5s ease-in-out;
+}
+
+.allresults-deleteone-button:hover {
+    color:#da0707;
+     cursor:pointer;
+}
+
+.allresults-deleteall-button {
+    border:0;
+    color:$accent-color;
+    background:red;
+    padding:1rem;
+    font-size:2rem;
+    border-radius:20px;
+}
+
+.allresults-deleteall-button:hover {
+    background:$disabled-delete-button;
+    cursor:pointer;
+}
+
+
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width:600px) and (max-width:900px) {
+    .allresults-article {
+        width:90%;
+    }
+}
+
+/**********  DESKTOP **************/
+@media screen and (min-width:900px) {
+    
+    .allresults-list li {
+        width:95%;
+    }
+    
+    .allresults-article {
+        width:60%;
+    }
+}

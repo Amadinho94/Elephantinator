@@ -1,0 +1,103 @@
+.updatefolderpage-section {
+    text-align : center;
+    width:80%;
+    @extend %centered-block;
+}
+
+.updatefolderpage-main {
+    max-width : $container-width;
+    @extend %centered-block;
+    margin-top:3rem;
+}
+
+
+.updatefolderpage-input-label {
+  position: relative;
+  border:0;
+  padding:0;
+}
+
+.updatefolderpage-input-label input {
+  background : transparent;
+  border:1px solid $accent-color;
+  color: $accent-color;
+  padding:1rem;
+  border-radius:5px;
+  outline:none;
+  margin-top:0;
+  display:block;
+    @extend %centered-block;
+    width: 100%;
+    margin-bottom:2rem;
+}
+
+.updatefolderpage-input-label label {
+  position: absolute;
+  font-size:2rem;
+  top : 30%;
+  left: 6%;
+  pointer-events:none;
+  transform: translateY(-50%);
+}
+
+.updatefolderpage-input-label input:focus~ label,
+.updatefolderpage-input-label input:valid ~ label {
+  top:0;
+  font-size:1.5rem;
+  background : $primary-color;
+  padding-left:3px;
+  padding-right:3px;
+}
+
+
+
+.updatefolderpage-form-button {
+    padding-top:1rem;
+    padding-bottom:1rem;
+    border-radius:20px;
+    border:0;
+    font-size:2rem;
+    color: $accent-color;
+    background:$secondary-color;
+    display:block;
+    @extend %centered-block;
+    width:20rem;
+}
+
+.updatefolderpage-form-button:hover {
+    background: $darkest-secondary-color;
+    cursor:pointer;
+    color:$accent-color;
+}
+
+
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width:600px) and (max-width:900px) {
+    
+}
+
+/**********  DESKTOP **************/
+@media screen and (min-width:900px) {
+    .updatefolderpage-input-label input {
+        width: 80%;
+    }
+    .updatefolderpage-input-label label {
+      left: 15%;
+    }
+    
+    .updatefolderpage-section {
+        width:40%;
+        padding:4rem;
+        border:1px solid $secondary-color;
+        border-radius:20px;
+        background:$transparent;
+    }
+    
+    .updatefolderpage-input-label input:focus~ label,
+    .updatefolderpage-input-label input:valid ~ label {
+      background : #242029;
+    }
+
+}

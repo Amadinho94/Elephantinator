@@ -1,0 +1,40 @@
+/***** COLORS *****/
+$primary-color: #120D16;
+$lighter-primary-color: #1A141D;
+
+$secondary-color:#8A2BE2;
+$secondary-color-transparent: rgba(138, 43, 226, 0.1);
+$secondary-color-lightened : #AF71FF;
+$secondary-color-darkened: #200050;
+$darkest-secondary-color:#190040;
+
+$accent-color: white;
+
+$neutral-color: #7D7D7D;
+$lighter-neutral-color :#A1A1A1;
+$transparent : rgba(192, 192, 192, 0.1);
+$less-transparent : rgba(192, 192, 192, 0.3);
+
+$disabled-delete-button : #2B0000;
+
+
+// VIOLET TRES CLAIR
+// #7B68EE
+
+// VIOLET :
+// INDIGO DU WEB : #4B0082 = VIOLET PLUS CLAIR
+
+// NOIRS :
+// NOIR D'ALININE #120D16 = VIOLET TRES SOMBRE
+
+
+// COULEUR DE BASE : 
+// BEIGE DE BASE : #F4EEE5;
+// MARRON DE BASE : #65451F
+
+
+/***** CONTAINER ******/
+$container-width: 1250px;
+
+/***** ANIMATION *******/
+$home-sectionandtext-reveal: article-reveal linear 3s;

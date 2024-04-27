@@ -1,0 +1,158 @@
+/******** CONTACT PAGE *********/
+.contactpage-main {
+    margin-bottom:6rem;
+}
+
+.contactpage-article {
+    text-align:center;
+    padding:3rem;
+}
+
+
+
+.contactpage-input-label {
+  position: relative;
+  border:0;
+  padding:0;
+}
+
+.contactpage-input {
+    display:block;
+    @extend %centered-block;
+    width: 90%;
+    margin-bottom:2rem;
+}
+
+.contactpage-input-label input {
+  background : transparent;
+  border:1px solid $accent-color;
+  color: $accent-color;
+  padding:1rem;
+  border-radius:5px;
+  outline:none;
+  display:block;
+}
+
+
+.contactpage-input-label label {
+  position: absolute;
+  font-size:1.8rem;
+  top : 30%;
+  left: 10%;
+  pointer-events:none;
+  transform: translateY(-50%);
+}
+
+.contactpage-input-label input:focus~ label,
+.contactpage-input-label input:valid ~ label {
+  top:0;
+  font-size:1.5rem;
+  background : $primary-color;
+  padding-left:3px;
+  padding-right:3px;
+}
+
+
+
+.contactpage-select {
+    display:block;
+    border-radius:5px;
+    @extend %centered-block;
+    padding:1rem;
+    width: 90%;
+    margin-bottom:1rem;
+    background:$transparent;
+    color:$accent-color;
+    font-size:1.5rem;
+}
+
+.contactpage-select:hover {
+    cursor:pointer;
+    background : $less-transparent;
+}
+
+.contactpage-select > option {
+    color:black;
+}
+
+.contactpage-textarea {
+    display:block;
+    width: 90%;
+    @extend %centered-block;
+    border:1px solid $accent-color;
+    margin-bottom:2rem;
+    padding:1rem;
+    border-radius:10px;
+    height:100px;
+    background:transparent;
+    color:$accent-color;
+}
+
+
+.contactpage-form-button {
+    padding-top:1rem;
+    padding-bottom:1rem;
+    border-radius:20px;
+    border:0;
+    font-size:2rem;
+    color: $accent-color;
+    background:$secondary-color;
+    display:block;
+    @extend %centered-block;
+    width:20rem;
+}
+
+.contactpage-form-button:hover {
+    background: $darkest-secondary-color;
+    cursor:pointer;
+    color:$accent-color;
+}
+
+
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width:600px) and (max-width:900px) {
+    
+    /****** CONTACT PAGE *****/
+    .contactpage-article {
+        max-width:75%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+
+/**********  DESKTOP **************/
+@media screen and (min-width:900px) {
+    
+    /****** CONTACT PAGE *****/
+    .contactpage-article {
+        max-width:40%;
+        margin-left:auto;
+        margin-right:auto;
+        border-radius:20px;
+        border:2px solid $secondary-color;
+        background:$transparent;
+    }
+    
+    .contactpage-input {
+        width: 90%;
+     }
+    
+    .contactpage-select {
+        width: 90%;
+    }
+
+    .contactpage-textarea {
+        width: 90%;
+    }
+    
+    .contactpage-input-label label {
+      left: 8%;
+    }
+    
+    .contactpage-input-label input:focus~ label,
+    .contactpage-input-label input:valid ~ label {
+      background : #242028;
+    }
+}

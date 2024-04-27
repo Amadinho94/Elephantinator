@@ -1,0 +1,313 @@
+/********** HOME PAGE ANIMATION ********/
+.home-benefits-section h1 {
+  animation: $home-sectionandtext-reveal;
+  animation-timeline:view();
+    animation-range-end:cover 30%;
+    animation-range-start:cover 0%;
+}
+
+.home-benefits-section>div>div {
+  animation: $home-sectionandtext-reveal;
+  animation-timeline:view();
+    animation-range-end:cover 30%;
+    animation-range-start:cover 0%;
+}
+
+.home-benefits-img-left {
+  animation: img-slide-right linear 1s;
+  animation-timeline:view();
+    animation-range-end:cover 30%;
+    animation-range-start:cover 0%;
+}
+
+.home-benefits-img-right {
+  animation: img-slide-left linear 1s;
+  animation-timeline:view();
+    animation-range-end:cover 30%;
+    animation-range-start:cover 0%;
+}
+
+.home-article-cards {
+  padding:1rem;
+  margin-bottom:6rem; /*A VARIABLER */
+  // transition:all 0.3s ease-in-out;
+  animation:article-reveal linear 4s;
+  animation-timeline:view();
+  animation-range-start:cover 0%;
+  animation-range-end:contain 10%;
+}
+
+
+
+/********** HOME PAGE ************/
+.home-headline-background {
+  padding:3rem;
+  margin-top:6rem;
+  margin-bottom:18rem;
+}
+
+.home-headline-background>div {
+  width:100%;
+  text-align:center;
+}
+
+.home-headline-title {
+  color:$accent-color;
+}
+
+.home-headline-calltoaction {
+  @extend %home-navlink-basis;
+  @extend %navlink;
+  display:block;
+}
+
+.home-headline-calltoaction:hover {
+  @extend %home-hover-navlink;
+}
+
+.home-container {
+  text-align:center;
+}
+
+.home-article {
+  padding:1rem;
+  @extend %margin-bottom-top;
+}
+
+.home-article > section {
+  margin-bottom:6rem;
+}
+
+.home-section-h1 {
+  color:$accent-color;
+  font-size:3rem;
+  animation:article-reveal linear 5s;
+  animation-timeline:view();
+  animation-range-start:cover 0%;
+  animation-range-end:contain 50%;
+}
+
+
+.home-cards-section-flex {
+  padding:0.1rem;
+  margin-bottom:4rem;
+}
+
+
+.home-cards-calltoaction {
+  @extend %home-navlink-basis;
+  @extend %navlink;
+  display:inline-block;
+}
+
+.home-cards-calltoaction:hover {
+  @extend %home-hover-navlink;
+}
+
+.home-section-calltoaction {
+  @extend %home-navlink-basis;
+  @extend %navlink;
+  display:inline-block;
+}
+
+.home-section-calltoaction:hover {
+  @extend %home-hover-navlink;
+}
+
+.home-benefits-section {
+  margin:6rem;
+}
+
+.home-benefits-section h1 {
+  font-size:3rem;
+  margin-bottom:0;
+}
+
+
+/****** HOME CLIENTS FEEDBACK ******/
+.home-client-feedback-block {
+  overflow:hidden;
+  text-align:center;
+  max-width:100%;
+  margin:12rem 1rem 18rem 1rem;
+}
+
+.home-client-feedback-section {
+  display:flex;
+  width:100%;
+  animation: reviews-slider infinite 20s;
+}
+
+.home-client-reviews-blockquote {
+  flex-shrink:0;
+  text-align:center;
+  padding:2rem;
+  width:80%;
+  margin:0 10% 0 10%;
+  border:4px solid $secondary-color;
+  background : $transparent;
+  border-radius:20px;
+}
+
+
+/****** HOME TEAM PRESENTATION ***/
+.home-team-presentation-article {
+  text-align:center;
+  margin-bottom: 12rem;
+}
+
+.home-team-presentation-article>h1 {
+  animation:article-reveal linear 3s;
+  animation-timeline:view();
+  animation-range-start:cover 0%;
+  animation-range-end:contain 50%;
+}
+
+.home-team-presentation-card {
+  padding:2rem;
+  margin:1rem;
+  background:$secondary-color;
+  color:$accent-color;
+  border-radius:20px;
+  transition:all 0.6s ease-in-out;
+}
+
+.home-team-presentation-card:nth-child(1) {
+  animation :img-slide-left linear 3s;
+  animation-timeline:view();
+  animation-range-end:cover 30%;
+  animation-range-start:cover 0%;
+}
+
+.home-team-presentation-card:nth-child(3) {
+  animation :img-slide-right linear 3s;
+  animation-timeline:view();
+  animation-range-end:cover 30%;
+  animation-range-start:cover 0%;
+}
+
+.home-team-presentation-card:nth-child(2) {
+  animation:article-reveal linear 3s;
+  animation-timeline:view();
+  animation-range-end:contain 25%;
+  animation-range-start:cover 0%;
+}
+
+
+
+.home-team-presentation-card:hover {
+  transform:scale(1.1);
+  background:$secondary-color-darkened;
+}
+
+
+
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width:600px) and (max-width:900px) {
+    
+  
+  /******* HOME PAGE *********/
+  .home-headline-calltoaction {
+    display:inline-block;
+  }
+  
+  .home-article-cards {
+    display:flex;
+    align-items:center;
+    padding:1.2rem;
+  }
+  
+  .home-article-cards-reverse {
+    flex-direction:row-reverse;
+  }
+  
+  .home-bottom-page-calltoaction {
+    display:inline-block;
+  }
+  
+  .img-responsive {
+    width:40%;
+  }
+  
+  .home-team-presentation-section {
+    width:100%;
+    display:flex;
+    justify-content:center;
+  }
+  
+  .home-team-presentation-card {
+    width:30%;
+    margin:1rem 1rem 6rem 1rem;
+  }
+  
+}
+
+
+/**********  DESKTOP **************/
+@media screen and (min-width:900px) {
+  
+  /****** HOME PAGE ******/
+  .home-headline-calltoaction {
+    display:inline-block;
+  }
+  
+  .home-cards-section-flex {
+    display:flex;
+  }
+  
+  .home-benefits-flex-right {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-direction:row-reverse;
+  }
+  
+  .home-benefits-flex-right>div {
+    width:45%;
+  }
+  
+  .home-benefits-flex-right>img {
+    width:45%;
+  }
+  
+  .home-benefits-flex-left {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  
+  .home-benefits-flex-left>div {
+    width:45%;
+  }
+  
+  .home-benefits-flex-left>img {
+    width:45%;
+  }
+  
+  .home-benefits-section {
+      padding:2rem;
+  }
+  
+  .home-bottom-page-calltoaction {
+    display:inline-block;
+  }
+  
+  .home-team-presentation-section {
+    display:flex;
+    justify-content:center;
+    margin-bottom:6rem;
+  }
+  
+  .home-team-presentation-card {
+    width:20%;
+    margin:1rem 1rem 6rem 1rem;
+  }
+  
+  .home-client-feedback-block {
+    max-width:70%;
+    margin:12rem auto 18rem auto;
+  }
+  
+}

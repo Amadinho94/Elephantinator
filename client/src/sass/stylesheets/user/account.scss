@@ -1,0 +1,136 @@
+.accountpage-main {
+    padding:1rem;
+}
+
+.accountpage-disabled-message {
+    color:red;
+}
+
+.accountpage-header-accountpage-header {
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.accountpage-header-pp-container {
+    width : 200px;
+    height : 200px;
+    border-radius:50%;
+    text-align : center;
+    margin : 1rem;
+    overflow:hidden;
+}
+
+.accountpage-header-title {
+    color:$secondary-color;
+}
+
+.accountpage-header-username {
+    margin-top:1rem;
+}
+
+.accountpage-section-userdata {
+    width:70%;
+    @extend %centered-block;
+}
+
+.accountpage-section-title {
+    padding-left:10%;
+}
+
+.accountpage-section-navlink {
+    text-align:center;
+}
+
+.accountpage-userinfo {
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:3rem;
+}
+
+
+.accountpage-user-name {
+    border:1px solid $secondary-color;
+    border-radius:5px;
+    padding:1rem;
+    background: $transparent;
+}
+
+.accountpage-userinfo > p {
+    margin:1rem;
+}
+
+.accountpage-section-updateprofil {
+    display: inline-block;
+    @extend %home-navlink-basis;
+    @extend %navlink;
+}
+
+.accountpage-section-updateprofil:hover {
+    background: $darkest-secondary-color;
+    cursor:pointer;
+    color:$accent-color;
+}
+
+.accountpage-button-deleteaccount {
+    font-size:2rem;
+    margin-top:6rem;
+    @extend %navlink;
+    border:0;
+    color:$accent-color;
+    background:red;
+}
+
+.accountpage-button-deleteaccount:hover {
+    cursor : pointer;
+    background:#8B0000;
+    color:$accent-color;
+}
+
+.disabled-delete-user-button {
+    background:$disabled-delete-button;
+    color:$neutral-color;
+    font-size:2rem;
+    margin-top:6rem;
+    @extend %navlink;
+    border:0;
+}
+
+
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width:600px) and (max-width:900px) {
+    .accountpage-user-name {
+        width:70%;
+    }
+    
+    .accountpage-section-userdata {
+        border:1px solid $accent-color;
+        padding:2rem;
+        border-radius:20px;
+        margin-bottom:2rem;
+    }
+    
+    .img-responsive {
+        width:100%;
+    }
+}
+
+/**********  DESKTOP **************/
+@media screen and (min-width:900px) {
+    
+   .accountpage-user-name {
+        width:70%;
+    } 
+    
+    .accountpage-section-userdata {
+        border:1px solid $accent-color;
+        padding:2rem;
+        border-radius:20px;
+        width:40%;
+    }
+}

@@ -1,0 +1,3594 @@
+/***** COLORS *****/
+/***** CONTAINER ******/
+/***** ANIMATION *******/
+/***** CENTERED BLOC ***/
+.admincontact-user-info, .admincontact-main, .adminformpage-form-button, .adminformpage-textarea, .adminformpage-input, .updateflashcardpage-main .updateflashcardpage-form-button, .updateflashcardpage-main .updateflashcardpage-input-label textarea, .updateflashcardpage-main .updateflashcardpage-input-label input, .updateflashcardpage-main, .updateflashcardpage-section, .createflashcardpage-form-button, .createflashcardpage-input-label textarea, .createflashcardpage-input-label input, .createflashcardpage-main, .createflashcardpage-section, .createfolderpage-form-button, .createfolderpage-input-label input, .createfolderpage-main, .createfolderpage-section, .updatefolderpage-form-button, .updatefolderpage-input-label input, .updatefolderpage-main, .updatefolderpage-section, .flashcard-success-button, .flashcard-fail-button, .start-revision-button, .flashcard-flipper-button, .flashcards-workspace-section, .modal-menu-list li, .folders-workspace-section, .updateaccountpage-form-button, .updateaccountpage-input-label input, .updateaccountpage-main, .updateaccountpage-section, .updatepasswordpage-form-button, .updatepasswordpage-input-label input, .updatepasswordpage-main, .updatepasswordpage-section, .accountpage-section-userdata, .registerpage-button, .registerpage-input, .registerpage-article, .loginpage-button, .loginpage-input, .loginpage-article, .contactpage-form-button, .contactpage-textarea, .contactpage-select, .contactpage-input, .footer-cards-flex, .modal-form-select, .container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/***** GENERALITIES ***/
+.onetutorialpage-article > section, .tutorialpage-article, .home-article {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
+/***** NAVLINK ****/
+.workspace-add-button, .disabled-delete-user-button, .accountpage-button-deleteaccount, .accountpage-section-updateprofil, .onetutorialpage-navlink-nextprev, .onetutorialpage-navlink-calltoaction, .onearticlepage-calltoaction-register, .onearticlepage-calltoaction-signin, .blog-article-navlink, .home-section-calltoaction, .home-cards-calltoaction, .home-headline-calltoaction, .header-navlink-login, .header-navlink, .header-loggeduser {
+  border-radius: 20px;
+  text-decoration: none;
+  padding: 1rem;
+  margin: 0.3rem;
+  transition: all 0.6s ease-in-out;
+}
+
+.header-navlink.active {
+  color: white;
+  background: rgba(192, 192, 192, 0.1);
+}
+
+.accountpage-section-updateprofil, .onetutorialpage-navlink-nextprev, .onetutorialpage-navlink-calltoaction, .onearticlepage-calltoaction-register, .onearticlepage-calltoaction-signin, .blog-article-navlink, .tutorialpage-article-navlink, .home-section-calltoaction, .home-cards-calltoaction, .home-headline-calltoaction {
+  background: #8A2BE2;
+  color: white;
+}
+
+.blog-article-navlink:hover, .home-section-calltoaction:hover, .home-cards-calltoaction:hover, .home-headline-calltoaction:hover {
+  color: white;
+  background: #190040;
+  cursor: pointer;
+}
+
+/***** ANIMATION ******/
+/***** FLEX VERTICAL ALIGNEMENT ***/
+/******* GENERALITES *******/
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+a,
+button {
+  transition: all 0.5s ease-in-out;
+}
+
+input,
+label {
+  transition: all 0.2s ease-in-out;
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url("../assets/fonts/oswald/Oswald-VariableFont_wght.ttf");
+}
+body {
+  font-size: 1.9rem;
+  background: #120D16;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  color: white;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 550;
+}
+
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+.invalid-value input:valid {
+  border: 1px solid red;
+}
+
+form .invalid-textarea:valid {
+  border: 1px solid red;
+}
+
+.validated-form input:valid {
+  border: 1px solid green;
+}
+
+fieldset > input:focus {
+  border: 1px solid #8A2BE2;
+}
+
+fieldset > textarea:focus {
+  border: 1px solid #8A2BE2;
+}
+
+/******* CONTAINER *********/
+.container {
+  max-width: 1250px;
+}
+
+.main-admin-create-form {
+  padding-top: 2rem;
+}
+
+.breadcrumbs {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  margin-left: 1.5rem;
+}
+
+.breadcrumbs-lastpage {
+  font-size: 2rem;
+  color: white;
+  text-decoration: none;
+}
+
+.breadcrumbs-currentpage {
+  color: #8A2BE2;
+  font-size: 2rem;
+  display: block;
+}
+
+.breadcrumbs-lastpage:hover {
+  color: #8A2BE2;
+  text-decoration: underline;
+}
+
+.breadcrumbs-currentpage:hover {
+  cursor: default;
+}
+
+/********* ANIMATION ***********/
+@keyframes reviews-slider {
+  0%, 16% {
+    transform: translateX(0);
+  }
+  20%, 36% {
+    transform: translateX(-100%);
+  }
+  40%, 56% {
+    transform: translateX(-200%);
+  }
+  60%, 76% {
+    transform: translateX(-300%);
+  }
+  80%, 96% {
+    transform: translateX(-400%);
+  }
+  100% {
+    transform: translateX(-500%);
+  }
+}
+@keyframes article-reveal {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes img-slide-right {
+  from {
+    transform: translateX(100%);
+    opacity: O;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes img-slide-left {
+  from {
+    transform: translateX(-100%);
+    opacity: O;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/****** SCROLL INSPECTOR ********/
+@keyframes scroll-inspector {
+  from {
+    background-size: 0% 10px;
+  }
+  to {
+    background-size: 100% 10px;
+  }
+}
+.home-scroll-inspector {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  z-index: 5200;
+  background: linear-gradient(to right, #8A2BE2 100%, rgba(0, 0, 0, 0) 100%);
+  background-repeat: no-repeat;
+  background-size: 0;
+  transform-origin: left;
+  animation: scroll-inspector linear;
+  animation-timeline: scroll();
+  animation-range-end: cover 100%;
+  animation-range-start: cover 100px;
+}
+
+/*************** NOT FOUND PAGE *****************/
+.notfoundpage-main {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.modal {
+  position: fixed;
+  top: 20%;
+  left: 0%;
+  width: 100%;
+  padding: 6rem;
+  border-radius: 20px;
+  background: #120D16;
+  color: white;
+  border: 3px solid #8A2BE2;
+  z-index: 20000;
+}
+
+.modal p {
+  font-size: 3rem;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 6000;
+}
+
+.modal-cancel-button {
+  padding: 1rem;
+  border-radius: 20px;
+  border: 0;
+  margin: 1rem;
+  font-size: 2rem;
+  color: white;
+  background: #8A2BE2;
+}
+
+.modal-confirm-button {
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 20px;
+  border: 0;
+  font-size: 2rem;
+  background: red;
+  color: white;
+}
+
+.modal-cancel-button:hover {
+  cursor: pointer;
+  background: #190040;
+}
+
+.modal-confirm-button:hover {
+  cursor: pointer;
+  background: #2B0000;
+}
+
+.modal-confirm-edit-button {
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 20px;
+  border: 0;
+  font-size: 2rem;
+  background: #00FF00;
+  color: white;
+}
+
+.modal-confirm-edit-button:hover {
+  cursor: pointer;
+  background: #006400;
+}
+
+.modal-valid-button {
+  padding: 1rem;
+  border-radius: 20px;
+  border: 0;
+  margin: 1rem;
+  font-size: 2rem;
+  color: white;
+  background: #8A2BE2;
+}
+
+.modal-valid-button:hover {
+  cursor: pointer;
+  background: #190040;
+}
+
+.modal-form-select {
+  display: block;
+  border-radius: 5px;
+  padding: 1rem;
+  width: 90%;
+  margin-bottom: 1rem;
+  background: rgba(192, 192, 192, 0.1);
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.modal-form-select:hover {
+  cursor: pointer;
+  background: rgba(192, 192, 192, 0.3);
+}
+
+.modal-form-select > option {
+  color: black;
+}
+
+iframe {
+  margin-bottom: 6rem;
+  border: 5px solid #8A2BE2;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .modal {
+    width: 85%;
+  }
+  iframe {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1050px) {
+  .modal {
+    width: 60%;
+  }
+  iframe {
+    width: 50%;
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 1050px) {
+  .modal {
+    width: 50%;
+  }
+  iframe {
+    width: 50%;
+  }
+}
+/****************  HEADER COMPONENT  **********************/
+.header-background {
+  position: sticky;
+  top: 0;
+  background: #120D16;
+  z-index: 5000;
+  padding: 1rem;
+}
+
+.header-loggeduser-ppusername img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.header-loggeduser-ppusername {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.header-navlink.active {
+  background: transparent;
+}
+
+.header-scroll {
+  border-bottom: 1px solid #8A2BE2;
+}
+
+.header-border-bottom {
+  border-bottom: 3px solid #8A2BE2;
+}
+
+.header-logo-desktop {
+  width: 100%;
+  height: auto;
+}
+
+.header-navbar-flex {
+  display: none;
+}
+
+.header-flex figure {
+  width: 100px;
+  margin: 0;
+}
+
+.header-flex figure:hover {
+  cursor: pointer;
+}
+
+.header-flex {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem 0 1rem;
+}
+
+.header-loggeduser {
+  color: white;
+  border-radius: 30px;
+}
+
+.header-loggeduser:hover {
+  background: rgba(138, 43, 226, 0.1);
+  color: #AF71FF;
+}
+
+.header-navlink {
+  color: #7D7D7D;
+}
+
+.header-navlink:hover {
+  background: rgba(138, 43, 226, 0.1);
+  color: #AF71FF;
+}
+
+.header-navlink-login {
+  color: white;
+  background: #8A2BE2;
+}
+
+.header-navlink-login:hover {
+  background: #200050;
+}
+
+.burger-menu-button {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 15000;
+  padding-bottom: 1rem;
+}
+
+.burger-menu-line {
+  height: 6px;
+  width: 100%;
+  margin: 8px auto;
+  background: #8A2BE2;
+  transition: all 0.4s ease;
+}
+
+.burger-menu-display {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #120D16;
+  z-index: 14000;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.burger-navlink {
+  text-decoration: none;
+  color: white;
+  display: block;
+  margin-top: 5rem;
+}
+
+.display-none {
+  display: none;
+}
+
+.burger-line-crossed .burger-menu-line:nth-child(1) {
+  transform: translateY(14px) rotate(45deg);
+}
+
+.burger-line-crossed .burger-menu-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-line-crossed .burger-menu-line:nth-child(3) {
+  transform: translateY(-14px) rotate(-45deg);
+}
+
+.dropdown-menu-loggeduser {
+  padding: 1rem;
+  list-style: none;
+  position: absolute;
+  top: 80px;
+  right: 3%;
+  text-align: center;
+  width: 250px;
+  background: #120D16;
+  border: 5px solid #8A2BE2;
+  border-radius: 20px;
+}
+
+.dropdown-menu-loggeduser li {
+  margin-bottom: 3rem;
+  margin-top: 1rem;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .header-navbar-flex {
+    display: none;
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  .burger-menu-button {
+    display: none;
+  }
+  .header-border-bottom {
+    border-bottom: 3px solid #8A2BE2;
+  }
+  .header-logo-desktop {
+    width: 10%;
+  }
+  .header-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .header-navbar-flex {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .header-logo-desktop {
+    width: 100%;
+    height: auto;
+  }
+}
+/************ FOOTER COMPONENT ******************/
+.footer-background-flex {
+  padding: 1rem;
+  text-align: center;
+  margin-top: 15rem;
+}
+
+.footer-section {
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+  background: rgba(192, 192, 192, 0.1);
+}
+
+.aside-socialmedia > * {
+  margin: 1rem;
+}
+
+.aside-socialmedia > *:hover {
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.facebook:hover {
+  color: #3b5998;
+}
+
+.twitter:hover {
+  color: #00aced;
+}
+
+.linkedin:hover {
+  color: #0077b5;
+}
+
+.instagram:hover {
+  color: #bc2a8d;
+}
+
+.footer-newsletters-form {
+  margin-bottom: 1rem;
+}
+
+.footer-newsletters-position {
+  position: relative;
+}
+
+.footer-newsletters-position input {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+  outline: none;
+}
+
+.footer-newsletters-position label {
+  position: absolute;
+  font-size: 1.3rem;
+  top: 50%;
+  left: 32%;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.footer-newsletters-position input:focus ~ label,
+.footer-newsletters-position input:valid ~ label {
+  top: 0;
+  background: #242028;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.footer-newsletters-form > input {
+  border: 0;
+  padding: 0.8rem 1rem 0.8rem 1rem;
+}
+
+.footer-newsletters-form > button {
+  color: white;
+  background: #8A2BE2;
+  border: 0;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.footer-newsletters-form > button:hover {
+  color: #8A2BE2;
+  background: white;
+}
+
+.footer-legal-navlink {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-legal-navlink:hover {
+  color: #8A2BE2;
+}
+
+.footer-cards-flex {
+  max-width: 1250px;
+  margin-bottom: 4rem;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .footer-cards-flex {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .footer-section {
+    width: 45%;
+  }
+  .footer-newsletters-position label {
+    position: absolute;
+    font-size: 1.3rem;
+    top: 50%;
+    left: 25%;
+    pointer-events: none;
+    transform: translateY(-50%);
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  .footer-cards-flex {
+    display: flex;
+  }
+  .footer-section {
+    width: 25%;
+  }
+  .footer-newsletters-position label {
+    position: absolute;
+    font-size: 1.3rem;
+    top: 50%;
+    left: 70px;
+    pointer-events: none;
+    transform: translateY(-50%);
+  }
+}
+/********** HOME PAGE ANIMATION ********/
+.home-benefits-section h1 {
+  animation: article-reveal linear 3s;
+  animation-timeline: view();
+  animation-range-end: cover 30%;
+  animation-range-start: cover 0%;
+}
+
+.home-benefits-section > div > div {
+  animation: article-reveal linear 3s;
+  animation-timeline: view();
+  animation-range-end: cover 30%;
+  animation-range-start: cover 0%;
+}
+
+.home-benefits-img-left {
+  animation: img-slide-right linear 1s;
+  animation-timeline: view();
+  animation-range-end: cover 30%;
+  animation-range-start: cover 0%;
+}
+
+.home-benefits-img-right {
+  animation: img-slide-left linear 1s;
+  animation-timeline: view();
+  animation-range-end: cover 30%;
+  animation-range-start: cover 0%;
+}
+
+.home-article-cards {
+  padding: 1rem;
+  margin-bottom: 6rem; /*A VARIABLER */
+  animation: article-reveal linear 4s;
+  animation-timeline: view();
+  animation-range-start: cover 0%;
+  animation-range-end: contain 10%;
+}
+
+/********** HOME PAGE ************/
+.home-headline-background {
+  padding: 3rem;
+  margin-top: 6rem;
+  margin-bottom: 18rem;
+}
+
+.home-headline-background > div {
+  width: 100%;
+  text-align: center;
+}
+
+.home-headline-title {
+  color: white;
+}
+
+.home-headline-calltoaction {
+  display: block;
+}
+
+.home-container {
+  text-align: center;
+}
+
+.home-article {
+  padding: 1rem;
+}
+
+.home-article > section {
+  margin-bottom: 6rem;
+}
+
+.home-section-h1 {
+  color: white;
+  font-size: 3rem;
+  animation: article-reveal linear 5s;
+  animation-timeline: view();
+  animation-range-start: cover 0%;
+  animation-range-end: contain 50%;
+}
+
+.home-cards-section-flex {
+  padding: 0.1rem;
+  margin-bottom: 4rem;
+}
+
+.home-cards-calltoaction {
+  display: inline-block;
+}
+
+.home-section-calltoaction {
+  display: inline-block;
+}
+
+.home-benefits-section {
+  margin: 6rem;
+}
+
+.home-benefits-section h1 {
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+/****** HOME CLIENTS FEEDBACK ******/
+.home-client-feedback-block {
+  overflow: hidden;
+  text-align: center;
+  max-width: 100%;
+  margin: 12rem 1rem 18rem 1rem;
+}
+
+.home-client-feedback-section {
+  display: flex;
+  width: 100%;
+  animation: reviews-slider infinite 20s;
+}
+
+.home-client-reviews-blockquote {
+  flex-shrink: 0;
+  text-align: center;
+  padding: 2rem;
+  width: 80%;
+  margin: 0 10% 0 10%;
+  border: 4px solid #8A2BE2;
+  background: rgba(192, 192, 192, 0.1);
+  border-radius: 20px;
+}
+
+/****** HOME TEAM PRESENTATION ***/
+.home-team-presentation-article {
+  text-align: center;
+  margin-bottom: 12rem;
+}
+
+.home-team-presentation-article > h1 {
+  animation: article-reveal linear 3s;
+  animation-timeline: view();
+  animation-range-start: cover 0%;
+  animation-range-end: contain 50%;
+}
+
+.home-team-presentation-card {
+  padding: 2rem;
+  margin: 1rem;
+  background: #8A2BE2;
+  color: white;
+  border-radius: 20px;
+  transition: all 0.6s ease-in-out;
+}
+
+.home-team-presentation-card:nth-child(1) {
+  animation: img-slide-left linear 3s;
+  animation-timeline: view();
+  animation-range-end: cover 30%;
+  animation-range-start: cover 0%;
+}
+
+.home-team-presentation-card:nth-child(3) {
+  animation: img-slide-right linear 3s;
+  animation-timeline: view();
+  animation-range-end: cover 30%;
+  animation-range-start: cover 0%;
+}
+
+.home-team-presentation-card:nth-child(2) {
+  animation: article-reveal linear 3s;
+  animation-timeline: view();
+  animation-range-end: contain 25%;
+  animation-range-start: cover 0%;
+}
+
+.home-team-presentation-card:hover {
+  transform: scale(1.1);
+  background: #200050;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  /******* HOME PAGE *********/
+  .home-headline-calltoaction {
+    display: inline-block;
+  }
+  .home-article-cards {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem;
+  }
+  .home-article-cards-reverse {
+    flex-direction: row-reverse;
+  }
+  .home-bottom-page-calltoaction {
+    display: inline-block;
+  }
+  .img-responsive {
+    width: 40%;
+  }
+  .home-team-presentation-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .home-team-presentation-card {
+    width: 30%;
+    margin: 1rem 1rem 6rem 1rem;
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  /****** HOME PAGE ******/
+  .home-headline-calltoaction {
+    display: inline-block;
+  }
+  .home-cards-section-flex {
+    display: flex;
+  }
+  .home-benefits-flex-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  }
+  .home-benefits-flex-right > div {
+    width: 45%;
+  }
+  .home-benefits-flex-right > img {
+    width: 45%;
+  }
+  .home-benefits-flex-left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .home-benefits-flex-left > div {
+    width: 45%;
+  }
+  .home-benefits-flex-left > img {
+    width: 45%;
+  }
+  .home-benefits-section {
+    padding: 2rem;
+  }
+  .home-bottom-page-calltoaction {
+    display: inline-block;
+  }
+  .home-team-presentation-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 6rem;
+  }
+  .home-team-presentation-card {
+    width: 20%;
+    margin: 1rem 1rem 6rem 1rem;
+  }
+  .home-client-feedback-block {
+    max-width: 70%;
+    margin: 12rem auto 18rem auto;
+  }
+}
+/******* ABOUT US PAGE ********/
+.aboutpage-main {
+  text-align: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.aboutpage-article-title {
+  color: #8A2BE2;
+  font-size: 4rem;
+}
+
+.aboutpage-article > section > p {
+  color: white;
+  text-align: left;
+}
+
+.aboutpage-article > section {
+  margin-bottom: 6rem;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .aboutpage-img-float {
+    float: right;
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  .aboutpage-img-float {
+    float: right;
+  }
+}
+/****** ALLTUTORIALS PAGE ********/
+.tutorial-main {
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 6rem;
+}
+
+.tutorialpage-article {
+  border: 1px solid #8A2BE2;
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.tutorialpage-article-navlink {
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 1rem;
+  display: block;
+  margin-top: 1rem;
+}
+
+.tutorialpage-article-navlink:hover {
+  color: #7D7D7D;
+  background: white;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  /****** ALL TUTORIALS PAGE ******/
+  .tutorialpage-article {
+    width: 45%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .tutorialpage-div-flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  .tutorialpage-article {
+    width: 30%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    transition: all 0.6s ease-in-out;
+  }
+  .tutorialpage-article:hover {
+    transform: scale(1.1);
+  }
+  .tutorialpage-div-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+  }
+  .tutorialpage-article-navlink {
+    text-decoration: none;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/******** BLOG PAGE ********/
+.blog-main {
+  padding: 2rem;
+}
+
+.blog-article {
+  border: 1px solid #8A2BE2;
+  padding: 2rem;
+  margin-bottom: 6rem;
+  border-radius: 20px;
+}
+
+.blog-article-figure {
+  text-align: center;
+}
+
+.blog-article-navlink {
+  display: inline-block;
+  margin: 1rem;
+}
+
+.blog-summary {
+  overflow: hidden;
+}
+
+/********* MEDIA QUERIES *************/
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  /******* BLOG PAGE *****/
+  .blog-article {
+    margin: 2rem;
+    width: 100%;
+    display: flex;
+  }
+  .blog-section {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+/******** CONTACT PAGE *********/
+.contactpage-main {
+  margin-bottom: 6rem;
+}
+
+.contactpage-article {
+  text-align: center;
+  padding: 3rem;
+}
+
+.contactpage-input-label {
+  position: relative;
+  border: 0;
+  padding: 0;
+}
+
+.contactpage-input {
+  display: block;
+  width: 90%;
+  margin-bottom: 2rem;
+}
+
+.contactpage-input-label input {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  outline: none;
+  display: block;
+}
+
+.contactpage-input-label label {
+  position: absolute;
+  font-size: 1.8rem;
+  top: 30%;
+  left: 10%;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.contactpage-input-label input:focus ~ label,
+.contactpage-input-label input:valid ~ label {
+  top: 0;
+  font-size: 1.5rem;
+  background: #120D16;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.contactpage-select {
+  display: block;
+  border-radius: 5px;
+  padding: 1rem;
+  width: 90%;
+  margin-bottom: 1rem;
+  background: rgba(192, 192, 192, 0.1);
+  color: white;
+  font-size: 1.5rem;
+}
+
+.contactpage-select:hover {
+  cursor: pointer;
+  background: rgba(192, 192, 192, 0.3);
+}
+
+.contactpage-select > option {
+  color: black;
+}
+
+.contactpage-textarea {
+  display: block;
+  width: 90%;
+  border: 1px solid white;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  height: 100px;
+  background: transparent;
+  color: white;
+}
+
+.contactpage-form-button {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  border: 0;
+  font-size: 2rem;
+  color: white;
+  background: #8A2BE2;
+  display: block;
+  width: 20rem;
+}
+
+.contactpage-form-button:hover {
+  background: #190040;
+  cursor: pointer;
+  color: white;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  /****** CONTACT PAGE *****/
+  .contactpage-article {
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  /****** CONTACT PAGE *****/
+  .contactpage-article {
+    max-width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    border: 2px solid #8A2BE2;
+    background: rgba(192, 192, 192, 0.1);
+  }
+  .contactpage-input {
+    width: 90%;
+  }
+  .contactpage-select {
+    width: 90%;
+  }
+  .contactpage-textarea {
+    width: 90%;
+  }
+  .contactpage-input-label label {
+    left: 8%;
+  }
+  .contactpage-input-label input:focus ~ label,
+  .contactpage-input-label input:valid ~ label {
+    background: #242028;
+  }
+}
+/*******  LOGIN PAGE *********/
+.loginpage-main {
+  padding-bottom: 15rem;
+  text-align: center;
+}
+
+.loginpage-article {
+  padding: 4rem;
+  text-align: center;
+}
+
+.loginpage-input {
+  display: block;
+  margin-top: 2rem;
+  width: 80%;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 0 solid white;
+}
+
+.loginpage-button {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  border: 0;
+  font-size: 2rem;
+  color: white;
+  background: #8A2BE2;
+  display: block;
+  width: 20rem;
+}
+
+.loginpage-button:hover {
+  background: #190040;
+  cursor: pointer;
+  color: white;
+}
+
+.loginpage-input-label {
+  position: relative;
+  border: 0;
+  padding: 0;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12%;
+  top: 10%;
+}
+
+.loginpage-input-label input {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 0;
+  padding-left: 4rem;
+}
+
+.loginpage-input-label label {
+  position: absolute;
+  font-size: 2rem;
+  top: 30%;
+  left: 22%;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.loginpage-input-label input:focus ~ label,
+.loginpage-input-label input:valid ~ label {
+  top: 0;
+  font-size: 1.5rem;
+  background: #120D16;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.loginpage-navlink-register {
+  color: white;
+}
+
+.loginpage-navlink-register:hover {
+  color: #8A2BE2;
+}
+
+/********* MEDIA QUERIES *************/
+/**********  TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .loginpage-article {
+    max-width: 75%;
+  }
+  .loginpage-input-label label {
+    left: 18%;
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  .loginpage-input {
+    width: 90%;
+  }
+  .loginpage-article {
+    max-width: 40%;
+    border: 2px solid #8A2BE2;
+    border-radius: 20px;
+    background: rgba(192, 192, 192, 0.1);
+  }
+  .loginpage-input-label label {
+    left: 14%;
+  }
+  .input-icon {
+    position: absolute;
+    left: 7%;
+  }
+  .loginpage-input-label input:focus ~ label,
+  .loginpage-input-label input:valid ~ label {
+    background: #242028;
+  }
+}
+/******* BLOG ARTICLE ******/
+.onearticlepage-main {
+  text-align: center;
+}
+
+.onearticlepage-article-content {
+  text-align: left;
+  line-height: 2.5;
+}
+
+.onearticlepage-article {
+  padding: 2rem;
+}
+
+.onearticlepage-calltoaction-signin {
+  display: inline-block;
+  padding: 1rem;
+}
+
+.onearticlepage-calltoaction-signin:hover {
+  background: white;
+  color: #8A2BE2;
+}
+
+.onearticlepage-calltoaction-register {
+  display: inline-block;
+  padding: 1rem;
+}
+
+.onearticlepage-calltoaction-register:hover {
+  background: white;
+  color: #8A2BE2;
+}
+
+/******* TUTORIAL ARTICLE PAGE ************/
+.onetutorialpage-main {
+  text-align: center;
+  padding: 1.5rem;
+  margin-bottom: 6rem;
+}
+
+.onetutorialpage-article > section > p {
+  text-align: left;
+}
+
+.onetutorialpage-article > section > h2 {
+  text-align: left;
+}
+
+.onetutorialpage-article-h1 {
+  color: #8A2BE2;
+  font-size: 4rem;
+}
+
+.onetutorialpage-navlink-calltoaction {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.onetutorialpage-navlink-calltoaction:hover {
+  color: #8A2BE2;
+  background: white;
+}
+
+.onetutorialpage-navlink-nextprev {
+  margin: 2rem;
+  display: inline-block;
+  color: white;
+}
+
+.onetutorialpage-navlink-nextprev:hover {
+  background: white;
+  color: #8A2BE2;
+}
+
+/********* MEDIA QUERIES *************/
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  .onetutorialpage-navlink-calltoaction {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/********* REGISTER PAGE ************/
+.registerpage-main {
+  padding-bottom: 15rem;
+  text-align: center;
+}
+
+.registerpage-article {
+  padding: 1rem;
+  text-align: center;
+}
+
+.registerpage-input {
+  display: block;
+  width: 70%;
+  margin-bottom: 2rem;
+}
+
+.registerpage-input-label {
+  position: relative;
+  border: 0;
+  padding: 0;
+}
+
+.registerpage-input-label input {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 0;
+}
+
+.registerpage-input-label label {
+  position: absolute;
+  font-size: 2rem;
+  top: 30%;
+  left: 18%;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.registerpage-input-label input:focus ~ label,
+.registerpage-input-label input:valid ~ label {
+  top: 0;
+  font-size: 1.5rem;
+  background: #120D16;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.registerpage-section-password-validator {
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 3rem;
+}
+
+.registerpage-password-validator {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.6s ease-in-out;
+}
+
+.registerpage-button {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  border: 0;
+  font-size: 2rem;
+  color: white;
+  background: #8A2BE2;
+  display: block;
+  width: 20rem;
+}
+
+.registerpage-button:hover {
+  background: #190040;
+  cursor: pointer;
+  color: white;
+}
+
+.registerpage-navlink-register {
+  color: white;
+}
+
+.registerpage-navlink-register:hover {
+  color: #8A2BE2;
+}
+
+/********* MEDIA QUERIES *************/
+/**********  TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .registerpage-article {
+    max-width: 75%;
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  /********* REGISTER PAGE ************/
+  .registerpage-article {
+    max-width: 40%;
+    border-radius: 20px;
+    border: 2px solid #8A2BE2;
+    background: rgba(192, 192, 192, 0.1);
+  }
+  .registerpage-input {
+    width: 80%;
+  }
+  .registerpage-article > h1 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .registerpage-input-label input:focus ~ label,
+  .registerpage-input-label input:valid ~ label {
+    background: #242028;
+  }
+  .registerpage-input-label label {
+    left: 13%;
+  }
+}
+.accountpage-main {
+  padding: 1rem;
+}
+
+.accountpage-disabled-message {
+  color: red;
+}
+
+.accountpage-header-accountpage-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accountpage-header-pp-container {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  text-align: center;
+  margin: 1rem;
+  overflow: hidden;
+}
+
+.accountpage-header-title {
+  color: #8A2BE2;
+}
+
+.accountpage-header-username {
+  margin-top: 1rem;
+}
+
+.accountpage-section-userdata {
+  width: 70%;
+}
+
+.accountpage-section-title {
+  padding-left: 10%;
+}
+
+.accountpage-section-navlink {
+  text-align: center;
+}
+
+.accountpage-userinfo {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.accountpage-user-name {
+  border: 1px solid #8A2BE2;
+  border-radius: 5px;
+  padding: 1rem;
+  background: rgba(192, 192, 192, 0.1);
+}
+
+.accountpage-userinfo > p {
+  margin: 1rem;
+}
+
+.accountpage-section-updateprofil {
+  display: inline-block;
+}
+
+.accountpage-section-updateprofil:hover {
+  background: #190040;
+  cursor: pointer;
+  color: white;
+}
+
+.accountpage-button-deleteaccount {
+  font-size: 2rem;
+  margin-top: 6rem;
+  border: 0;
+  color: white;
+  background: red;
+}
+
+.accountpage-button-deleteaccount:hover {
+  cursor: pointer;
+  background: #8B0000;
+  color: white;
+}
+
+.disabled-delete-user-button {
+  background: #2B0000;
+  color: #7D7D7D;
+  font-size: 2rem;
+  margin-top: 6rem;
+  border: 0;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .accountpage-user-name {
+    width: 70%;
+  }
+  .accountpage-section-userdata {
+    border: 1px solid white;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+  }
+  .img-responsive {
+    width: 100%;
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  .accountpage-user-name {
+    width: 70%;
+  }
+  .accountpage-section-userdata {
+    border: 1px solid white;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 40%;
+  }
+}
+.updatepasswordpage-section {
+  text-align: center;
+  width: 80%;
+}
+
+.updatepasswordpage-main {
+  max-width: 1250px;
+  margin-top: 3rem;
+}
+
+.updatepasswordpage-input-label {
+  position: relative;
+  border: 0;
+  padding: 0;
+}
+
+.updatepasswordpage-input-label input {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.updatepasswordpage-input-label label {
+  position: absolute;
+  font-size: 2rem;
+  top: 30%;
+  left: 6%;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.updatepasswordpage-input-label input:focus ~ label,
+.updatepasswordpage-input-label input:valid ~ label {
+  top: 0;
+  font-size: 1.5rem;
+  background: #120D16;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.updatepasswordpage-form-button {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  border: 0;
+  font-size: 2rem;
+  color: white;
+  background: #8A2BE2;
+  display: block;
+  width: 20rem;
+}
+
+.updatepasswordpage-form-button:hover {
+  background: #190040;
+  cursor: pointer;
+  color: white;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  .updatepasswordpage-input-label input {
+    width: 80%;
+  }
+  .updatepasswordpage-input-label label {
+    left: 15%;
+  }
+  .updatepasswordpage-section {
+    width: 40%;
+    padding: 4rem;
+    border: 1px solid #8A2BE2;
+    border-radius: 20px;
+    background: rgba(192, 192, 192, 0.1);
+  }
+  .updatepasswordpage-input-label input:focus ~ label,
+  .updatepasswordpage-input-label input:valid ~ label {
+    background: #242029;
+  }
+}
+.updateaccountpage-section {
+  text-align: center;
+  width: 80%;
+}
+
+.updateaccountpage-main {
+  max-width: 1250px;
+  margin-top: 3rem;
+}
+
+.updateaccountpage-input-label {
+  position: relative;
+  border: 0;
+  padding: 0;
+}
+
+.updateaccountpage-input-label input {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.updateaccountpage-input-label label {
+  position: absolute;
+  font-size: 2rem;
+  top: 30%;
+  left: 6%;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.updateaccountpage-input-label input:focus ~ label,
+.updateaccountpage-input-label input:valid ~ label {
+  top: 0;
+  font-size: 1.5rem;
+  background: #120D16;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.updateaccountpage-form-button {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  border: 0;
+  font-size: 2rem;
+  color: white;
+  background: #8A2BE2;
+  display: block;
+  width: 20rem;
+}
+
+.updateaccountpage-form-button:hover {
+  background: #190040;
+  cursor: pointer;
+  color: white;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  .updateaccountpage-input-label input {
+    width: 80%;
+  }
+  .updateaccountpage-input-label label {
+    left: 15%;
+  }
+  .updateaccountpage-section {
+    width: 40%;
+    padding: 4rem;
+    border: 1px solid #8A2BE2;
+    border-radius: 20px;
+    background: rgba(192, 192, 192, 0.1);
+  }
+  .updateaccountpage-input-label input:focus ~ label,
+  .updateaccountpage-input-label input:valid ~ label {
+    background: #242029;
+  }
+}
+.folders-workspace-main {
+  text-align: center;
+  margin-top: 2rem;
+  overflow: hidden;
+}
+
+.usermessage-minimum-flashcard {
+  color: red;
+  font-size: 3rem;
+}
+
+.folders-workspace-main-title {
+  color: #8A2BE2;
+}
+
+.folders-workspace-section {
+  border-radius: 20px;
+  padding: 1rem;
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.workspace-folder {
+  padding: 1rem;
+  font-size: 2.5rem;
+  border-radius: 20px;
+  text-decoration: none;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 1rem;
+  color: #7D7D7D;
+  transition: all 0.6s ease-in-out;
+}
+
+.workspace-section-flex {
+  margin-top: 3rem;
+}
+
+.workspace-folder:hover {
+  background: rgba(192, 192, 192, 0.1);
+  color: white;
+  cursor: pointer;
+}
+
+.workspace-folder:hover .folder-icon {
+  color: #8A2BE2;
+}
+
+.folder-icon {
+  color: #200050;
+  transition: all 0.5s ease-in-out;
+}
+
+.folder-menu-button {
+  color: white;
+  transition: all 0.6s ease-in-out;
+}
+
+.folder-menu-button:hover {
+  color: #8A2BE2;
+  transform: scale(1.3);
+}
+
+.modal-menu-list {
+  list-style: none;
+  z-index: 100;
+  right: 95%;
+  width: 100%;
+  padding: 2rem;
+}
+
+.modal-menu-list li {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 20px;
+  padding: 1rem;
+  transition: all 0.6s ease-in-out;
+  width: 70%;
+}
+
+.modal-menu-list li:hover {
+  background: rgba(138, 43, 226, 0.1);
+  cursor: pointer;
+}
+
+.flashcard-verso-reveal {
+  color: #00FF00;
+}
+
+.select-menu-modal {
+  margin-right: auto;
+  margin-left: auto;
+  background: #120D16;
+  border: 3px solid #8A2BE2;
+  border-radius: 20px;
+  width: 80%;
+  position: fixed;
+  top: 30%;
+  right: 10%;
+  z-index: 6000;
+}
+
+.display-none {
+  display: none;
+}
+
+.display {
+  display: block;
+}
+
+.darken-background {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-background {
+  position: fixed;
+  z-index: 5000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.close-modal {
+  transition: all 0.6s ease-in-out;
+  color: red;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.close-modal:hover {
+  transform: scale(1.7);
+  cursor: pointer;
+}
+
+.modal-navlink {
+  text-decoration: none;
+  color: white;
+  width: 100%;
+  display: block;
+}
+
+.modal-navlink-delete {
+  text-decoration: none;
+  color: white;
+  width: 100%;
+  display: block;
+}
+
+.flashcards-workspace-main {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.flashcards-workspace-main-title {
+  color: #8A2BE2;
+}
+
+.flashcards-workspace-section {
+  border-radius: 20px;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.workspace-flashcard {
+  padding: 1rem;
+  font-size: 2.5rem;
+  border-radius: 20px;
+  text-decoration: none;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem;
+  color: #7D7D7D;
+  transition: all 0.6s ease-in-out;
+}
+
+.workspace-flashcard:hover {
+  background: rgba(192, 192, 192, 0.1);
+  color: white;
+  cursor: pointer;
+}
+
+.workspace-flashcard:hover .flashcard-icon {
+  color: #8A2BE2;
+}
+
+.flashcard-icon {
+  color: #200050;
+  transition: all 0.6s ease-in-out;
+}
+
+.worskpace-nodata {
+  font-size: 5rem;
+}
+
+.workspace-add-button {
+  color: white;
+  background: #8A2BE2;
+  display: flex;
+  width: 200px;
+  justify-content: space-evenly;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.workspace-add-button:hover {
+  background: #190040;
+  cursor: pointer;
+  color: white;
+}
+
+.flashcard-modal {
+  background: #120D16;
+  border: 3px solid #8A2BE2;
+  border-radius: 20px;
+  width: 90%;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  position: fixed;
+  top: 1%;
+  right: 5%;
+  z-index: 6000;
+}
+
+.flashcard-title {
+  color: #8A2BE2;
+}
+
+.flashcard-chevron-left:hover {
+  color: #8A2BE2;
+  cursor: pointer;
+}
+
+.flashcard-chevron-right:hover {
+  color: #8A2BE2;
+  cursor: pointer;
+}
+
+.flashcard-chevron-flex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.flashcard-flipper-button {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  border: 0;
+  font-size: 2rem;
+  color: white;
+  background: #8A2BE2;
+  display: block;
+  width: 20rem;
+}
+
+.flashcard-flipper-button:hover {
+  background: #190040;
+  cursor: pointer;
+  color: white;
+}
+
+.start-revision-button {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  border: 0;
+  font-size: 2rem;
+  color: white;
+  background: #8A2BE2;
+  display: block;
+  width: 25rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.start-revision-button:hover {
+  background: #190040;
+  cursor: pointer;
+  color: white;
+  transform: scale(1.1);
+}
+
+@keyframes flip-again {
+  from {
+    transform: rotateY(180deg);
+  }
+  to {
+    transform: rotateY(0);
+  }
+}
+@keyframes flip {
+  from {
+    transform: rotateY(180deg);
+  }
+  to {
+    transform: rotateY(0);
+  }
+}
+.flip-again {
+  animation: flip-again 1s ease;
+}
+
+.flip-back {
+  animation: flip 1s ease;
+}
+
+.flashcard-fail-button {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  border: 0;
+  font-size: 2rem;
+  color: white;
+  background: #FF0000;
+  display: block;
+  width: 20rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.flashcard-fail-button:hover {
+  background: #990000;
+  cursor: pointer;
+}
+
+.flashcard-success-button {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  border: 0;
+  font-size: 2rem;
+  color: black;
+  background: #00FF00;
+  display: block;
+  width: 20rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.flashcard-success-button:hover {
+  background: #008000;
+  cursor: pointer;
+  color: white;
+}
+
+.good-result {
+  color: #00FF00;
+}
+
+.bad-result {
+  color: #FF0000;
+}
+
+/********* MEDIA QUERIES *************/
+/**********  TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .workspace-section-flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .workspace-folder {
+    width: 45%;
+  }
+  .select-menu-modal {
+    width: 50%;
+    right: 25%;
+  }
+  .flashcard-test-button-flex {
+    display: flex;
+  }
+  .flashcard-modal {
+    top: 1%;
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  .folders-workspace-section {
+    width: 70%;
+    padding: 0 5rem 5rem 5rem;
+  }
+  .workspace-section-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .workspace-folder {
+    width: 45%;
+  }
+  .flashcards-workspace-section {
+    width: 70%;
+    padding: 0 5rem 5rem 5rem;
+  }
+  .workspace-add-button {
+    margin-right: 0;
+  }
+  .select-menu-modal {
+    width: 40%;
+    right: 30%;
+  }
+  .flashcard-modal {
+    width: 50%;
+    top: 5%;
+    right: 25%;
+  }
+  .flashcard-test-button-flex {
+    display: flex;
+  }
+}
+.updatefolderpage-section {
+  text-align: center;
+  width: 80%;
+}
+
+.updatefolderpage-main {
+  max-width: 1250px;
+  margin-top: 3rem;
+}
+
+.updatefolderpage-input-label {
+  position: relative;
+  border: 0;
+  padding: 0;
+}
+
+.updatefolderpage-input-label input {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.updatefolderpage-input-label label {
+  position: absolute;
+  font-size: 2rem;
+  top: 30%;
+  left: 6%;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.updatefolderpage-input-label input:focus ~ label,
+.updatefolderpage-input-label input:valid ~ label {
+  top: 0;
+  font-size: 1.5rem;
+  background: #120D16;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.updatefolderpage-form-button {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  border: 0;
+  font-size: 2rem;
+  color: white;
+  background: #8A2BE2;
+  display: block;
+  width: 20rem;
+}
+
+.updatefolderpage-form-button:hover {
+  background: #190040;
+  cursor: pointer;
+  color: white;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  .updatefolderpage-input-label input {
+    width: 80%;
+  }
+  .updatefolderpage-input-label label {
+    left: 15%;
+  }
+  .updatefolderpage-section {
+    width: 40%;
+    padding: 4rem;
+    border: 1px solid #8A2BE2;
+    border-radius: 20px;
+    background: rgba(192, 192, 192, 0.1);
+  }
+  .updatefolderpage-input-label input:focus ~ label,
+  .updatefolderpage-input-label input:valid ~ label {
+    background: #242029;
+  }
+}
+.createfolderpage-section {
+  text-align: center;
+  width: 80%;
+}
+
+.createfolderpage-main {
+  max-width: 1250px;
+  margin-top: 3rem;
+}
+
+.createfolderpage-input-label {
+  position: relative;
+  border: 0;
+  padding: 0;
+}
+
+.createfolderpage-input-label input {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.createfolderpage-input-label label {
+  position: absolute;
+  font-size: 2rem;
+  top: 30%;
+  left: 6%;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.createfolderpage-input-label input:focus ~ label,
+.createfolderpage-input-label input:valid ~ label {
+  top: 0;
+  font-size: 1.5rem;
+  background: #120D16;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.createfolderpage-form-button {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  border: 0;
+  font-size: 2rem;
+  color: white;
+  background: #8A2BE2;
+  display: block;
+  width: 20rem;
+}
+
+.createfolderpage-form-button:hover {
+  background: #190040;
+  cursor: pointer;
+  color: white;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  .createfolderpage-input-label input {
+    width: 80%;
+  }
+  .createfolderpage-input-label label {
+    left: 15%;
+  }
+  .createfolderpage-section {
+    width: 40%;
+    padding: 4rem;
+    border: 1px solid #8A2BE2;
+    border-radius: 20px;
+    background: rgba(192, 192, 192, 0.1);
+  }
+  .createfolderpage-input-label input:focus ~ label,
+  .createfolderpage-input-label input:valid ~ label {
+    background: #242029;
+  }
+}
+.createflashcardpage-section {
+  text-align: center;
+  width: 80%;
+}
+
+.createflashcardpage-main {
+  max-width: 1250px;
+  margin-top: 3rem;
+}
+
+.createflashcardpage-input-label {
+  position: relative;
+  border: 0;
+  padding: 0;
+}
+
+.createflashcardpage-input-label input {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.createflashcardpage-input-label textarea {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.createflashcardpage-input-label label {
+  position: absolute;
+  font-size: 2rem;
+  top: 30%;
+  left: 6%;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.createflashcardpage-input-label input:focus ~ label,
+.createflashcardpage-input-label input:valid ~ label {
+  top: 0;
+  font-size: 1.5rem;
+  background: #120D16;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.createflashcardpage-input-label textarea:focus ~ label,
+.createflashcardpage-input-label textarea:valid ~ label {
+  top: 0;
+  font-size: 1.5rem;
+  background: #120D16;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.createflashcardpage-form-button {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  border: 0;
+  font-size: 2rem;
+  color: white;
+  background: #8A2BE2;
+  display: block;
+  width: 20rem;
+}
+
+.createflashcardpage-form-button:hover {
+  background: #190040;
+  cursor: pointer;
+  color: white;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .createflashcardpage-input-label textarea {
+    width: 100%;
+  }
+  .createflashcardpage-section {
+    width: 60%;
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  .createflashcardpage-input-label input {
+    width: 80%;
+  }
+  .createflashcardpage-input-label label {
+    left: 15%;
+  }
+  .createflashcardpage-section {
+    width: 40%;
+    padding: 4rem;
+    border: 1px solid #8A2BE2;
+    border-radius: 20px;
+    background: rgba(192, 192, 192, 0.1);
+  }
+  .createflashcardpage-input-label input:focus ~ label,
+  .createflashcardpage-input-label input:valid ~ label {
+    background: #242029;
+  }
+  .createflashcardpage-input-label textarea:focus ~ label,
+  .createflashcardpage-input-label textarea:valid ~ label {
+    background: #242029;
+  }
+  .createflashcardpage-input-label textarea {
+    width: 80%;
+  }
+}
+.updateflashcardpage-section {
+  text-align: center;
+  width: 80%;
+}
+
+.updateflashcardpage-main {
+  max-width: 1250px;
+  margin-top: 3rem;
+  /********* MEDIA QUERIES *************/
+  /*********** TABLETTE **************/
+  /**********  DESKTOP **************/
+}
+.updateflashcardpage-main .updateflashcardpage-input-label {
+  position: relative;
+  border: 0;
+  padding: 0;
+}
+.updateflashcardpage-main .updateflashcardpage-input-label input {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.updateflashcardpage-main .updateflashcardpage-input-label textarea {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.updateflashcardpage-main .updateflashcardpage-input-label label {
+  position: absolute;
+  font-size: 2rem;
+  top: 30%;
+  left: 6%;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+.updateflashcardpage-main .updateflashcardpage-input-label input:focus ~ label,
+.updateflashcardpage-main .updateflashcardpage-input-label input:valid ~ label {
+  top: 0;
+  font-size: 1.5rem;
+  background: #120D16;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.updateflashcardpage-main .updateflashcardpage-input-label textarea:focus ~ label,
+.updateflashcardpage-main .updateflashcardpage-input-label textarea:valid ~ label {
+  top: 0;
+  font-size: 1.5rem;
+  background: #120D16;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.updateflashcardpage-main .updateflashcardpage-form-button {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  border: 0;
+  font-size: 2rem;
+  color: white;
+  background: #8A2BE2;
+  display: block;
+  width: 20rem;
+}
+.updateflashcardpage-main .updateflashcardpage-form-button:hover {
+  background: #190040;
+  cursor: pointer;
+  color: white;
+}
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .updateflashcardpage-main .updateflashcardpage-input-label textarea {
+    width: 100%;
+  }
+  .updateflashcardpage-main .updateflashcardpage-section {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 900px) {
+  .updateflashcardpage-main .updateflashcardpage-input-label input {
+    width: 80%;
+  }
+  .updateflashcardpage-main .updateflashcardpage-input-label label {
+    left: 15%;
+  }
+  .updateflashcardpage-main .updateflashcardpage-section {
+    width: 40%;
+    padding: 4rem;
+    border: 1px solid #8A2BE2;
+    border-radius: 20px;
+    background: rgba(192, 192, 192, 0.1);
+  }
+  .updateflashcardpage-main .updateflashcardpage-input-label input:focus ~ label,
+  .updateflashcardpage-main .updateflashcardpage-input-label input:valid ~ label {
+    background: #242029;
+  }
+  .updateflashcardpage-main .updateflashcardpage-input-label textarea:focus ~ label,
+  .updateflashcardpage-main .updateflashcardpage-input-label textarea:valid ~ label {
+    background: #242029;
+  }
+  .updateflashcardpage-main .updateflashcardpage-input-label textarea {
+    width: 80%;
+  }
+}
+
+.userdashboard-main {
+  text-align: center;
+}
+
+.userdashboard-header-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userdashboard-pp-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 1rem;
+  overflow: hidden;
+}
+
+.userdashboard-folderlink {
+  text-decoration: none;
+  font-size: 2rem;
+  padding: 1rem;
+  width: 80%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  display: block;
+  border-radius: 20px;
+}
+
+.userdashboard-folderlink:hover {
+  background: rgba(138, 43, 226, 0.1);
+  color: #8A2BE2;
+  cursor: pointer;
+}
+
+.userdashboard-resultlink {
+  text-decoration: none;
+  font-size: 2rem;
+  padding: 1rem;
+  color: white;
+  display: block;
+  border-radius: 20px;
+  margin: 1rem;
+}
+
+.userdashboard-resultlink:hover {
+  background: rgba(138, 43, 226, 0.1);
+  color: #8A2BE2;
+  cursor: pointer;
+}
+
+.userdashboard-sections {
+  width: 90%;
+  border-radius: 20px;
+  background: #1A141D;
+  padding: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.userdashboard-allresults-button {
+  text-decoration: none;
+  font-size: 2rem;
+  border-radius: 20px;
+  margin: 2rem;
+  display: block;
+  padding: 1rem;
+  color: white;
+  background: #8A2BE2;
+}
+
+.userdashboard-allresults-button:hover {
+  background: #190040;
+  cursor: pointer;
+}
+
+.userdashboard-myaccount-navlink {
+  text-decoration: none;
+  font-size: 2rem;
+  border-radius: 20px;
+  margin-top: 6rem;
+  display: block;
+  width: 80%;
+  padding: 1rem;
+  color: white;
+  background: #8A2BE2;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.userdashboard-myaccount-navlink:hover {
+  background: #190040;
+  cursor: pointer;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  .userdashboard-article-flex {
+    display: flex;
+    justify-content: center;
+  }
+  .userdashboard-sections {
+    width: 35%;
+    margin: 2rem;
+  }
+  .userdashboard-myaccount-navlink {
+    width: 20%;
+  }
+}
+.folderresult-main {
+  text-align: center;
+}
+
+.folderresult-article {
+  background: #1A141D;
+  border-radius: 20px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.folderresult-list li > p {
+  width: 85%;
+}
+
+.folderresult-list {
+  list-style: none;
+  padding: 1rem;
+}
+
+.folderresult-list li {
+  padding: 1rem;
+  border-radius: 20px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.folderresult-list li:hover {
+  cursor: pointer;
+  background: rgba(192, 192, 192, 0.1);
+}
+
+.folderresults-start-revision-button {
+  text-decoration: none;
+  font-size: 2rem;
+  border-radius: 20px;
+  margin: 2rem;
+  display: block;
+  padding: 1rem;
+  color: white;
+  background: #8A2BE2;
+}
+
+.folderresults-start-revision-button:hover {
+  background: #190040;
+  cursor: pointer;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .folderresult-article {
+    width: 80%;
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  .folderresult-list li {
+    width: 85%;
+  }
+  .folderresult-article {
+    width: 50%;
+  }
+}
+.allresults-main {
+  text-align: center;
+}
+
+.allresults-article {
+  background: #1A141D;
+  border-radius: 20px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.allresults-list {
+  list-style: none;
+  padding: 1rem;
+}
+
+.allresults-list li {
+  padding: 1rem;
+  border-radius: 20px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.allresults-list li > p {
+  width: 85%;
+}
+
+.allresults-list li:hover {
+  background: rgba(192, 192, 192, 0.1);
+}
+
+.allresults-deleteone-button {
+  transition: all 0.5s ease-in-out;
+}
+
+.allresults-deleteone-button:hover {
+  color: #da0707;
+  cursor: pointer;
+}
+
+.allresults-deleteall-button {
+  border: 0;
+  color: white;
+  background: red;
+  padding: 1rem;
+  font-size: 2rem;
+  border-radius: 20px;
+}
+
+.allresults-deleteall-button:hover {
+  background: #2B0000;
+  cursor: pointer;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .allresults-article {
+    width: 90%;
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  .allresults-list li {
+    width: 95%;
+  }
+  .allresults-article {
+    width: 60%;
+  }
+}
+.admindashboard-main {
+  text-align: center;
+  padding: 1rem;
+}
+
+.admindashboard-article {
+  background: #1A141D;
+  border-radius: 20px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3rem;
+}
+
+.admindashboard-create-button {
+  padding: 1rem;
+  text-decoration: none;
+  color: black;
+  background: #00FF00;
+  border-radius: 25px;
+  display: inline-block;
+  width: 300px;
+  font-size: 2.7rem;
+  margin-top: 2rem;
+}
+
+.admindashboard-create-button:hover {
+  cursor: pointer;
+  background: #006400;
+  color: white;
+}
+
+.admindashboard-article-navlink {
+  text-decoration: none;
+  display: block;
+  padding: 2rem;
+  color: white;
+  background: #8A2BE2;
+  border-radius: 20px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.admindashboard-article-navlink:hover {
+  background: rgba(138, 43, 226, 0.1);
+  color: #8A2BE2;
+}
+
+.admindashboard-header-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admindashboard-pp-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 2rem;
+  overflow: hidden;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .admindashboard-article {
+    width: 80%;
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  .admindashboard-article {
+    width: 50%;
+  }
+}
+.adminusersdashboard-main {
+  text-align: center;
+  padding: 2rem;
+}
+
+.adminusersdashboard-admin-pp {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 2rem;
+  overflow: hidden;
+}
+
+.admindashboard-userpp-username {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.adminusersdashboard-header-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admindashboard-table {
+  width: 100%;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+  border-collapse: collapse;
+}
+
+.adminusersdashboard-users-pp {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #8A2BE2;
+}
+
+.logged-admin-pp {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #00FF00;
+}
+
+.admindashboard-table th,
+td {
+  padding: 2rem;
+  border: 3px solid #8A2BE2;
+}
+
+.admindashboard-table td {
+  text-align: center;
+}
+
+.admindashboard-table thead {
+  color: #8A2BE2;
+  font-size: 3rem;
+  background: #1A141D;
+}
+
+.adminusersdashboard-edit-button {
+  padding: 1rem;
+  border-radius: 20px;
+  border: 0;
+  background: yellow;
+  color: black;
+  font-size: 1.8rem;
+  display: block;
+}
+
+.adminusersdashboard-edit-button:hover {
+  background: #B8860B;
+  color: white;
+  cursor: pointer;
+}
+
+.adminusersdashboard-delete-button {
+  padding: 1rem;
+  border-radius: 20px;
+  border: 0;
+  background: red;
+  color: white;
+  font-size: 2rem;
+  display: block;
+}
+
+.adminusersdashboard-delete-button:hover {
+  background: #2B0000;
+  cursor: pointer;
+}
+
+.adminusersdashboard-action-button-cel {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.admindashboard-display-datecel {
+  display: none;
+}
+
+.admindashboard-display-emailcel {
+  display: none;
+}
+
+.admindashboard-display-rolcel {
+  display: none;
+}
+
+.admindashboard-display-actioncel {
+  display: none;
+}
+
+.admindashboard-logged-admin {
+  color: #00FF00;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .admindashboard-display-rolecel {
+    display: table-cell;
+  }
+  .admindashboard-display-actioncel {
+    display: table-cell;
+  }
+  .admindashboard-table td {
+    text-align: left;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1050px) {
+  .admindashboard-display-rolecel {
+    display: table-cell;
+  }
+  .admindashboard-display-emailcel {
+    display: table-cell;
+  }
+  .admindashboard-display-actioncel {
+    display: table-cell;
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 1050px) {
+  .admindashboard-table td {
+    text-align: left;
+  }
+  .admindashboard-display-datecel {
+    display: table-cell;
+  }
+  .admindashboard-display-emailcel {
+    display: table-cell;
+  }
+  .admindashboard-display-rolcel {
+    display: table-cell;
+  }
+  .admindashboard-display-actioncel {
+    display: table-cell;
+  }
+}
+.adminarticlesdashboard-main {
+  text-align: center;
+  padding: 2rem;
+}
+
+.adminarticlesdashboard-admin-pp {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 2rem;
+  overflow: hidden;
+}
+
+.adminarticlesdashboard-header-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admindashboard-table {
+  width: 100%;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+  border-collapse: collapse;
+}
+
+.adminarticlesdashboard-users-pp {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.admindashboard-table th,
+td {
+  padding: 2rem;
+  border: 3px solid #8A2BE2;
+}
+
+.admindashboard-table td {
+  text-align: center;
+}
+
+.admindashboard-table thead {
+  color: #8A2BE2;
+  font-size: 3rem;
+  background: #1A141D;
+}
+
+.adminarticlesdashboard-edit-button {
+  padding: 1rem;
+  border-radius: 20px;
+  border: 0;
+  background: yellow;
+  color: black;
+  font-size: 2rem;
+  display: block;
+}
+
+.adminarticlesdashboard-edit-button:hover {
+  background: #B8860B;
+  color: white;
+  cursor: pointer;
+}
+
+.adminarticlesdashboard-delete-button {
+  padding: 1rem;
+  border-radius: 20px;
+  border: 0;
+  background: red;
+  color: white;
+  font-size: 2rem;
+  display: block;
+}
+
+.adminarticlesdashboard-delete-button:hover {
+  background: #2B0000;
+  cursor: pointer;
+}
+
+.adminarticlesdashboard-action-button-cel {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.admindashboard-display-datecel {
+  display: none;
+}
+
+.admindashboard-display-authorcel {
+  display: none;
+}
+
+.admindashboard-display-actioncel {
+  display: none;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .admindashboard-display-authorcel {
+    display: table-cell;
+  }
+  .admindashboard-display-actioncel {
+    display: table-cell;
+  }
+  .admindashboard-table td {
+    text-align: left;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1050px) {
+  .admindashboard-display-actioncel {
+    display: table-cell;
+  }
+  .admindashboard-display-authorcel {
+    display: table-cell;
+  }
+  .admindashboard-display-datecel {
+    display: table-cell;
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 1050px) {
+  .admindashboard-table td {
+    text-align: left;
+  }
+  .admindashboard-display-datecel {
+    display: table-cell;
+  }
+  .admindashboard-display-actioncel {
+    display: table-cell;
+  }
+  .admindashboard-display-authorcel {
+    display: table-cell;
+  }
+}
+.adminformpage-section {
+  text-align: center;
+  padding: 3rem;
+  width: 100%;
+  margin-top: 6rem;
+}
+
+.admindashboard-title-navlink {
+  text-decoration: none;
+  color: white;
+}
+
+.admindashboard-title-navlink:hover {
+  text-decoration: underline;
+  color: #8A2BE2;
+}
+
+.adminformpage-input-label {
+  position: relative;
+  border: 0;
+  padding: 0;
+}
+
+.adminformpage-input {
+  display: block;
+  width: 90%;
+  margin-bottom: 2rem;
+}
+
+.adminformpage-input-label input {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  outline: none;
+  display: block;
+}
+
+.adminformpage-input-label label {
+  position: absolute;
+  font-size: 1.8rem;
+  top: 30%;
+  left: 10%;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.adminformpage-input-label input:focus ~ label,
+.adminformpage-input-label input:valid ~ label {
+  top: 0;
+  font-size: 1.5rem;
+  background: #120D16;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.adminformpage-input-label textarea:focus ~ label,
+.adminformpage-input-label textarea:valid ~ label {
+  top: 0;
+  font-size: 1.5rem;
+  background: #120D16;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.adminformpage-select:hover {
+  cursor: pointer;
+  background: rgba(192, 192, 192, 0.3);
+}
+
+.adminformpage-textarea {
+  display: block;
+  width: 90%;
+  border: 1px solid white;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  height: 100px;
+  background: transparent;
+  color: white;
+}
+
+.adminformpage-form-button {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  border: 0;
+  font-size: 2rem;
+  color: white;
+  background: #8A2BE2;
+  display: block;
+  width: 20rem;
+}
+
+.adminformpage-form-button:hover {
+  background: #190040;
+  cursor: pointer;
+  color: white;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  /****** CONTACT PAGE *****/
+  .adminformpage-section {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/**********  DESKTOP **************/
+@media screen and (min-width: 900px) {
+  /****** CONTACT PAGE *****/
+  .adminformpage-section {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    border: 2px solid #8A2BE2;
+    background: rgba(192, 192, 192, 0.1);
+  }
+  .adminformpage-input-label textarea:focus ~ label,
+  .adminformpage-input-label textarea:valid ~ label {
+    background: #242028;
+  }
+  .adminformpage-input {
+    width: 90%;
+  }
+  .adminformpage-textarea {
+    width: 90%;
+    height: 200px;
+  }
+  .adminformpage-input-label label {
+    left: 8%;
+  }
+  .adminformpage-input-label input:focus ~ label,
+  .adminformpage-input-label input:valid ~ label {
+    background: #242028;
+  }
+}
+.admincontact-main {
+  text-align: center;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+  padding-left: 5rem;
+  width: 1250px;
+}
+
+.admincontact-user-info {
+  text-align: left;
+}
+
+.admincontact-subtitle {
+  color: #8A2BE2;
+}
+
+.admincontact-usermessage {
+  border-radius: 20px;
+  background: #1A141D;
+  padding: 2rem;
+  text-align: left;
+}
+
+.contact-inprogress {
+  color: red;
+}
+
+.contact-completed {
+  color: #00FF00;
+}
+
+.admindashboard-see-navlink {
+  text-decoration: none;
+  color: white;
+  border-radius: 20px;
+  background: #0033FF;
+  padding: 1rem;
+}
+
+.admindashboard-see-navlink:hover {
+  background: #001199;
+}
+
+.admincontactsdashboard-edit-button {
+  padding: 0.5rem;
+  border-radius: 20px;
+  border: 0;
+  background: yellow;
+  color: black;
+  font-size: 2rem;
+  display: block;
+}
+
+.admincontactsdashboard-edit-button:hover {
+  background: #B8860B;
+  color: white;
+  cursor: pointer;
+}
+
+.admincontactsdashboard-delete-button {
+  padding: 0.5rem;
+  border-radius: 20px;
+  border: 0;
+  background: red;
+  color: white;
+  font-size: 1.5rem;
+  display: block;
+}
+
+.admincontactsdashboard-delete-button:hover {
+  background: #2B0000;
+  cursor: pointer;
+}
+
+.admincontactpage-status {
+  margin-top: 6rem;
+}
+
+.admincontactpage-update-button {
+  padding: 2rem;
+  border-radius: 30px;
+  font-size: 2rem;
+  border: 0;
+  background: #8A2BE2;
+  color: white;
+}
+
+.admincontactpage-update-button:hover {
+  cursor: pointer;
+  background: #190040;
+}
+
+/*# sourceMappingURL=style.css.map */

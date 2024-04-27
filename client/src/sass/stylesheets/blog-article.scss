@@ -1,0 +1,37 @@
+/******* BLOG ARTICLE ******/
+.onearticlepage-main {
+    text-align:center;
+}
+
+.onearticlepage-article-content {
+    text-align:left;
+    line-height:2.5;
+}
+
+.onearticlepage-article {
+    padding:2rem;
+}
+
+.onearticlepage-calltoaction-signin {
+    @extend %home-navlink-basis;
+    @extend %navlink;
+    display:inline-block;
+    padding:1rem;
+}
+
+.onearticlepage-calltoaction-signin:hover {
+    background:$accent-color;
+    color: $secondary-color;
+}
+
+.onearticlepage-calltoaction-register {
+    @extend %home-navlink-basis;
+    @extend %navlink;
+    display:inline-block;
+    padding:1rem;
+}
+
+.onearticlepage-calltoaction-register:hover {
+    background:$accent-color;
+    color: $secondary-color;
+}

@@ -1,0 +1,157 @@
+.adminarticlesdashboard-main {
+    text-align:center;
+    padding:2rem;
+}
+
+.adminarticlesdashboard-admin-pp {
+    width : 150px;
+    height : 150px;
+    border-radius:50%;
+    margin : 2rem;
+    overflow:hidden;
+}
+
+.adminarticlesdashboard-header-section {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+
+.admindashboard-table {
+    width:100%;
+    margin-top:6rem;
+    margin-bottom:6rem;
+    border-collapse:collapse;
+}
+
+.adminarticlesdashboard-users-pp {
+    width : 50px;
+    height : 50px;
+    border-radius:50%;
+    overflow:hidden;
+}
+
+.admindashboard-table th,
+td {
+    padding:2rem;
+    border:3px solid $secondary-color;
+}
+
+.admindashboard-table td {
+    text-align:center;
+}
+
+.admindashboard-table thead {
+    color:$secondary-color;
+    font-size:3rem;
+    background:$lighter-primary-color;
+}
+
+
+.adminarticlesdashboard-edit-button {
+    padding:1rem;
+    border-radius:20px;
+    border:0;
+    background:yellow;
+    color:black;
+    font-size:2rem;
+    display:block;
+}
+
+.adminarticlesdashboard-edit-button:hover {
+    background:#B8860B;
+    color:$accent-color;
+    cursor:pointer;
+}
+
+
+.adminarticlesdashboard-delete-button {
+    padding:1rem;
+    border-radius:20px;
+    border:0;
+    background:red;
+    color:$accent-color;
+    font-size:2rem;
+    display:block;
+}
+
+.adminarticlesdashboard-delete-button:hover {
+    background:$disabled-delete-button;
+    cursor:pointer;
+}
+
+.adminarticlesdashboard-action-button-cel {
+    display:flex;
+    justify-content:space-around;
+    gap:1rem;
+}
+
+
+
+
+.admindashboard-display-datecel {
+    display:none;
+}
+
+.admindashboard-display-authorcel {
+    display:none;
+}
+
+.admindashboard-display-actioncel {
+    display:none;
+}
+
+
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width:600px) and (max-width:900px) {
+    .admindashboard-display-authorcel {
+        display:table-cell;
+    }
+    .admindashboard-display-actioncel {
+        display:table-cell;
+    }
+    
+    .admindashboard-table td {
+        text-align:left;
+    }
+}
+
+
+@media screen and (min-width:900px) and (max-width:1050px) {
+    
+    .admindashboard-display-actioncel {
+        display:table-cell;
+    }
+    
+    .admindashboard-display-authorcel {
+        display:table-cell;
+    }
+    
+    .admindashboard-display-datecel {
+       display:table-cell;
+    }
+}
+
+
+/**********  DESKTOP **************/
+@media screen and (min-width:1050px) {
+    .admindashboard-table td {
+        text-align:left;
+    }
+    
+    .admindashboard-display-datecel {
+       display:table-cell;
+    }
+    
+    .admindashboard-display-actioncel {
+        display:table-cell;
+    }
+    
+    .admindashboard-display-authorcel {
+        display:table-cell;
+    }
+}

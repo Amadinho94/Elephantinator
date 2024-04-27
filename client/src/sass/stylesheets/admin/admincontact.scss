@@ -1,0 +1,97 @@
+.admincontact-main {
+    text-align:center;
+    margin-top:6rem;
+    margin-bottom:6rem;
+    padding-left:5rem;
+    width:$container-width;
+    @extend %centered-block;
+}
+
+.admincontact-user-info {
+    text-align:left;
+    @extend %centered-block;
+}
+
+.admincontact-subtitle {
+    color:$secondary-color;
+}
+
+.admincontact-usermessage {
+    border-radius:20px;
+    background:$lighter-primary-color;
+    padding:2rem;
+    text-align:left;
+}
+
+.contact-inprogress {
+    color:red;
+}
+
+.contact-completed {
+    color:#00FF00;
+}
+
+
+
+
+.admindashboard-see-navlink {
+    text-decoration:none;
+    color:$accent-color;
+    border-radius:20px;
+    background:#0033FF;
+    padding:1rem;
+}
+
+.admindashboard-see-navlink:hover {
+    background:#001199;
+}
+
+.admincontactsdashboard-edit-button {
+    padding:0.5rem;
+    border-radius:20px;
+    border:0;
+    background:yellow;
+    color:black;
+    font-size:2rem;
+    display:block;
+}
+
+.admincontactsdashboard-edit-button:hover {
+    background:#B8860B;
+    color:$accent-color;
+    cursor:pointer;
+}
+
+
+.admincontactsdashboard-delete-button {
+    padding:0.5rem;
+    border-radius:20px;
+    border:0;
+    background:red;
+    color:$accent-color;
+    font-size:1.5rem;
+    display:block;
+}
+
+.admincontactsdashboard-delete-button:hover {
+    background:$disabled-delete-button;
+    cursor:pointer;
+}
+
+.admincontactpage-status {
+    margin-top:6rem;
+}
+
+.admincontactpage-update-button {
+    padding:2rem;
+    border-radius:30px;
+    font-size:2rem;
+    border:0;
+    background:$secondary-color;
+    color:$accent-color;
+}
+
+.admincontactpage-update-button:hover {
+    cursor:pointer;
+    background:$darkest-secondary-color;
+}

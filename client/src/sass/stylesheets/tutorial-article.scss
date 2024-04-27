@@ -1,0 +1,61 @@
+/******* TUTORIAL ARTICLE PAGE ************/
+.onetutorialpage-main {
+    text-align:center;
+    padding:1.5rem;
+    margin-bottom:6rem;
+}
+
+.onetutorialpage-article>section>p {
+    text-align:left;
+}
+
+.onetutorialpage-article>section>h2 {
+    text-align:left;
+}
+
+.onetutorialpage-article>section {
+    @extend %margin-bottom-top;
+}
+
+.onetutorialpage-article-h1 {
+    color:$secondary-color;
+    font-size:4rem;
+}
+
+.onetutorialpage-navlink-calltoaction {
+    @extend %home-navlink-basis;
+    @extend %navlink;
+    display:inline-block;
+    margin-top:1rem;
+}
+
+.onetutorialpage-navlink-calltoaction:hover {
+    color: $secondary-color;
+    background:$accent-color;
+}
+
+.onetutorialpage-navlink-nextprev {
+    @extend %home-navlink-basis;
+    @extend %navlink;
+    margin:2rem;
+    display:inline-block;
+    color:$accent-color;
+}
+
+.onetutorialpage-navlink-nextprev:hover {
+    background:$accent-color;
+    color: $secondary-color;
+}
+
+
+
+/********* MEDIA QUERIES *************/
+/**********  DESKTOP **************/
+@media screen and (min-width:900px) {
+    
+    .onetutorialpage-navlink-calltoaction {
+      max-width:300px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+}

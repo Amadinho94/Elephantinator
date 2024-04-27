@@ -1,0 +1,479 @@
+.folders-workspace-main {
+    text-align:center;
+    margin-top:2rem;
+    overflow:hidden;
+}
+
+.usermessage-minimum-flashcard {
+    color:red;
+    font-size:3rem;
+}
+
+.folders-workspace-main-title {
+    color:$secondary-color;
+}
+
+.folders-workspace-section {
+    border-radius:20px;
+    padding:1rem;
+    @extend %centered-block;
+    position:relative;
+    height : 500px;
+    overflow:hidden;
+    // overflow-y:auto;
+}
+
+.workspace-folder {
+    padding:1rem;
+    font-size:2.5rem;
+    border-radius : 20px;
+    text-decoration:none;
+    padding:1rem;
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    margin:1rem;
+    color:$neutral-color;
+    transition:all 0.6s ease-in-out;
+}
+
+.workspace-section-flex {
+    margin-top:3rem;
+}
+
+.workspace-folder:hover {
+    background:$transparent;
+    color:$accent-color;
+    cursor:pointer;
+}
+
+.workspace-folder:hover .folder-icon {
+    color:$secondary-color;
+}
+
+.folder-icon {
+    color:$secondary-color-darkened;
+    transition:all 0.5s ease-in-out;
+}
+
+
+
+
+.folder-menu-button {
+    color:$accent-color;
+    transition:all 0.6s ease-in-out;
+}
+
+.folder-menu-button:hover {
+    color:$secondary-color;
+    transform:scale(1.3);
+}
+
+.modal-menu-list {
+    list-style:none;
+    z-index:100;
+    right:95%;
+    width:100%;
+    padding:2rem;
+}
+
+.modal-menu-list li {
+    margin-top:1rem;
+    margin-bottom:1rem;
+    border-radius:20px;
+    padding:1rem;
+    transition:all 0.6s ease-in-out;
+    width:70%;
+    @extend %centered-block;
+}
+
+.modal-menu-list li:hover {
+    background: $secondary-color-transparent;
+    cursor:pointer;
+}
+
+.flashcard-verso-reveal {
+    color:#00FF00;
+}
+
+.select-menu-modal {
+    margin-right:auto;
+    margin-left:auto;
+    background:$primary-color;
+    border:3px solid $secondary-color;
+    border-radius:20px;
+    width:80%;
+    position:fixed;
+    top:30%;
+    right:10%;
+    z-index:6000;
+}
+
+.display-none {
+    display:none;
+}
+
+.display {
+    display:block;
+}
+
+.darken-background {
+    background:rgba(0, 0, 0, 0.5);
+}
+
+.modal-background {
+    position:fixed;
+    z-index:5000;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100vw;
+    height:100vh;
+}
+
+.close-modal {
+    transition:all 0.6s ease-in-out;
+    color:red;
+    position:absolute;
+    top:20px;
+    right:20px;
+}
+
+.close-modal:hover {
+    transform:scale(1.7);
+    cursor:pointer;
+}
+
+.modal-navlink {
+    text-decoration:none;
+    color:$accent-color;
+    width:100%;
+    display:block;
+}
+
+.modal-navlink-delete {
+    text-decoration:none;
+    color:$accent-color;
+    width:100%;
+    display:block;
+}
+
+.flashcards-workspace-main {
+    text-align:center;
+    margin-top:2rem;
+}
+
+.flashcards-workspace-main-title {
+    color:$secondary-color;
+}
+
+.flashcards-workspace-section {
+    border-radius:20px;
+    padding:1rem;
+    @extend %centered-block;
+    position:relative;
+    // height : 500px;
+    overflow:hidden;
+    // overflow-y:auto;
+}
+
+.workspace-flashcard {
+    padding:1rem;
+    font-size:2.5rem;
+    border-radius : 20px;
+    text-decoration:none;
+    padding:1rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:1rem;
+    margin:2rem;
+    color:$neutral-color;
+    transition:all 0.6s ease-in-out;
+    // text-overflow: ellipsis;
+    // overflow:hidden;
+    // white-space:nowrap;
+}
+
+.workspace-flashcard:hover {
+    background:$transparent;
+    color:$accent-color;
+    cursor:pointer;
+}
+
+.workspace-flashcard:hover .flashcard-icon {
+    color:$secondary-color;
+}
+
+.flashcard-icon {
+    color:$secondary-color-darkened;
+    transition:all 0.6s ease-in-out;
+}
+
+.worskpace-nodata {
+    font-size:5rem;
+}
+
+
+
+.workspace-add-button {
+    @extend %navlink;
+    color: $accent-color;
+    background:$secondary-color;
+    display:flex;
+    width:200px;
+    justify-content:space-evenly;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.workspace-add-button:hover {
+    background: $darkest-secondary-color;
+    cursor:pointer;
+    color:$accent-color;
+}
+
+
+
+// FLASHCARD MODAL
+.flashcard-modal {
+    background:$primary-color;
+    border:3px solid $secondary-color;
+    border-radius:20px;
+    width:90%;
+    padding-top:5rem;
+    padding-bottom:5rem;
+    padding-left:2rem;
+    padding-right:2rem;
+    position:fixed;
+    top:1%;
+    right:5%;
+    z-index:6000;
+}
+
+.flashcard-title {
+    color:$secondary-color;
+}
+
+.flashcard-chevron-left:hover {
+    color:$secondary-color;
+    cursor:pointer;
+}
+
+.flashcard-chevron-right:hover {
+    color:$secondary-color;
+    cursor:pointer;
+}
+
+.flashcard-chevron-flex {
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:2rem;
+}
+
+.flashcard-flipper-button {
+    padding-top:1rem;
+    padding-bottom:1rem;
+    border-radius:20px;
+    border:0;
+    font-size:2rem;
+    color: $accent-color;
+    background:$secondary-color;
+    display:block;
+    @extend %centered-block;
+    width:20rem;
+}
+
+.flashcard-flipper-button:hover {
+    background: $darkest-secondary-color;
+    cursor:pointer;
+    color:$accent-color;
+}
+
+.start-revision-button {
+    padding-top:1rem;
+    padding-bottom:1rem;
+    border-radius:20px;
+    border:0;
+    font-size:2rem;
+    color: $accent-color;
+    background:$secondary-color;
+    display:block;
+    @extend %centered-block;
+    width:25rem;
+    transition:all 0.5s ease-in-out;
+}
+
+.start-revision-button:hover {
+    background: $darkest-secondary-color;
+    cursor:pointer;
+    color:$accent-color;
+    transform: scale(1.1);
+}
+
+// @keyframes flip-back {
+//     from {
+//         transform : rotateY(0);
+//     }
+//     to {
+//         transform : rotateY(180deg);
+//     }
+// }
+
+@keyframes flip-again {
+    from {
+        transform : rotateY(180deg);
+    }
+    to {
+        transform : rotateY(0);
+    }
+}
+
+@keyframes flip {
+    from {
+        transform : rotateY(180deg);
+    }
+    to {
+        transform : rotateY(0);
+    }
+}
+
+// .flip-verso {
+//     animation:flip 1s ease;
+// }
+
+.flip-again {
+    animation:flip-again 1s ease;
+}
+
+.flip-back {
+    animation:flip 1s ease;
+}
+
+.flashcard-fail-button {
+    margin-top:2rem;
+    margin-bottom:2rem;
+    padding-top:1rem;
+    padding-bottom:1rem;
+    border-radius:20px;
+    border:0;
+    font-size:2rem;
+    color: $accent-color;
+    background:#FF0000;
+    display:block;
+    @extend %centered-block;
+    width:20rem;
+    transition:all 0.5s ease-in-out;
+}
+
+.flashcard-fail-button:hover {
+    background: #990000;
+    cursor:pointer;
+}
+
+.flashcard-success-button {
+    margin-top:2rem;
+    margin-bottom:2rem;
+    padding-top:1rem;
+    padding-bottom:1rem;
+    border-radius:20px;
+    border:0;
+    font-size:2rem;
+    color: black;
+    background:#00FF00;
+    display:block;
+    @extend %centered-block;
+    width:20rem;
+    transition:all 0.5s ease-in-out;
+}
+
+.flashcard-success-button:hover {
+    background: #008000;
+    cursor:pointer;
+    color:$accent-color;
+}
+
+.good-result {
+    color:#00FF00;
+}
+
+.bad-result {
+    color:#FF0000;
+}
+
+/********* MEDIA QUERIES *************/
+/**********  TABLETTE **************/
+@media screen and (min-width:600px) and (max-width:900px) {
+    .workspace-section-flex {
+        display:flex;
+        flex-wrap:wrap;
+    }
+    
+    .workspace-folder {
+        width:45%;
+    }
+    
+    .select-menu-modal {
+        width:50%;
+        right:25%;
+    }
+    
+    .flashcard-test-button-flex {
+        display:flex;
+    }
+    
+    .flashcard-modal {
+        top:1%;
+    }
+    
+}
+
+/**********  DESKTOP **************/
+@media screen and (min-width:900px) {
+    .folders-workspace-section {
+        width: 70%;
+        padding:0 5rem 5rem 5rem;
+    }
+    
+    .workspace-section-flex {
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+    
+    .workspace-folder {
+        width:45%;
+    }
+    
+    
+    .flashcards-workspace-section {
+        width: 70%;
+        padding:0 5rem 5rem 5rem;
+    }
+    
+    .workspace-add-button {
+        margin-right:0;
+    }
+    
+    .select-menu-modal {
+        width:40%;
+        right:30%;
+    }
+    
+    .flashcard-modal {
+        width:50%;
+        top:5%;
+        right:25%;
+    }
+    
+    .flashcard-test-button-flex {
+        display:flex;
+    }
+    
+    // .flashcard-modal {
+    //     padding-top:10rem;
+    //     padding-bottom:10rem;
+    // }
+    
+}

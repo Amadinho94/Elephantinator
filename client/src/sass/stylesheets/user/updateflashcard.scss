@@ -1,0 +1,139 @@
+.updateflashcardpage-section {
+    text-align : center;
+    width:80%;
+    @extend %centered-block;
+}
+
+.updateflashcardpage-main {
+    max-width : $container-width;
+    @extend %centered-block;
+    margin-top:3rem;
+
+
+
+.updateflashcardpage-input-label {
+  position: relative;
+  border:0;
+  padding:0;
+}
+
+.updateflashcardpage-input-label input {
+  background : transparent;
+  border:1px solid $accent-color;
+  color: $accent-color;
+  padding:1rem;
+  border-radius:5px;
+  outline:none;
+  margin-top:0;
+  display:block;
+    @extend %centered-block;
+    width: 100%;
+    margin-bottom:2rem;
+}
+
+.updateflashcardpage-input-label textarea {
+  background : transparent;
+  border:1px solid $accent-color;
+  color: $accent-color;
+  padding:1rem;
+  border-radius:5px;
+  outline:none;
+  margin-top:0;
+  display:block;
+    @extend %centered-block;
+    width: 100%;
+    margin-bottom:2rem;
+}
+
+.updateflashcardpage-input-label label {
+  position: absolute;
+  font-size:2rem;
+  top : 30%;
+  left: 6%;
+  pointer-events:none;
+  transform: translateY(-50%);
+}
+
+.updateflashcardpage-input-label input:focus~ label,
+.updateflashcardpage-input-label input:valid ~ label {
+  top:0;
+  font-size:1.5rem;
+  background : $primary-color;
+  padding-left:3px;
+  padding-right:3px;
+}
+
+.updateflashcardpage-input-label textarea:focus~ label,
+.updateflashcardpage-input-label textarea:valid ~ label {
+  top:0;
+  font-size:1.5rem;
+  background : $primary-color;
+  padding-left:3px;
+  padding-right:3px;
+}
+
+.updateflashcardpage-form-button {
+    padding-top:1rem;
+    padding-bottom:1rem;
+    border-radius:20px;
+    border:0;
+    font-size:2rem;
+    color: $accent-color;
+    background:$secondary-color;
+    display:block;
+    @extend %centered-block;
+    width:20rem;
+}
+
+.updateflashcardpage-form-button:hover {
+    background: $darkest-secondary-color;
+    cursor:pointer;
+    color:$accent-color;
+}
+
+
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width:600px) and (max-width:900px) {
+    .updateflashcardpage-input-label textarea {
+        width: 100%;
+    }
+    
+    .updateflashcardpage-section {
+        width:60%;
+    }
+}
+
+/**********  DESKTOP **************/
+@media screen and (min-width:900px) {
+    .updateflashcardpage-input-label input {
+        width: 80%;
+    }
+    .updateflashcardpage-input-label label {
+      left: 15%;
+    }
+    
+    .updateflashcardpage-section {
+        width:40%;
+        padding:4rem;
+        border:1px solid $secondary-color;
+        border-radius:20px;
+        background:$transparent;
+    }
+    
+    .updateflashcardpage-input-label input:focus~ label,
+    .updateflashcardpage-input-label input:valid ~ label {
+      background : #242029;
+    }
+    
+    .updateflashcardpage-input-label textarea:focus~ label,
+    .updateflashcardpage-input-label textarea:valid ~ label {
+      background : #242029;
+    }
+    
+    .updateflashcardpage-input-label textarea {
+        width: 80%;
+    }
+
+}}

@@ -1,0 +1,48 @@
+/******** BLOG PAGE ********/
+.blog-main {
+    padding:2rem;
+}
+
+.blog-article {
+    border:1px solid $secondary-color;
+    padding:2rem;
+    margin-bottom:6rem;
+    border-radius:20px;
+}
+
+.blog-article-figure {
+    text-align:center;
+}
+
+.blog-article-navlink {
+    @extend %home-navlink-basis;
+    @extend %navlink;
+    display:inline-block;
+    margin:1rem;
+}
+
+.blog-article-navlink:hover {
+    @extend %home-hover-navlink;
+}
+
+.blog-summary {
+    overflow:hidden;
+}
+
+
+/********* MEDIA QUERIES *************/
+/**********  DESKTOP **************/
+@media screen and (min-width:900px) {
+    
+    /******* BLOG PAGE *****/
+    .blog-article {
+        margin:2rem;
+        width:100%;
+        display:flex;
+    }
+    
+    .blog-section {
+        display:flex;
+        flex-wrap:wrap;
+    }
+}

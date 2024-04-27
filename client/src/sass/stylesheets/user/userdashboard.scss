@@ -1,0 +1,134 @@
+.userdashboard-main {
+    text-align:center;
+}
+
+.userdashboard-header-section {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.userdashboard-pp-container {
+    width : 50px;
+    height : 50px;
+    border-radius:50%;
+    margin : 1rem;
+    overflow:hidden;
+}
+
+.userdashboard-folderlink {
+    text-decoration:none;
+    font-size:2rem;
+    padding:1rem;
+    width:80%;
+    margin-top:1rem;
+    margin-bottom:1rem;
+    margin-left:auto;
+    margin-right:auto;
+    color:$accent-color;
+    display:block;
+    border-radius:20px;
+}
+
+.userdashboard-folderlink:hover {
+    background:$secondary-color-transparent;
+    color:$secondary-color;
+    cursor:pointer;
+}
+
+.userdashboard-resultlink {
+    text-decoration:none;
+    font-size:2rem;
+    padding:1rem;
+    color:$accent-color;
+    display:block;
+    border-radius:20px;
+    margin:1rem;
+}
+
+.userdashboard-resultlink:hover {
+    background:$secondary-color-transparent;
+    color:$secondary-color;
+    cursor:pointer;
+}
+
+
+
+// .userdashboard-article-flex {
+//     display:flex;
+//     justify-content:center;
+// }
+
+.userdashboard-sections {
+    width:90%;
+    border-radius:20px;
+    background:$lighter-primary-color;
+    padding:1rem;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:2rem;
+    margin-bottom:2rem;
+}
+
+
+
+.userdashboard-allresults-button {
+    text-decoration:none;
+    font-size:2rem;
+    border-radius:20px;
+    margin:2rem;
+    display:block;
+    padding:1rem;
+    color: $accent-color;
+    background:$secondary-color;
+}
+
+.userdashboard-allresults-button:hover {
+    background: $darkest-secondary-color;
+    cursor:pointer;
+}
+
+
+.userdashboard-myaccount-navlink {
+    text-decoration:none;
+    font-size:2rem;
+    border-radius:20px;
+    margin-top:6rem;
+    display:block;
+    width:80%;
+    padding:1rem;
+    color: $accent-color;
+    background:$secondary-color;
+    margin-left:auto;
+    margin-right:auto;
+    // @extend %centered-block;
+}
+
+.userdashboard-myaccount-navlink:hover {
+    background: $darkest-secondary-color;
+    cursor:pointer;
+}
+
+
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width:600px) and (max-width:900px) {
+}
+
+/**********  DESKTOP **************/
+@media screen and (min-width:900px) {
+    .userdashboard-article-flex {
+        display:flex;
+        justify-content:center;
+    }
+    
+    .userdashboard-sections {
+        width:35%;
+        margin:2rem;
+    }
+    
+    .userdashboard-myaccount-navlink {
+        width:20%;
+    }
+}

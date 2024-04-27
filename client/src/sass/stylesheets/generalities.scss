@@ -1,0 +1,373 @@
+/******* GENERALITES *******/
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+
+a,
+button {
+  transition:all 0.5s ease-in-out;
+}
+
+
+input,
+label,
+ {
+  transition:all 0.2s ease-in-out;
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: 
+  url('../assets/fonts/oswald/Oswald-VariableFont_wght.ttf');
+}
+
+body {
+	font-size: 1.9rem;
+	background: $primary-color;
+	margin: 0;
+	padding: 0;
+	line-height: 1.5;
+	font-family: "Oswald", sans-serif;
+	font-weight:400;
+	color: $accent-color;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight:550;
+}
+
+
+.img-responsive {
+    width:100%;
+    height:auto;
+}
+
+
+// INPUT RED AFTER INVALID VALUE
+.invalid-value input:valid {
+  border: 1px solid red;
+}
+form .invalid-textarea:valid {
+  border: 1px solid red;
+}
+.validated-form input:valid {
+  border: 1px solid green;
+}
+
+fieldset > input:focus {
+  border:1px solid $secondary-color;
+}
+
+fieldset > textarea:focus {
+  border:1px solid $secondary-color;
+}
+
+
+
+/******* CONTAINER *********/
+.container {
+	max-width: $container-width;
+	@extend %centered-block;
+}
+
+.main-admin-create-form {
+  padding-top:2rem;
+}
+
+
+// BREADCRUMBS
+.breadcrumbs {
+  text-align:left;
+  display:flex;
+  align-items:center;
+  margin-top:3rem;
+  margin-bottom:3rem;
+  margin-left:1.5rem;
+}
+
+.breadcrumbs-lastpage {
+  font-size:2rem;
+  color:$accent-color;
+  text-decoration:none;
+}
+
+.breadcrumbs-currentpage {
+  color:$secondary-color;
+  font-size:2rem;
+  display:block;
+}
+
+.breadcrumbs-lastpage:hover {
+  color:$secondary-color;
+  text-decoration:underline;
+}
+
+.breadcrumbs-currentpage:hover {
+  cursor:default;
+}
+// BREADCRUMBS
+
+/********* ANIMATION ***********/
+@keyframes reviews-slider {
+  0%,
+  16% {
+    transform:translateX(0);
+  }
+  20%,
+  36% {
+    transform:translateX(-100%);
+  }
+  40%,
+  56% {
+    transform:translateX(-200%);
+  }
+  60%,
+  76% {
+    transform:translateX(-300%);
+  }
+  80%,
+  96% {
+    transform:translateX(-400%);
+  }
+  100% {
+    transform:translateX(-500%);
+  }
+  
+}
+
+
+@keyframes article-reveal {
+  from {
+    transform:scale(0);
+    opacity:0;
+  }
+  to {
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+@keyframes img-slide-right {
+  from {
+    transform:translateX(100%);
+    opacity:O;
+  }
+  to {
+    transform:translateX(0);
+    opacity:1;
+  }
+  
+}
+
+@keyframes img-slide-left {
+  from {
+    transform:translateX(-100%);
+    opacity:O;
+  }
+  to {
+    transform:translateX(0);
+    opacity:1;
+  }
+  
+}
+
+
+/****** SCROLL INSPECTOR ********/
+@keyframes scroll-inspector {
+  from {
+    background-size:0% 10px;
+  }
+  to {
+    background-size:100% 10px;
+  }
+}
+
+.home-scroll-inspector {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:20px;
+  z-index:5200;
+  background: linear-gradient(to right, $secondary-color 100%, rgba(0,0,0,0) 100%);
+  background-repeat:no-repeat;
+  background-size:0;
+  transform-origin:left;
+  animation:scroll-inspector linear;
+  animation-timeline:scroll();
+  animation-range-end: cover 100%;
+  animation-range-start: cover 100px;
+}
+
+
+
+/*************** NOT FOUND PAGE *****************/
+.notfoundpage-main {
+  text-align:center;
+  padding-top:2rem;
+  padding-bottom:2rem;
+}
+
+
+// MODAL ----------------------
+.modal {
+  position:fixed;
+  top:20%;
+  left:0%;
+  width:100%;
+  padding:6rem;
+  border-radius:20px;
+  background:$primary-color;
+  color:$accent-color;
+  border:3px solid $secondary-color;
+  z-index:20000;
+}
+
+.modal p {
+  font-size:3rem;
+}
+
+.modal-background {
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background:rgba(0, 0, 0, 0.7);
+  z-index:6000;
+}
+
+.modal-cancel-button {
+  padding:1rem;
+  border-radius:20px;
+  border:0;
+  margin:1rem;
+  font-size:2rem;
+  color:$accent-color;
+  background:$secondary-color;
+}
+
+.modal-confirm-button {
+  padding:1rem;
+  margin:1rem;
+  border-radius:20px;
+  border:0;
+  font-size:2rem;
+  background:red;
+  color:$accent-color;
+}
+
+.modal-cancel-button:hover {
+  cursor:pointer;
+  background:$darkest-secondary-color;
+}
+
+.modal-confirm-button:hover {
+  cursor:pointer;
+  background:$disabled-delete-button;
+}
+
+
+.modal-confirm-edit-button {
+  padding:1rem;
+  margin:1rem;
+  border-radius:20px;
+  border:0;
+  font-size:2rem;
+  background:#00FF00;
+  color:$accent-color;
+}
+
+.modal-confirm-edit-button:hover {
+  cursor:pointer;
+  background:#006400;
+}
+
+
+.modal-valid-button {
+  padding:1rem;
+  border-radius:20px;
+  border:0;
+  margin:1rem;
+  font-size:2rem;
+  color:$accent-color;
+  background:$secondary-color;
+}
+
+.modal-valid-button:hover {
+  cursor:pointer;
+  background:$darkest-secondary-color;
+}
+
+.modal-form-select {
+  display:block;
+    border-radius:5px;
+    @extend %centered-block;
+    padding:1rem;
+    width: 90%;
+    margin-bottom:1rem;
+    background:$transparent;
+    color:$accent-color;
+    font-size:1.5rem;
+    transition:all 0.5s ease-in-out;
+}
+
+.modal-form-select:hover {
+    cursor:pointer;
+    background : $less-transparent;
+}
+
+.modal-form-select > option {
+    color:black;
+}
+
+iframe {
+  margin-bottom:6rem;
+  border: 5px solid $secondary-color;
+}
+
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width:600px) and (max-width:900px) {
+    .modal {
+      width:85%;
+    }
+    
+    iframe {
+      width:50%;
+    }
+}
+
+
+@media screen and (min-width:900px) and (max-width:1050px) {
+    .modal {
+      width:60%;
+    }
+    
+    iframe {
+      width:50%;
+    }
+}
+
+
+/**********  DESKTOP **************/
+@media screen and (min-width:1050px) {
+    .modal {
+      width:50%;
+    }
+    
+    iframe {
+      width:50%;
+    }
+}
+// MODAL ----------------------------

@@ -1,0 +1,39 @@
+/******* ABOUT US PAGE ********/
+.aboutpage-main {
+    text-align:center;
+    padding-left:2rem;
+    padding-right:2rem;
+}
+
+.aboutpage-article-title {
+    color:$secondary-color;
+    font-size:4rem;
+}
+
+.aboutpage-article>section>p {
+    color:$accent-color;
+    text-align:left;
+}
+
+.aboutpage-article>section {
+    margin-bottom:6rem;
+}
+
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width:600px) and (max-width:900px) {
+    
+    .aboutpage-img-float {
+        float:right;
+    }
+}
+
+
+/**********  DESKTOP **************/
+@media screen and (min-width:900px) {
+  
+    .aboutpage-img-float {
+        float:right;
+    }
+}

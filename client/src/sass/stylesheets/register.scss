@@ -1,0 +1,142 @@
+/********* REGISTER PAGE ************/
+.registerpage-main {
+    padding-bottom:15rem;
+    text-align:center;
+}
+
+.registerpage-article {
+    @extend %centered-block;
+    padding:1rem;
+    text-align:center;
+}
+
+.registerpage-input {
+    display:block;
+    @extend %centered-block;
+    width: 70%;
+    margin-bottom:2rem;
+}
+
+.registerpage-input-label {
+  position: relative;
+  border:0;
+  padding:0;
+}
+
+.registerpage-input-label input {
+  background : transparent;
+  border:1px solid $accent-color;
+  color: $accent-color;
+  padding:1rem;
+  border-radius:5px;
+  outline:none;
+  margin-top:0;
+}
+
+.registerpage-input-label label {
+  position: absolute;
+  font-size:2rem;
+  top : 30%;
+  left: 18%;
+  pointer-events:none;
+  transform: translateY(-50%);
+}
+
+.registerpage-input-label input:focus~ label,
+.registerpage-input-label input:valid ~ label {
+  top:0;
+  font-size:1.5rem;
+  background : $primary-color;
+  padding-left:3px;
+  padding-right:3px;
+}
+
+.registerpage-section-password-validator {
+    width:70%;
+    margin-right:auto;
+    margin-left:auto;
+    margin-bottom:3rem;
+}
+
+.registerpage-password-validator {
+    margin-top:1%;
+    margin-bottom:1%;
+    text-align:left;
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    transition:all 0.6s ease-in-out;
+}
+
+
+
+
+.registerpage-button {
+    padding-top:1rem;
+    padding-bottom:1rem;
+    border-radius:20px;
+    border:0;
+    font-size:2rem;
+    color: $accent-color;
+    background:$secondary-color;
+    display:block;
+    @extend %centered-block;
+    width:20rem;
+}
+
+.registerpage-button:hover {
+    background: $darkest-secondary-color;
+    cursor:pointer;
+    color:$accent-color;
+}
+
+
+.registerpage-navlink-register {
+    color:$accent-color;
+}
+
+.registerpage-navlink-register:hover {
+    color:$secondary-color;
+}
+
+
+/********* MEDIA QUERIES *************/
+/**********  TABLETTE **************/
+@media screen and (min-width:600px) and (max-width:900px) {
+    
+    .registerpage-article {
+        max-width:75%;
+    }
+}
+
+/**********  DESKTOP **************/
+@media screen and (min-width:900px) {
+    
+    
+    /********* REGISTER PAGE ************/
+    .registerpage-article {
+        max-width:40%;
+        border-radius:20px;
+        border:2px solid $secondary-color;
+        background:$transparent;
+    }
+    
+    .registerpage-input {
+        width: 80%;
+    }
+
+    .registerpage-article>h1 {
+        margin-top:1rem;
+        margin-bottom:1rem;
+    }
+    
+    .registerpage-input-label input:focus~ label,
+    .registerpage-input-label input:valid ~ label {
+      background : #242028;
+    }
+    
+    
+    .registerpage-input-label label {
+      left: 13%;
+    }
+}

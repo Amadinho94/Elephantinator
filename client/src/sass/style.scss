@@ -1,0 +1,90 @@
+@import './tools/_variables.scss';
+@import './tools/_functions.scss';
+
+// GENERALITIES
+@import './stylesheets/generalities.scss';
+
+// HEADER COMPONENT
+@import './stylesheets/header.scss';
+
+// FOOTER COMPONENT
+@import './stylesheets/footer.scss';
+
+// HOME PAGE
+@import './stylesheets/home.scss';
+
+// ABOUT US PAGE
+@import './stylesheets/about-us.scss';
+
+// ALL TUTORIALS PAGE
+@import './stylesheets/tutorials.scss';
+
+// BLOG PAGE
+@import './stylesheets/blog.scss';
+
+// CONTACT PAGE
+@import './stylesheets/contact.scss';
+
+// LOG IN PAGE
+@import './stylesheets/login.scss';
+
+// BLOG ARTICLE PAGE
+@import './stylesheets/blog-article.scss';
+
+// TUTORIAL ARTICLE PAGE
+@import './stylesheets/tutorial-article.scss';
+
+// REGISTRATION PAGE
+@import './stylesheets/register.scss';
+
+// USER stylesheets
+// PROFILE PAGE
+@import './stylesheets/user/account.scss';
+
+// UPDATE PASSWORD PAGE
+@import './stylesheets/user/updatepassword.scss';
+
+// UPDATE ACCOUNT PAGE
+@import './stylesheets/user/updateaccount.scss';
+
+// USER WORKSPACE
+// UPDATE PROFILE PAGE
+@import './stylesheets/user/workspace.scss';
+
+// UPDATE FOLDER PAGE
+@import './stylesheets/user/updatefolder.scss';
+
+// CREATE FOLDER PAGE
+@import './stylesheets/user/createfolder.scss';
+
+// CREATE FLASHCARD PAGE
+@import './stylesheets/user/createflashcard.scss';
+
+// UPDATE FLASHCARD PAGE
+@import './stylesheets/user/updateflashcard.scss';
+
+// USER DASHBOARD PAGE
+@import './stylesheets/user/userdashboard.scss';
+
+// FOLDER RESULTS PAGE
+@import './stylesheets/user/folderresults.scss';
+
+// ALL RESULTS PAGE
+@import './stylesheets/user/allresults.scss';
+
+
+// ADMIN stylesheets
+// ADMIN DASHBOARD MAIN PAGE
+@import './stylesheets/admin/admindashboard.scss';
+
+// ADMIN USER DASHBOARD PAGE
+@import './stylesheets/admin/adminusersdashboard.scss';
+
+// ADMIN ARTICLES DASHBOARD PAGE
+@import './stylesheets/admin/adminarticlesdashboard.scss';
+
+// ADMIN UPDATE ARTICLE FORM PAGE
+@import './stylesheets/admin/adminform.scss';
+
+// ADMIN ONE CONTACT PAGE
+@import './stylesheets/admin/admincontact.scss';

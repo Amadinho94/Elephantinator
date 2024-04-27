@@ -1,0 +1,245 @@
+/****************  HEADER COMPONENT  **********************/
+.header-background {
+    position:sticky;
+    top:0;
+    background:$primary-color;
+    z-index:5000;
+    padding:1rem;
+}
+
+.header-loggeduser-ppusername img {
+  width:50px;
+  height:50px;
+  border-radius:50%;
+}
+
+.header-loggeduser-ppusername {
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+
+.header-navlink.active {
+  background:transparent;
+}
+
+
+.header-scroll {
+  border-bottom:1px solid $secondary-color;
+}
+
+.header-border-bottom {
+  border-bottom:3px solid $secondary-color;
+}
+
+.header-logo-desktop {
+    width:100%;
+    height:auto;
+}
+
+.header-navbar-flex {
+  display:none;
+}
+  
+.header-flex figure {
+  width:100px;
+  margin:0;
+}
+
+.header-flex figure:hover {
+  cursor:pointer;
+}
+  
+.header-flex {
+  padding:2rem;
+  // text-align: center;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:1rem 1rem 0 1rem;
+  // max-width: $container-width;
+  // @extend %centered-block;
+}
+
+.header-loggeduser {
+  color : $accent-color;
+  @extend %navlink;
+  border-radius:30px;
+}
+
+.header-loggeduser:hover {
+  background: $secondary-color-transparent;
+  color: $secondary-color-lightened;
+}
+
+.header-navlink {
+  color : $neutral-color;
+  @extend %navlink;
+}
+
+.header-navlink:hover {
+  background: $secondary-color-transparent;
+  color: $secondary-color-lightened;
+}
+
+.header-navlink-login {
+  color: $accent-color;
+  background : $secondary-color;
+  @extend %navlink;
+}
+
+.header-navlink-login:hover {
+  background : $secondary-color-darkened;
+}
+
+
+.header-navlink.active {
+  @extend %hoverandactive-header-navlink;
+}
+
+.burger-menu-button {
+  display:block;
+  // position:absolute;
+  // top:20px;
+  // right:20px;
+  width:60px;
+  height:60px;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  z-index:15000;
+  padding-bottom:1rem;
+}
+
+.burger-menu-line {
+  height:6px;
+  width:100%;
+  margin:8px auto;
+  background:$secondary-color;
+  transition: all 0.4s ease;
+}
+
+.burger-menu-display {
+  position:fixed;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  background:$primary-color;
+  z-index:14000;
+  text-align:center;
+  padding-top:2rem;
+}
+
+.burger-navlink {
+  text-decoration:none;
+  color:$accent-color;
+  display:block;
+  margin-top:5rem;
+}
+
+.display-none {
+  display:none;
+}
+
+.burger-line-crossed .burger-menu-line:nth-child(1) {
+  transform: translateY(14px) rotate(45deg);
+}
+
+.burger-line-crossed .burger-menu-line:nth-child(2) {
+  opacity:0;
+}
+
+.burger-line-crossed .burger-menu-line:nth-child(3) {
+  transform: translateY(-14px) rotate(-45deg);
+}
+
+
+
+.dropdown-menu-loggeduser {
+  padding:1rem;
+  list-style:none;
+  position:absolute;
+  top:80px;
+  right:3%;
+  text-align:center;
+  width:250px;
+  background:$primary-color;
+  border: 5px solid $secondary-color;
+  border-radius: 20px;
+}
+
+.dropdown-menu-loggeduser li {
+  margin-bottom:3rem;
+  margin-top:1rem;
+}
+
+/********* MEDIA QUERIES *************/
+/*********** TABLETTE **************/
+@media screen and (min-width:600px) and (max-width:900px) {
+    
+
+  .header-navbar-flex {
+    display:none;
+  }
+  
+//   .header-navlink {
+//     border:1px solid $secondary-color;
+//   }
+  
+//   .header-navlink-login {
+//     border:1px solid $secondary-color;
+//   }
+}
+
+/**********  DESKTOP **************/
+@media screen and (min-width:900px) {
+  
+  .burger-menu-button  {
+    display:none;
+  }
+  
+  // .header-background {
+  //   position:sticky;
+  //   top:0;
+  //   background:$primary-color;
+  //   z-index:5000;
+  //   padding:1rem;
+  // }
+  
+  .header-border-bottom {
+    border-bottom:3px solid $secondary-color;
+  }
+  
+  // .header-scroll {
+  //   border-bottom:1px solid $secondary-color;
+  // }
+  
+  .header-logo-desktop {
+    width:10%;
+  }
+  
+  .header-flex {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    // padding:1rem 0 0 0;
+    max-width:$container-width;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  
+  
+  .header-navbar-flex {
+    width:60%;
+    display:flex;
+    align-items:center;
+    flex-direction:row;
+    justify-content:center;
+  }
+  
+  .header-logo-desktop {
+      width:100%;
+      height:auto;
+  }
+}
