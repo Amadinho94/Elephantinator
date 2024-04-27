@@ -36,8 +36,28 @@ Pour accéder aux images stockés dans le serveur
 ```
 VITE_API_URL = http://votreserveur
 ```
+4. Mettre l'url de votre serveur dans le fichier vite.config.js
+```
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
-4. Executer l'application en mode développement (démarrer le serveur)
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  server : {
+      host: true,
+      port: Saisissez le port d'écoute de votre front,
+      proxy: {
+        "/api" : {
+          target: "Saisissez l'url de votre serveur",
+          changeOrigin: true
+        }
+      }
+  }
+})
+```
+
+5. Executer l'application en mode développement (démarrer le serveur)
 ```
 npm run dev
 ```
@@ -70,7 +90,7 @@ npm i
 - Déclarer des variables d'environnement qui stockent les informations sensibles
 ```
 MONGO_URI = lien vers votre base de donnée
-PORT = définissez votre port d'écoute (par défaut à 9000)
+PORT = définissez votre port d'écoute
 BASE_URL = url de votre serveur
 CLIENT_URL = url de votre front
 JWT_SECRET = définissez un secret pour le JSONWEBTOKEN
