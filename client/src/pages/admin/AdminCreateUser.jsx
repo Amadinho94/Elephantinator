@@ -31,11 +31,14 @@ const AdminCreateUser = () => {
     
     const navigate = useNavigate()
     
+    
     useEffect(() => {
         scrollTo(0,0)
     }, [])
     
     
+    /* Fonction qui change la valeur des state en fonction 
+    des changements des champs du formulaire */
     const handleChange = (e) => {
         setInvalidName("")
         setInvalidUsername("")
@@ -76,6 +79,8 @@ const AdminCreateUser = () => {
         }
     }
     
+    
+    // Fonction qui créer un nouvel utilisateur
     const handleSubmit = async (e) => {
         e.preventDefault()
         
@@ -156,6 +161,10 @@ const AdminCreateUser = () => {
         
     }
     
+    
+    /* Fonction qui fait renvoie un check vert 
+    si l'argument est === true et renvoie une croix rouge si l'argument
+    est === false */
     const iconValidator = (isValid) => {
         return isValid ? <Check color="#14db22" /> : <X color="#db1414" />
     }
@@ -165,16 +174,21 @@ const AdminCreateUser = () => {
     return (
        <main className="container registerpage-main">
             
+            
+            {/******** Fil d'ariane **********/}
             <nav className="breadcrumbs">
                 <NavLink className="breadcrumbs-lastpage" to="/admin/tableaudebord" >Tableau de bord admin</NavLink> <ChevronsRight size={32} />
                 <NavLink className="breadcrumbs-lastpage" to="/admin/tableaudebord/gestionnaireutilisateurs">Gestionnaire d'utilisateurs</NavLink> <ChevronsRight size={32} />
                 <NavLink className="breadcrumbs-currentpage" to="#">Créer un utilisateur</NavLink>
             </nav>
             
-            <article className="registerpage-article">
+            {/******* Section du formulaire ********/}
+            <section className="registerpage-article">
             
                   <h1>Créez un utilisateur</h1>
                   <p>Veuillez saisir les informations demandées</p>
+                  
+                  {/****** Formulaire **********/}
                   <form onSubmit={handleSubmit} >
                       
                       <fieldset className={`registerpage-input-label ${invalidName}`}>
@@ -202,6 +216,8 @@ const AdminCreateUser = () => {
                         <label htmlFor="confirmedPassword" >Confirmer mot de passe</label>
                       </fieldset>
                       
+                      
+                      {/******* Section du validateur de mot de passe ********/}
                       {passwordValidator.isFocus &&
                         <section className="registerpage-section-password-validator">
                             <p className="registerpage-password-validator">{iconValidator(passwordValidator.lowercase)} 1 lettre minuscule minimum</p>
@@ -215,7 +231,7 @@ const AdminCreateUser = () => {
                       <button type="submit" className="registerpage-button"> S'inscrire </button>
                     
                   </form>
-            </article>
+            </section>
             
        </main>
     )
