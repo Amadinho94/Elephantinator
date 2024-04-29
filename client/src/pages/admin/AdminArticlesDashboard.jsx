@@ -16,14 +16,17 @@ const AdminArticlesDashboard = () => {
     const [updatePage, setUpdatePage] = useState(false)
     
     const [showDeleteModal, setShowDeleteModal] = useState(false)
+    
     const [showEditModal, setShowEditModal] = useState(false)
+    const [showConfirmEditModal, setShowConfirmEditModal] = useState(false)
     
     const [articleToDelete, setArticleToDelete] = useState(null)
     const [articleToEdit, setArticleToEdit] = useState(null)
     
     const [userUpdatedRole, setUserUpdatedRole] = useState({
-        role:""})
-    const [showConfirmEditModal, setShowConfirmEditModal] = useState(false)
+        role:""
+    })
+        
     
     const API_URL = import.meta.env.VITE_API_URL
     
@@ -49,8 +52,9 @@ const AdminArticlesDashboard = () => {
     }, [updatePage])
     
     
-    
+    // Fonction qui ferme les modales
     const handleHideModal = () => {
+        
         setShowDeleteModal(false)
         setShowEditModal(false)
         setShowConfirmEditModal(false)
@@ -60,13 +64,15 @@ const AdminArticlesDashboard = () => {
     }
     
     
-    
+    // Fonction qui affiche le modal de suppression
     const showConfirmDeleteModal = (articleIndex) => {
         setShowDeleteModal(true)
         document.body.style.overflow = "hidden"
         setArticleToDelete(articleIndex)
     }
     
+    
+    // Fonction qui supprime un article
     const handleDelete = async () => {
         
         setUpdatePage(!updatePage)
@@ -89,66 +95,28 @@ const AdminArticlesDashboard = () => {
     }
     
     
+    // Fonction qui redirige vers la page formulaire "modifier un article"
     const redirectToArticleEditForm = (articleIndex) => {
         setTimeout(() => {
                 navigate(`/admin/tableaudebord/gestionnairearticles/modifierarticle/${articleIndex}`)
         }, 100)
     }
     
-    // const handleChange = (e) => {
-    //     setUserUpdatedRole({...userUpdatedRole, role : e.target.value})
-    // }
-    
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     displayConfirmEditModal()
-    // }
-    
-    // const displayConfirmEditModal = () => {
-    //     setShowEditModal(false)
-    //     setShowConfirmEditModal(true)
-    // }
-    
-    const handleEdit = async () => {
-        setUpdatePage(!updatePage)
-        setShowConfirmEditModal(false)
-        document.body.style.overflow = ""
-        
-        try {
-            
-            if (userUpdatedRole.role !== "admin"
-            && userUpdatedRole.role !== "user") {
-                return toast.error("Role invalide")
-            }
-            
-            const serverRes = await axios.put(`/api/users/updatestatus/${userToEdit}`, userUpdatedRole, {headers : token()})
-            
-            setUserToEdit(null)
-            
-            return toast.success(serverRes.data.message)
-            
-            setUserUpdatedRole({
-                role:""
-            })
-            
-        } catch (e) {
-            
-            return toast.error(e.response.data.message)
-            
-        }
-    }
     
     
     return (
         <main className="adminarticlesdashboard-main container">
             
+            {/******* Fil d'ariane ********/}
             <nav className="breadcrumbs">
                 <NavLink className="breadcrumbs-lastpage" to="/admin/tableaudebord" >Tableau de bord admin</NavLink> <ChevronsRight size={32} />
                 <NavLink className="breadcrumbs-currentpage" to="#">Gestionnaire d'articles</NavLink>
             </nav>
             
+            
             <h1>Gestionnaire d'articles</h1>
             
+            {/****** Section d'en-tête de la page *******/}
             <section className="adminarticlesdashboard-header-section">
                 <figure className="adminarticlesdashboard-admin-pp">
                     <img className="img-responsive" src={`${API_URL}/profilPicture/${user.profilPicture}`} alt={`Photo de profil de ${user.username}`} />
@@ -157,8 +125,11 @@ const AdminArticlesDashboard = () => {
             </section>
                 
             
+            {/****** Bouton créer un article *********/} 
             <NavLink className="admindashboard-create-button" to="/admin/tableaudebord/gestionnairearticles/creerarticle"> Créer un article</NavLink>
             
+            
+            {/****** Tableau des articles *******/}
             <table className="admindashboard-table">
             
                 <thead>
@@ -199,6 +170,8 @@ const AdminArticlesDashboard = () => {
                 
             </table>
             
+            
+            {/****** Modal de suppression d'article ******/}
             {showDeleteModal && (
                 <>
                     <div onClick={() => handleHideModal()} className="modal-background"></div>

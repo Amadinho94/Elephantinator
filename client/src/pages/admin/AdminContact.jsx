@@ -1,6 +1,5 @@
 import { useEffect , useState } from 'react'
 import { NavLink , useNavigate , useParams} from 'react-router-dom'
-// import {useAuth} from '../../context/AuthContext'
 import axios from 'axios'
 import {toast} from 'react-toastify'
 import {token} from "../../context/token"
@@ -13,8 +12,9 @@ const AdminContact = () => {
     
     const [oneContact, setOneContact] = useState({})
     
+    /* Regex de voyelle pour adapter 
+    l'affichage à la première lettre du nom de l'utilisateur */
     const usernameFirstletter = /[aeiouyAEIOUYÀÁÂÃÄÅàáâãäåÈÉÊËèéêëÌÍÎÏìíîïÒÓÔÕÖØòóôõöøÙÚÛÜùúûüÝý]/ 
-    // const [toggle, setToggle] = useState(false)
     
     const [showDeleteModal, setShowDeleteModal] = useState(false)
     const [showEditModal, setShowEditModal] = useState(false)
@@ -33,11 +33,9 @@ const AdminContact = () => {
     
     
     
-    
     useEffect(() => {
 
         scrollTo(0,0)
-        // document.body.style.overflow = ""
         
         const fetchContact = async () => {
             
@@ -56,14 +54,19 @@ const AdminContact = () => {
     }, [])
     
     
+    // Fonction pour fermer les modales
     const handleHideModal = () => {
+        
         setShowEditModal(false)
         setShowConfirmEditModal(false)
         document.body.style.overflow = ""
         setContactToEdit(null)
     }
     
+    
+    // Fonction qui affiche le modal de changement de status d'un contact
     const displayEditModal = (contactIndex, contactStatus) => {
+        
         setShowEditModal(true)
         document.body.style.overflow = "hidden"
         setContactToEdit(contactIndex)
@@ -73,27 +76,42 @@ const AdminContact = () => {
         })
     }
     
+    
+    // Fonction qui change la valeur du status du contact
     const handleChange = (e) => {
+        
         setContactUpdatedStatus({...contactUpdatedStatus, status : e.target.value})
     }
     
+    
+    // Fonction qui appel la fonction qui va afficher le modal de confirmation de modification de status d'un contact
     const handleSubmit = (e) => {
+        
         e.preventDefault()
         displayConfirmEditModal()
     }
     
+    
+    // Fonction qui affiche le modal de confirmation de modification de status d'un contact
     const displayConfirmEditModal = () => {
+        
         setShowEditModal(false)
         setShowConfirmEditModal(true)
     }
     
+    
+    // Fonction qui modifie le status d'un contact 
     const handleEdit = async () => {
+        
         if (contactUpdatedStatus.status !== "in progress"
         && contactUpdatedStatus.status !== "completed") {
+            
             setShowEditModal(true)
             setShowConfirmEditModal(false)
             return toast.error("Status invalide")
+            
         } else if (contactUpdatedStatus.status === contactPreviousStatus) {
+            
             setShowEditModal(true)
             setShowConfirmEditModal(false)
             return toast.error("Vous n'avez fait aucune modification")
@@ -105,13 +123,14 @@ const AdminContact = () => {
         
         try {
             
-            
             const serverRes = await axios.put(`/api/contacts/update/${contactToEdit}`, contactUpdatedStatus, {headers : token()})
             
             setContactToEdit(null)
             
             setTimeout(() => {
+                
                 navigate("/admin/tableaudebord/gestionnairecontacts")
+                
             }, 100)
             
             return toast.success(serverRes.data.message)
@@ -129,6 +148,8 @@ const AdminContact = () => {
         
         <main className="admincontact-main">
             
+            
+            {/******** Breadcrumbs ***********/}
             <nav className="breadcrumbs">
                 <NavLink className="breadcrumbs-lastpage" to="/admin/tableaudebord" >Tableau de bord admin</NavLink> <ChevronsRight size={32} /> 
                 <NavLink className="breadcrumbs-lastpage" to="/admin/tableaudebord/gestionnairecontacts">Gestionnaire de contacts</NavLink> <ChevronsRight size={32} />
@@ -138,6 +159,8 @@ const AdminContact = () => {
             
             <h1>Message {usernameFirstletter.test(oneContact.username) ? "d'" : "de"} {oneContact.username}</h1>
             
+            
+            {/****** Section des informations de l'utilisateur ayant laissé le message *******/}
             <section className="admincontact-user-info">
                 <h2 className="admincontact-subtitle">Informations de l'utilisateur</h2>
                 <p>Prénom : {oneContact.username}</p>
@@ -147,6 +170,8 @@ const AdminContact = () => {
                 <p>Status du message : {oneContact.status}</p>
             </section>
             
+            
+            {/******* Section du message de l'utilisateur ********/}
             <section>
                 <h2 className="admincontact-subtitle">Message de l'utilisateur</h2>
                 <section className="admincontact-usermessage">
@@ -154,11 +179,15 @@ const AdminContact = () => {
                 </section>
             </section>
             
+            
+            {/****** Bouton modifier le status du message ******/}
             <section className="admincontactpage-status">
                 <p>Status : {oneContact.status}</p>
                 <button onClick={() => displayEditModal(oneContact._id, oneContact.status)} className="admincontactpage-update-button">Modifier le status</button>
             </section>
             
+            
+            {/****** Modal de modification de status ********/}
             {showEditModal && (
                     <>
                         <div onClick={() => handleHideModal()} className="modal-background"></div>
@@ -178,6 +207,8 @@ const AdminContact = () => {
                     </>
                 )}
                 
+                
+                {/****** Modal de confirmation de modification de status ********/}
                 {showConfirmEditModal && (
                     <>
                         <div onClick={() => handleHideModal()} className="modal-background"></div>
