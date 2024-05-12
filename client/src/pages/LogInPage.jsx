@@ -3,7 +3,8 @@ import {useEffect, useState} from 'react'
 import {toast} from "react-toastify"
 import axios from 'axios'
 import {useAuth} from '../context/AuthContext'
-import { User, Lock } from 'lucide-react';
+import { User, Lock , Eye , EyeOff } from 'lucide-react'
+
 
 const LogInPage = () => {
     
@@ -13,6 +14,8 @@ const LogInPage = () => {
     })
     const [invalidEmail, setInvalidEmail] = useState("")
     const [invalidPassword, setInvalidPassword] = useState("")
+    const [togglePWD, setTogglePWD] = useState(false)
+    
     
     const navigate = useNavigate()
     
@@ -31,6 +34,12 @@ const LogInPage = () => {
         const {name, value} = e.target
         setInputValue({...inputValue, [name] : value})
     }
+    
+    
+    const togglePasswordVisibility = () => {
+        setTogglePWD(!togglePWD)
+    }
+    
     
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -98,7 +107,12 @@ const LogInPage = () => {
                           
                           <fieldset className={`loginpage-input-label ${invalidPassword}`}>
                             <Lock className="input-icon" color="#ffffff" />
-                            <input  onChange={handleChange} value={inputValue.password} name="password" type="password" className="loginpage-input" required />
+                            {!togglePWD ? (
+                                <Eye onClick={togglePasswordVisibility} className="password-visibility"/>
+                            ) : (
+                                <EyeOff onClick={togglePasswordVisibility} className="password-visibility" />
+                            )}
+                            <input  onChange={handleChange} value={inputValue.password} name="password" type={togglePWD ? "text" : "password"} className="loginpage-input" required />
                             <label htmlFor="password" >Mot de passe</label>
                           </fieldset>
                           

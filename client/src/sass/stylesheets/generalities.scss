@@ -6,6 +6,7 @@
 
 html {
 	font-size: 62.5%;
+	scroll-behavior : smooth;
 }
 
 
@@ -84,7 +85,7 @@ fieldset > textarea:focus {
 }
 
 
-// BREADCRUMBS
+/***** BREADCRUMBS ******/
 .breadcrumbs {
   text-align:left;
   display:flex;
@@ -95,14 +96,14 @@ fieldset > textarea:focus {
 }
 
 .breadcrumbs-lastpage {
-  font-size:2rem;
+  font-size:1.7rem;
   color:$accent-color;
   text-decoration:none;
 }
 
 .breadcrumbs-currentpage {
   color:$secondary-color;
-  font-size:2rem;
+  font-size:1.7rem;
   display:block;
 }
 
@@ -114,7 +115,37 @@ fieldset > textarea:focus {
 .breadcrumbs-currentpage:hover {
   cursor:default;
 }
-// BREADCRUMBS
+
+
+/***** Password visibility ********/
+.password-visibility {
+  position: absolute;
+  right: 4%;
+  top: 25%;
+}
+
+.password-visibility:hover {
+  cursor: pointer;
+}
+
+.loginpage-input-label input {
+  padding-right: 4rem;
+}
+
+.register-password-visibility {
+  position: absolute;
+  right: 6%;
+  top: 25%;
+  cursor: pointer;
+}
+
+.update-password-visibility {
+  position: absolute;
+  right: 4%;
+  top: 25%;
+  cursor: pointer;
+}
+
 
 /********* ANIMATION ***********/
 @keyframes reviews-slider {
@@ -346,6 +377,12 @@ iframe {
     iframe {
       width:50%;
     }
+    
+    .register-password-visibility {
+      right: 6%;
+    }
+    
+    
 }
 
 
@@ -356,6 +393,14 @@ iframe {
     
     iframe {
       width:50%;
+    }
+    
+    .register-password-visibility {
+      right: 5%;
+    }
+    
+    .update-password-visibility {
+      right: 5%;
     }
 }
 
@@ -369,5 +414,21 @@ iframe {
     iframe {
       width:50%;
     }
+    
+    /***** Password visibility ********/
+    .password-visibility {
+      top: 20%;
+    }
+    
+    .loginpage-input-label input {
+      padding-right: 7rem;
+    }
+    
+    .register-password-visibility {
+      right: 9%;
+    }
+    
+    .update-password-visibility {
+      right: 4%;
+    }
 }
-// MODAL ----------------------------

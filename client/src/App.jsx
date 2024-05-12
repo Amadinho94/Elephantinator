@@ -1,6 +1,5 @@
 import  {Routes, Route} from 'react-router-dom'
 import '../src/sass/style.css'
-// import '../src/sass/style.scss'
 import PrivateRoute from './PrivateRoute/PrivateRoute'
 
 

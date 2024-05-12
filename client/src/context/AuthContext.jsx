@@ -94,8 +94,7 @@ export const AuthProvider = ({children}) => {
                 }
                 
             } catch (e) {
-                
-                toast.error(e.response.data.message)
+                localStorage.removeItem("userToken")
             }
         }
         

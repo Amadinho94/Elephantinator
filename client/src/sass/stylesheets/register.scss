@@ -27,17 +27,19 @@
   background : transparent;
   border:1px solid $accent-color;
   color: $accent-color;
-  padding:1rem;
+  padding:2rem;
+  width: 100%;
+  font-size: 2rem;
   border-radius:5px;
   outline:none;
-  margin-top:0;
+  margin-top: 0;
 }
 
 .registerpage-input-label label {
   position: absolute;
   font-size:2rem;
-  top : 30%;
-  left: 18%;
+  top : 35%;
+  left: 7%;
   pointer-events:none;
   transform: translateY(-50%);
 }
@@ -52,7 +54,7 @@
 }
 
 .registerpage-section-password-validator {
-    width:70%;
+    width:100%;
     margin-right:auto;
     margin-left:auto;
     margin-bottom:3rem;
@@ -72,16 +74,17 @@
 
 
 .registerpage-button {
-    padding-top:1rem;
-    padding-bottom:1rem;
+    padding-top:2rem;
+    padding-bottom:2rem;
+    margin-top: 2rem;
     border-radius:20px;
     border:0;
-    font-size:2rem;
+    font-size:3rem;
     color: $accent-color;
     background:$secondary-color;
     display:block;
     @extend %centered-block;
-    width:20rem;
+    width:25rem;
 }
 
 .registerpage-button:hover {
@@ -106,6 +109,10 @@
     
     .registerpage-article {
         max-width:75%;
+    }
+    
+    .registerpage-input-label label {
+      left: 6%;
     }
 }
 
@@ -138,5 +145,23 @@
     
     .registerpage-input-label label {
       left: 13%;
+    }
+    
+    .registerpage-input-label input {
+      padding:2rem;
+      width: 90%;
+    }
+    
+    .registerpage-input-label label {
+      font-size:2rem;
+      top : 35%;
+      left: 10%;
+    }
+    
+    .registerpage-button {
+        padding-top:1rem;
+        padding-bottom:1rem;
+        font-size:2rem;
+        width:20rem;
     }
 }

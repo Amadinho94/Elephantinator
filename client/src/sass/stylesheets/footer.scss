@@ -49,16 +49,18 @@
   background : transparent;
   border:1px solid $accent-color;
   color: $accent-color;
-  padding:0.5rem;
+  padding:1.5rem;
+  font-size: 2rem;
+  width: 90%;
   border-radius:5px;
   outline:none;
 }
 
 .footer-newsletters-position label {
   position: absolute;
-  font-size:1.3rem;
+  font-size:2rem;
   top : 50%;
-  left: 32%;
+  left: 10%;
   pointer-events:none;
   transform: translateY(-50%);
 }
@@ -82,8 +84,9 @@
   border:0;
   cursor:pointer;
   border-radius:20px;
-  padding:1rem;
+  padding:2rem;
   margin:1rem;
+  font-size: 2rem;
 }
 
 .footer-newsletters-form>button:hover {
@@ -123,14 +126,17 @@
     width:45%;
   }
   
-  .footer-newsletters-position label {
-    position: absolute;
-    font-size:1.3rem;
-    top : 50%;
-    left: 25%;
-    pointer-events:none;
-    transform: translateY(-50%);
+  .footer-newsletters-position input {
+    padding:1rem;
+    font-size: 1.6rem;
   }
+  
+  .footer-newsletters-position label {
+    font-size:1.6rem;
+    left: 10%;
+    top: 43%;
+  }
+  
 }
 
 /**********  DESKTOP **************/
@@ -143,12 +149,19 @@
     width:25%;
   }
   
+  .footer-newsletters-position input {
+    padding:1rem;
+    font-size: 1.6rem;
+  }
+  
   .footer-newsletters-position label {
-    position: absolute;
-    font-size:1.3rem;
-    top : 50%;
-    left: 70px;
-    pointer-events:none;
-    transform: translateY(-50%);
+    font-size:1.6rem;
+    left: 10%;
+    top: 43%;
+  }
+  
+  .footer-newsletters-form>button {
+    padding:1.5rem;
+    font-size: 1.6rem;
   }
 }

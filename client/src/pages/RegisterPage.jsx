@@ -2,7 +2,7 @@ import {NavLink, useNavigate} from 'react-router-dom'
 import {useEffect, useState} from 'react'
 import axios from 'axios'
 import {toast} from 'react-toastify'
-import { X, Check } from 'lucide-react';
+import { X , Check , Eye , EyeOff } from 'lucide-react';
 import {useAuth} from '../context/AuthContext'
 
 const RegisterPage = () => {
@@ -28,6 +28,8 @@ const RegisterPage = () => {
     const [invalidUsername, setInvalidUsername] = useState("")
     const [invalidPassword, setInvalidPassword] = useState("")
     const [invalidConfirmedPassword, setInvalidConfirmedPassword] = useState("")
+    const [togglePWD, setTogglePWD] = useState(false)
+    const [toggleConfirmedPWD, setToggleConfirmedPWD] = useState(false)
     
     const [confirmedPassword, setConfirmedPassword] = useState("")
     
@@ -77,6 +79,17 @@ const RegisterPage = () => {
            setConfirmedPassword(value) 
         }
     }
+    
+    
+    const togglePasswordVisibility = () => {
+        setTogglePWD(!togglePWD)
+    }
+    
+    
+    const toggleConfirmedPasswordVisibility = () => {
+        setToggleConfirmedPWD(!toggleConfirmedPWD)
+    }
+    
     
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -158,6 +171,7 @@ const RegisterPage = () => {
         
     }
     
+    
     const iconValidator = (isValid) => {
         return isValid ? <Check color="#14db22" /> : <X color="#db1414" />
     }
@@ -193,14 +207,29 @@ const RegisterPage = () => {
                           </fieldset>
                           
                           <fieldset className={`registerpage-input-label ${invalidPassword}`}>
-                            <input onChange={handleChange} value={inputValue.password} name="password" type="password" className="registerpage-input" required />
+                          
+                            {!togglePWD ? (
+                                <Eye onClick={togglePasswordVisibility} className="register-password-visibility"/>
+                            ) : (
+                                <EyeOff onClick={togglePasswordVisibility} className="register-password-visibility" />
+                            )}
+                            <input onChange={handleChange} value={inputValue.password} name="password" type={togglePWD ? "text" : "password"} className="registerpage-input" required />
                             <label htmlFor="password" >Mot de passe</label>
+                          
                           </fieldset>
                           
                           <fieldset className={`registerpage-input-label ${invalidConfirmedPassword}`}>
-                            <input onChange={handleChange} value={confirmedPassword} name="confirmedPassword" type="password" className="registerpage-input" required />
+                            
+                            {!toggleConfirmedPWD ? (
+                                <Eye onClick={toggleConfirmedPasswordVisibility} className="register-password-visibility"/>
+                            ) : (
+                                <EyeOff onClick={toggleConfirmedPasswordVisibility} className="register-password-visibility" />
+                            )}
+                            <input onChange={handleChange} value={confirmedPassword} name="confirmedPassword" type={toggleConfirmedPWD ? "text" : "password"} className="registerpage-input" required />
                             <label htmlFor="confirmedPassword" >Confirmer mot de passe</label>
+                          
                           </fieldset>
+                          
                           
                           {passwordValidator.isFocus &&
                             <section className="registerpage-section-password-validator">

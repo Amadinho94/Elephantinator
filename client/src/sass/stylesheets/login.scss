@@ -6,7 +6,7 @@
 
 .loginpage-article {
     @extend %centered-block;
-    padding:4rem;
+    padding:2rem;
     text-align:center;
 }
 
@@ -14,7 +14,7 @@
     display:block;
     @extend %centered-block;
     margin-top:2rem;
-     width:80%;
+    width:80%;
     margin-bottom:2rem;
     padding:1rem;
     border-radius:10px;
@@ -22,16 +22,16 @@
 }
 
 .loginpage-button {
-    padding-top:1rem;
-    padding-bottom:1rem;
+    padding: 2rem;
     border-radius:20px;
     border:0;
-    font-size:2rem;
+    font-size:2.5rem;
+    margin-top: 2rem;
     color:$accent-color;
     background:$secondary-color;
     display:block;
     @extend %centered-block;
-    width:20rem;
+    width: 25rem;
 }
 
 
@@ -52,26 +52,28 @@
 
 .input-icon {
     position: absolute;
-    left:12%;
-    top:10%;
+    left:5%;
+    top:25%;
 }
 
 .loginpage-input-label input {
   background : transparent;
   border:1px solid $accent-color;
   color: $accent-color;
-  padding:1rem;
   border-radius:5px;
   outline:none;
   margin-top:0;
-  padding-left:4rem;
+  padding: 2.5rem;
+  font-size: 2rem;
+  width: 100%;
+  padding-left:5rem;
 }
 
 .loginpage-input-label label {
   position: absolute;
   font-size:2rem;
-  top : 30%;
-  left: 22%;
+  top : 35%;
+  left: 18%;
   pointer-events:none;
   transform: translateY(-50%);
 }
@@ -105,7 +107,25 @@
     }
     
     .loginpage-input-label label {
-      left: 18%;
+      left: 12%;
+    }
+    
+    .loginpage-input-label input {
+      padding: 2rem;
+      font-size: 1.5rem;
+      width: 100%;
+      padding-left:6rem;
+    }
+    
+    .input-icon {
+        position: absolute;
+        left:4%;
+        top: 20%;
+    }
+    
+    .loginpage-button {
+        padding :2rem;
+        width:20rem;
     }
 }
 /**********  DESKTOP **************/
@@ -124,6 +144,7 @@
         border:2px solid $secondary-color;
         border-radius:20px;
         background: $transparent;
+        padding:4rem;
     }
     
     .loginpage-input-label label {
@@ -132,11 +153,24 @@
     
     .input-icon {
         position: absolute;
-        left:7%;
+        left:5%;
+        top: 20%;
+    }
+    
+    .loginpage-input-label input {
+      padding: 2rem;
+      font-size: 1.5rem;
+      width: 100%;
+      padding-left:6rem;
     }
     
     .loginpage-input-label input:focus~ label,
     .loginpage-input-label input:valid ~ label {
       background : #242028;
+    }
+    
+    .loginpage-button {
+        padding :1rem;
+        width:20rem;
     }
 }

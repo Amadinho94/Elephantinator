@@ -3,24 +3,28 @@ import {toast} from 'react-toastify'
 import axios from 'axios'
 import {useAuth} from '../../context/AuthContext'
 import {token} from "../../context/token"
-import { X, Check, ChevronsRight } from 'lucide-react';
-import {useNavigate, NavLink} from 'react-router-dom'
+import { X , Check , ChevronsRight , Eye , EyeOff  } from 'lucide-react';
+import { useNavigate , NavLink } from 'react-router-dom'
+
 
 const UpdatePassword = () => {
-    
-    const navigate = useNavigate()
     
     const [userPassword, setUserPassword] = useState({
         previousPWD : "",
         newPWD : "",
     })
-    const [confirmedPWD, setConfirmedPWD] = useState("")
+    
+    const navigate = useNavigate()
     
     const {previousPWD, newPWD} = userPassword
     
+    const [confirmedPWD, setConfirmedPWD] = useState("")
     const [invalidPreviousPassword, setInvalidPreviousPassword] = useState("")
     const [invalidNewPassword, setInvalidNewPassword] = useState("")
     const [invalidConfirmedPassword, setInvalidConfirmedPassword] = useState("")
+    const [togglePWD, setTogglePWD] = useState(false)
+    const [toggleConfirmedPWD, setToggleConfirmedPWD] = useState(false)
+    const [togglePreviousPWD, setTogglePreviousPWD] = useState(false)
     
     const [passwordValidator, setPasswordValidator] = useState({
         minLength: false,
@@ -29,7 +33,9 @@ const UpdatePassword = () => {
         specialCharacter : false
     })
     
+    
     const {user, update} = useAuth()
+    
     
     useEffect(() => {
         scrollTo(0,0)
@@ -76,6 +82,21 @@ const UpdatePassword = () => {
         if (name === "confirmedPWD") {
             setConfirmedPWD(value)
         }
+    }
+    
+    
+    const togglePasswordVisibility = () => {
+        setTogglePWD(!togglePWD)
+    }
+    
+    
+    const toggleConfirmedPasswordVisibility = () => {
+        setToggleConfirmedPWD(!toggleConfirmedPWD)
+    }
+    
+    
+    const togglePreviousPasswordVisibility = () => {
+        setTogglePreviousPWD(!togglePreviousPWD)
     }
     
     
@@ -142,6 +163,7 @@ const UpdatePassword = () => {
         }
     }
     
+    
     const iconValidator = (isValid) => {
         return isValid ? <Check color="#14db22" /> : <X color="#db1414" />
     }
@@ -161,19 +183,42 @@ const UpdatePassword = () => {
                 <form onSubmit={handleSubmit}>
                 
                     <fieldset className={`updatepasswordpage-input-label ${invalidPreviousPassword}`}>
-                        <input onChange={handleChange} value={previousPWD} name="previousPWD" type="password" className="updatepasswordpage-input" required />
+                    
+                        {!togglePreviousPWD ? (
+                            <Eye onClick={togglePreviousPasswordVisibility} className="update-password-visibility"/>
+                        ) : (
+                            <EyeOff onClick={togglePreviousPasswordVisibility} className="update-password-visibility" />
+                        )}
+                        
+                        <input onChange={handleChange} value={previousPWD} name="previousPWD" type={togglePreviousPWD ? "text" : "password"} className="updatepasswordpage-input" required />
                         <label htmlFor="previousPWD" >Mot de passe actuel</label>
+                   
                    </fieldset>
                   
                    <fieldset className={`updatepasswordpage-input-label ${invalidNewPassword}`}>
-                        <input onChange={handleChange} value={newPWD} name="newPWD" type="password" className="updatepasswordpage-input" required />
+                        
+                        {!togglePWD ? (
+                            <Eye onClick={togglePasswordVisibility} className="update-password-visibility"/>
+                        ) : (
+                            <EyeOff onClick={togglePasswordVisibility} className="update-password-visibility" />
+                        )}
+                        <input onChange={handleChange} value={newPWD} name="newPWD" type={togglePWD ? "text" : "password"} className="updatepasswordpage-input" required />
                         <label htmlFor="newPWD" >Nouveau mot de passe</label>
+                   
                    </fieldset>
                    
                    <fieldset className={`updatepasswordpage-input-label ${invalidConfirmedPassword}`}>
-                        <input onChange={handleChange} value={confirmedPWD} name="confirmedPWD" type="password" className="updatepasswordpage-input" required />
+                        
+                        {!toggleConfirmedPWD ? (
+                            <Eye onClick={toggleConfirmedPasswordVisibility} className="update-password-visibility"/>
+                        ) : (
+                            <EyeOff onClick={toggleConfirmedPasswordVisibility} className="update-password-visibility" />
+                        )}
+                        <input onChange={handleChange} value={confirmedPWD} name="confirmedPWD" type={toggleConfirmedPWD ? "text" : "password"} className="updatepasswordpage-input" required />
                         <label htmlFor="confirmedPWD" >Confirmez mot de passe </label>
+                   
                    </fieldset>
+                   
                    
                    {passwordValidator.isFocus &&
                         <section className="registerpage-section-password-validator">

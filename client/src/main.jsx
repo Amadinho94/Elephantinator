@@ -8,9 +8,6 @@ import { AuthProvider } from './context/AuthContext'
 
 
 
-// FONT (TEXTES) : Truculenta
-// FONT (TITRES) : Oswald
-
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

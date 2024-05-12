@@ -27,18 +27,20 @@
   background : transparent;
   border:1px solid $accent-color;
   color: $accent-color;
-  padding:1rem;
-  border-radius:5px;
-  outline:none;
-  display:block;
+  padding: 2.5rem;
+  border-radius: 5px;
+  font-size: 2rem;
+  outline: none;
+  display: block;
+  width: 100%;
 }
 
 
 .contactpage-input-label label {
   position: absolute;
   font-size:1.8rem;
-  top : 30%;
-  left: 10%;
+  top : 38%;
+  left: 8%;
   pointer-events:none;
   transform: translateY(-50%);
 }
@@ -59,7 +61,7 @@
     border-radius:5px;
     @extend %centered-block;
     padding:1rem;
-    width: 90%;
+    width: 100%;
     margin-bottom:1rem;
     background:$transparent;
     color:$accent-color;
@@ -77,24 +79,25 @@
 
 .contactpage-textarea {
     display:block;
-    width: 90%;
+    width: 100%;
     @extend %centered-block;
     border:1px solid $accent-color;
     margin-bottom:2rem;
-    padding:1rem;
+    padding: 2.5rem;
     border-radius:10px;
-    height:100px;
+    height: 300px;
+    font-size: 2rem;
     background:transparent;
     color:$accent-color;
 }
 
 
 .contactpage-form-button {
-    padding-top:1rem;
-    padding-bottom:1rem;
+    padding-top:2rem;
+    padding-bottom:2rem;
     border-radius:20px;
     border:0;
-    font-size:2rem;
+    font-size:3rem;
     color: $accent-color;
     background:$secondary-color;
     display:block;
@@ -114,18 +117,25 @@
 /*********** TABLETTE **************/
 @media screen and (min-width:600px) and (max-width:900px) {
     
-    /****** CONTACT PAGE *****/
     .contactpage-article {
         max-width:75%;
         margin-left:auto;
         margin-right:auto;
+    }
+    
+    .contactpage-input-label label {
+      top : 40%;
+      left: 5%;
+    }
+    
+    .contactpage-textarea {
+        height: 500px;
     }
 }
 
 /**********  DESKTOP **************/
 @media screen and (min-width:900px) {
     
-    /****** CONTACT PAGE *****/
     .contactpage-article {
         max-width:40%;
         margin-left:auto;
@@ -154,5 +164,30 @@
     .contactpage-input-label input:focus~ label,
     .contactpage-input-label input:valid ~ label {
       background : #242028;
+    }
+    
+    .contactpage-input-label input {
+      font-size: 2rem;
+      padding: 1rem 1rem 1rem 1.5rem;
+      width: 90%;
+    }
+    
+    
+    .contactpage-input-label label {
+      top : 30%;
+      left: 9%;
+    }
+    
+    .contactpage-textarea {
+        width: 90%;
+        padding:1.5rem;
+        font-size: 1.5rem;
+        height: 300px;
+    }
+    
+    .contactpage-form-button {
+        padding:1rem;
+        font-size:2rem;
+        width:20rem;
     }
 }
