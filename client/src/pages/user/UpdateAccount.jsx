@@ -1,9 +1,9 @@
-import {useAuth} from '../../context/AuthContext'
-import {useState, useEffect} from 'react'
-import {toast} from 'react-toastify'
-import {token} from "../../context/token"
+import { useAuth } from '../../context/AuthContext'
+import { useState , useEffect } from 'react'
+import { toast } from 'react-toastify'
+import { token } from "../../context/token"
 import axios from 'axios'
-import {useNavigate, NavLink} from 'react-router-dom'
+import { useNavigate , NavLink } from 'react-router-dom'
 import { ChevronsRight } from 'lucide-react';
 
 const UpdateAccount = () => {
@@ -11,35 +11,17 @@ const UpdateAccount = () => {
     const navigate = useNavigate()
     const {user, update} = useAuth()
  
-        const [inputValue, setInputValue] = useState({
+    const [inputValue, setInputValue] = useState({
             name : "",
             username : "",
             email : "",
             profilPicture : ""
         })
-        const [previousValue, setPreviousValue] = useState({
+    const [previousValue, setPreviousValue] = useState({
             prevName : "",
             prevUsername : "",
             prevEmail : ""
         })
-        
-        useEffect(() => {
-            scrollTo(0,0)
-            setInputValue({
-                name : user.name,
-                username : user.username,
-                email : user.email
-            })
-            
-            setPreviousValue({
-                prevName : user.name,
-                prevUsername : user.username,
-                prevEmail : user.email
-            })
-        }, [user])
-    
-
-
     const [invalidName, setInvalidName] = useState("")
     const [invalidUsername, setInvalidUsername] = useState("")
     const [invalidEmail, setInvalidEmail] = useState("")
@@ -47,6 +29,26 @@ const UpdateAccount = () => {
     const [toggle, setToggle] = useState(false)
     
     
+    useEffect(() => {
+        
+        scrollTo(0,0)
+        
+        setInputValue({
+            name : user.name,
+            username : user.username,
+            email : user.email
+        })
+        
+        setPreviousValue({
+            prevName : user.name,
+            prevUsername : user.username,
+            prevEmail : user.email
+        })
+        
+    }, [user])
+    
+    
+    /* Fonction qui change la valeur des states en fonction de la valeur des champs */
     const handleChange = (e) => {
         setInvalidName("")
         setInvalidUsername("")
@@ -64,10 +66,10 @@ const UpdateAccount = () => {
         }
     }
     
-    
+    /* Fonction qui soumet le formulaire */
     const handleSubmit = async (e) => {
-        e.preventDefault()
         
+        e.preventDefault()
         
         try {
             
@@ -150,8 +152,11 @@ const UpdateAccount = () => {
             }, 100)
             
             update()
+            
         } catch (e) {
+            
             toast.error(e.response.data.message)
+            
         }
         
     }
@@ -160,15 +165,20 @@ const UpdateAccount = () => {
     return (
         <main className="updateaccountpage-main container">
             
+            {/***** Fil d'ariane ********/}
             <nav className="breadcrumbs">
                 <NavLink className="breadcrumbs-lastpage" to="/user/moncompte" >Mon compte</NavLink> <ChevronsRight size={32} />
                 <NavLink className="breadcrumbs-currentpage" to="#">Modifier mes informations</NavLink>
             </nav>
             
+            {/**** Contenu principal ****/}
             <section className="updateaccountpage-section">
+            
                 <h1>Modifier mes informations</h1>
                 
+                {/**** Formulaire *****/}
                 <form encType="multipart/form-data" onSubmit={handleSubmit}>
+                
                     <fieldset className={`updateaccountpage-input-label ${invalidName}`}>
                         <input onChange={handleChange} value={inputValue.name} name="name" type="text" className="updateaccountpage-input" required />
                         <label htmlFor="name" >Votre nom</label>
@@ -189,11 +199,12 @@ const UpdateAccount = () => {
                         <label htmlFor="profilPicture" >Photo de profil</label>
                    </fieldset>
                     
+                    <button type="submit" className="updateaccountpage-form-button"> Valider </button>
                     
-                    <button type="submit" className="updateaccountpage-form-button"> Valider </button>    
                 </form>
                 
             </section>
+            
         </main>
     )
 }

@@ -18,12 +18,10 @@ const UpdateFlashcard = () => {
          versoContent : ""
     })
     const [previousFlashcard, setPreviousFlashcard] = useState([])
-    
     const [invalidTitle, setInvalidTitle] = useState("")
     const [invalidRecto, setInvalidRecto] = useState("")
     const [invalidVerso, setInvalidVerso] = useState("")
     const [toggle, setToggle] = useState(false)
-    
     
     useEffect(() => {
 
@@ -51,10 +49,12 @@ const UpdateFlashcard = () => {
     }, [toggle])
     
     
+    /* S'execute après 0,5 seconde pour réexecuter le use Effect et remplir les champs avec les anciennes valeurs */
     setTimeout(() => {
             setToggle(true)
     }, 500)
     
+    /* Fonction qui change la valeur des states en fonction de la valeur des champs */
     const handleChange = (e) => {
         setInvalidTitle("")
         setInvalidRecto("")
@@ -65,7 +65,7 @@ const UpdateFlashcard = () => {
         setInputValue({...inputValue, [name] : value})
     }
     
-    
+    /* Fonction qui soumet le formulaire */
     const handleSubmit = async (e) => {
         e.preventDefault()
         
@@ -125,17 +125,22 @@ const UpdateFlashcard = () => {
     
     return (
         <main className="updateflashcardpage-main">
-        
+            
+            {/**** Fil d'ariane *****/}
             <nav className="breadcrumbs">
                 <NavLink className="breadcrumbs-lastpage" to={`/user/monespacedetravail/dossier/${user.id}`} >Workspace</NavLink> <ChevronsRight size={32} />
                 <NavLink className="breadcrumbs-lastpage" to={`/user/monespacedetravail/flashcard/${previousFlashcard.folderId}`}> Dossier </NavLink> <ChevronsRight size={32} />
                 <NavLink className="breadcrumbs-currentpage" to="#"> Modifier une flashcard </NavLink>
             </nav>
             
+            {/**** Contenu principal ***/}
             <section className="updateflashcardpage-section">
+            
                 <h1>Modifier la flashcard</h1>
                 
+                {/****** Formulaire *****/}
                 <form onSubmit={handleSubmit}>
+                
                     <fieldset className={`updateflashcardpage-input-label ${invalidRecto}`}>
                         <textarea onChange={handleChange} value={inputValue.rectoContent} name="rectoContent" type="text" className="updateflashcardpage-input" required />
                         <label htmlFor="rectoContent" > Recto </label>
@@ -151,11 +156,12 @@ const UpdateFlashcard = () => {
                         <label htmlFor="title" >Titre (facultatif)</label>
                    </fieldset>
                     
-                    
-                    <button type="submit" className="updateflashcardpage-form-button"> Confirmer les modifications </button>    
+                   <button type="submit" className="updateflashcardpage-form-button"> Confirmer les modifications </button>    
+                
                 </form>
                 
             </section>
+            
         </main>
     )
     

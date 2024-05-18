@@ -20,7 +20,6 @@ const AllResults = () => {
     useEffect(() => {
 
         scrollTo(0,0)
-        // document.body.style.overflow = ""
         
         const fetchData = async () => {
             try {
@@ -38,10 +37,9 @@ const AllResults = () => {
     }, [toggle])
     
     
-    
-    
-    
+    /* Fonction qui supprime tout les résultats de révisions de l'historique */
     const handleDeleteAll = async () => {
+        
         setToggle(!toggle)
         
         try {
@@ -61,7 +59,8 @@ const AllResults = () => {
     return (
        
         <main className="allresults-main container">
-        
+            
+            {/**** Fil d'ariane *****/}
             <nav className="breadcrumbs">
                 <NavLink className="breadcrumbs-lastpage" to="/user/tableaudebord" >Tableau de bord {user.role === "admin"&& "user"}</NavLink> <ChevronsRight size={32} />
                 <NavLink className="breadcrumbs-currentpage" to="#">Historique de révision</NavLink>
@@ -69,9 +68,10 @@ const AllResults = () => {
             
             <h1>Tableau de bord {user.role === "admin" && `utilisateur`}</h1>
             
+            {/***** Contenu principal ****/}
             <article className="allresults-article">
+            
                 <h2>Historique de révision</h2>
-                
                 
                 {allResults.length < 1 ? (
                     <h3>Historique de révision vide</h3>
@@ -89,7 +89,9 @@ const AllResults = () => {
                     </ul>
                     </>
                 )}
+                
             </article>
+            
         </main>
     )
 }

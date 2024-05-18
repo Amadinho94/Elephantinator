@@ -1,9 +1,9 @@
 import {useState, useEffect} from 'react'
-import {useAuth} from '../../context/AuthContext'
-import {token} from "../../context/token"
-import {toast} from "react-toastify"
+import { useAuth } from '../../context/AuthContext'
+import { token } from "../../context/token"
+import { toast } from "react-toastify"
 import axios from 'axios'
-import {useNavigate, NavLink} from 'react-router-dom'
+import { useNavigate , NavLink } from 'react-router-dom'
 import { ChevronsRight } from 'lucide-react';
 
 const CreateFolder = () => {
@@ -15,14 +15,16 @@ const CreateFolder = () => {
          title : "",
          description : "",
     })
-    
     const [invalidTitle, setInvalidTitle] = useState("")
     const [invalidDescription, setInvalidDescription] = useState("")
+    
     
     useEffect(() => {
         scrollTo(0,0)
      }, [])
-    
+     
+     
+    /* Fonction qui change la valeur des states en fonction de la valeur des champs */
     const handleChange = (e) => {
         setInvalidTitle("")
         setInvalidDescription("")
@@ -33,6 +35,7 @@ const CreateFolder = () => {
     }
     
     
+    /* Fonction qui soumet le formulaire */
     const handleSubmit = async (e) => {
         e.preventDefault()
         
@@ -72,19 +75,23 @@ const CreateFolder = () => {
     }
     
     
-    
     return (
         <main className="createfolderpage-main">
             
+            {/*** Fil d'ariane ***/}
             <nav className="breadcrumbs">
                 <NavLink className="breadcrumbs-lastpage" to={`/user/monespacedetravail/dossier/${user.id}`} >Workspace</NavLink> <ChevronsRight size={32} />
                 <NavLink className="breadcrumbs-currentpage" to="#"> Créer un dossier </NavLink>
             </nav>
             
+            {/*** Contenu principal *****/}
             <section className="createfolderpage-section">
+            
                 <h1>Créer un dossier</h1>
                 
+                {/****** Formulaire *****/}
                 <form onSubmit={handleSubmit}>
+                
                     <fieldset className={`createfolderpage-input-label ${invalidTitle}`}>
                         <input onChange={handleChange} value={inputValue.title} name="title" type="text" className="createfolderpage-input" required />
                         <label htmlFor="title" >Titre du dossier</label>
@@ -95,11 +102,12 @@ const CreateFolder = () => {
                         <label htmlFor="description" >Description</label>
                    </fieldset>
                     
+                    <button type="submit" className="updatefolderpage-form-button"> Valider </button>
                     
-                    <button type="submit" className="updatefolderpage-form-button"> Valider </button>    
                 </form>
                 
             </section>
+            
         </main>
     )
 }

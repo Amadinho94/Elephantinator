@@ -21,7 +21,6 @@ const FolderResults = () => {
     useEffect(() => {
 
         scrollTo(0,0)
-        // document.body.style.overflow = ""
         
         const fetchData = async () => {
             try {
@@ -39,10 +38,13 @@ const FolderResults = () => {
         }
         
         fetchData()
+        
     }, [toggle])
     
     
+    /* Fonction pour supprimer un seul résultat de révision */
     const handleDeleteOne = async (resultIndex) => {
+        
         setToggle(!toggle)
         
         try {
@@ -57,6 +59,7 @@ const FolderResults = () => {
     }
     
     
+    /* Fonction pour supprimer tout les résultats de révision */
     const handleDeleteAll = async () => {
         setToggle(!toggle)
         
@@ -72,10 +75,10 @@ const FolderResults = () => {
     }
     
     
-    
     return (
         <main className="folderresult-main container">
             
+            {/***** Fil d'ariane *****/}
             <nav className="breadcrumbs">
                 <NavLink className="breadcrumbs-lastpage" to="/user/tableaudebord" >Tableau de bord {user.role === "admin"&& "user"}</NavLink> <ChevronsRight size={32} />
                 <NavLink className="breadcrumbs-currentpage" to="#">Historique de révision du dossier {thisFolder.title}</NavLink>
@@ -83,14 +86,15 @@ const FolderResults = () => {
             
             <h1>Tableau de bord {user.role === "admin" && `utilisateur`}</h1>
             
+            {/*** Contenu principal ***/}
             <article className="folderresult-article">
+            
                 <h2>Historique de révision du dossier {thisFolder.title}</h2>
                 
                 {allResults.length < 1 ? (
                     <>
                         <h3>Historique vide : aucune révision pour ce dossier</h3>
                         
-                    
                         <NavLink to={`/user/monespacedetravail/flashcard/${folderId}`} className="folderresults-start-revision-button"> Démarrer une révision </NavLink>
                      </>
                 )
@@ -106,7 +110,9 @@ const FolderResults = () => {
                         </ul>
                     </>
                 )}
+                
             </article>
+            
         </main>
     )
 }

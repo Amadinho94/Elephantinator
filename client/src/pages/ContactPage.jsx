@@ -6,6 +6,7 @@ import {useAuth} from '../context/AuthContext'
 const ContactPage = () => {
     
     const {user} = useAuth()
+    
     const [inputValue, setInputValue] = useState({
         username : "",
         email :"",
@@ -15,6 +16,7 @@ const ContactPage = () => {
     const [invalidName, setInvalidName] = useState("")
     const [invalidEmail, setInvalidEmail] = useState("")
     const [invalidMessage, setInvalidMessage] = useState("")
+    
     
     useEffect(() => {
         scrollTo(0,0)
@@ -29,6 +31,7 @@ const ContactPage = () => {
     }, [user])
     
     
+    /* Fonction qui change la valeur des states en fonction de la valeur des champs */
     const handleChange = (e) => {
         setInvalidEmail("")
         setInvalidName("")
@@ -43,6 +46,7 @@ const ContactPage = () => {
     }
     
     
+    /* Fonction qui soumet le formulaire */
     const handleSubmit = async (e) => {
         e.preventDefault()
         
@@ -116,9 +120,14 @@ const ContactPage = () => {
     
     return (
         <main className="contactpage-main">
+        
+            {/******* Contenu principal *******/}
             <article className="contactpage-article">
-            <h1 className="contactpage-title">Formulaire de contact</h1>
-            <p>Vous avez une question ? Dîtes-nous tout</p>
+            
+                <h1 className="contactpage-title">Formulaire de contact</h1>
+                <p>Vous avez une question ? Dîtes-nous tout</p>
+                
+                {/******** Formulaire ********/}
                 <form onSubmit={handleSubmit}>
                   
                   <fieldset className={`contactpage-input-label ${invalidName}`}>
@@ -142,8 +151,11 @@ const ContactPage = () => {
                    <textarea onChange={handleChange} value={inputValue.message} name="message" type="text" className={`contactpage-textarea ${invalidMessage}`} placeholder="Votre message" required />
                     
                   <button type="submit" className="contactpage-form-button"> Envoyer </button>
+                
                 </form>
+                
             </article>
+            
         </main>
     )
 }

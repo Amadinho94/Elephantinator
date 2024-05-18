@@ -3,8 +3,8 @@ import {useEffect} from 'react'
 
 const AllTutorialsPage = () => {
     
-    
-     const tutorialArray = [
+    /* Tableau des tutoriels */
+    const tutorialArray = [
         { 
             id:3,
             presentation: "Faites des flashcards",
@@ -31,36 +31,50 @@ const AllTutorialsPage = () => {
         }
     ]
     
-
     
     useEffect(() => {
+        
         scrollTo(0,0)
+        
     }, [])
-    
+     
     
     return (
         <main className="tutorial-main container">
+        
            <h1>Guide d'utilisation</h1>
            
            <h2>Comment réussir ses flashcards ?</h2>
-           <iframe width="90%" height="315" src="https://www.youtube.com/embed/fJ4ENhw-G4s?si=RmN3B9uPhvP7JA-n" title="Tutoriel sur comment bien faire des flashcards" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-           {/* BARRE DE RECHERCHE FAQ */}
            
-           <div className="tutorialpage-div-flex">
-           {tutorialArray.map((oneTutorial) => (
-               <article key={oneTutorial.id} className="tutorialpage-article">
-                    <section>
-                        <h1>{oneTutorial.title}</h1>
-                        <figure>
-                          <img className="tutorialpage-article-img img-responsive" src={oneTutorial.image} alt={oneTutorial.title} />
-                        </figure>
+           <iframe width="90%" height="315" src="https://www.youtube.com/embed/fJ4ENhw-G4s?si=RmN3B9uPhvP7JA-n" title="Tutoriel sur comment bien faire des flashcards" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+           
+           {/******** Contenu principal ****/}
+           <article className="tutorialpage-div-flex">
+            
+               {/****** Cards des articles tutoriel ******/}
+               {tutorialArray.map((oneTutorial) => (
+               
+                   <section key={oneTutorial.id} className="tutorialpage-article">
+                   
+                        <section>
                         
-                        <summary>{oneTutorial.summary}</summary>
-                    </section>
-                    <NavLink className="tutorialpage-article-navlink" to={`/tutoriel/article/${oneTutorial.id}`}> Lire plus </NavLink>
-               </article>
-           ))}
-           </div>
+                            <h1>{oneTutorial.title}</h1>
+                            
+                            <figure>
+                                <img className="tutorialpage-article-img img-responsive" src={oneTutorial.image} alt={oneTutorial.title} />
+                            </figure>
+                            
+                            <summary>{oneTutorial.summary}</summary>
+                            
+                        </section>
+                        
+                        <NavLink className="tutorialpage-article-navlink" to={`/tutoriel/article/${oneTutorial.id}`}> Lire plus </NavLink>
+                   
+                   </section>
+                   
+               ))}
+           
+           </article>
         
         </main>
     )

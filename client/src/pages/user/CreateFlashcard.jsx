@@ -18,15 +18,17 @@ const CreateFlashcard = () => {
          rectoContent : "",
          versoContent : ""
     })
-    
     const [invalidTitle, setInvalidTitle] = useState("")
     const [invalidRecto, setInvalidRecto] = useState("")
     const [invalidVerso, setInvalidVerso] = useState("")
+    
     
     useEffect(() => {
         scrollTo(0,0)
      }, [])
     
+    
+    /* Fonction qui change la valeur des states en fonction de la valeur des champs */
     const handleChange = (e) => {
         setInvalidTitle("")
         setInvalidRecto("")
@@ -38,7 +40,9 @@ const CreateFlashcard = () => {
     }
     
     
+    /* Fonction qui soumet le formulaire */
     const handleSubmit = async (e) => {
+        
         e.preventDefault()
         
         try {
@@ -85,20 +89,24 @@ const CreateFlashcard = () => {
     }
     
     
-    
     return (
         <main className="createflashcardpage-main">
             
+            {/*** Fil d'ariane ***/}
             <nav className="breadcrumbs">
                 <NavLink className="breadcrumbs-lastpage" to={`/user/monespacedetravail/dossier/${user.id}`} >Workspace</NavLink> <ChevronsRight size={32} />
                 <NavLink className="breadcrumbs-lastpage" to={`/user/monespacedetravail/flashcard/${folderId}`}> Dossier </NavLink> <ChevronsRight size={32} />
                 <NavLink className="breadcrumbs-currentpage" to="#"> Créer une flashcard </NavLink>
             </nav>
             
+            {/*** Contenu principal *****/}
             <section className="createflashcardpage-section">
+            
                 <h1>Créer une flashcard</h1>
                 
+                {/***** Formulaire ******/}
                 <form onSubmit={handleSubmit}>
+                
                     <fieldset className={`createflashcardpage-input-label ${invalidRecto}`}>
                         <textarea onChange={handleChange} value={inputValue.rectoContent} name="rectoContent" type="text" className="createflashcardpage-input" required />
                         <label htmlFor="rectoContent" > Recto </label>
@@ -114,11 +122,12 @@ const CreateFlashcard = () => {
                         <label htmlFor="title" >Titre (facultatif)</label>
                    </fieldset>
                     
-                    
                     <button type="submit" className="createflashcardpage-form-button"> Confirmer la création </button>    
+                
                 </form>
                 
             </section>
+            
         </main>
     )
 }

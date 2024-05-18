@@ -11,18 +11,17 @@ import { ChevronsRight } from 'lucide-react';
 const UpdateFolder = () => {
     
     const {folderId} = useParams()
-    const navigate = useNavigate()
     const {user} = useAuth()
+    const navigate = useNavigate()
     
     const [inputValue, setInputValue] = useState({
          title : "",
          description : "",
     })
-    
     const [previousData, setPreviousData] = useState([])
-    
     const [toggle, setToggle] = useState(false)
-    
+    const [invalidTitle, setInvalidTitle] = useState("")
+    const [invalidDescription, setInvalidDescription] = useState("")
     
     useEffect(() => {
             scrollTo(0,0)
@@ -46,21 +45,12 @@ const UpdateFolder = () => {
         fetchParentFolder()
     }, [toggle])
     
-    
-        
+    /* S'execute après 0,5 seconde pour réexecuter le use Effect et remplir les champs avec les anciennes valeurs */
     setTimeout(() => {
             setToggle(true)
     }, 500)
         
-    
-    
-    
-    
-    
-    
-    const [invalidTitle, setInvalidTitle] = useState("")
-    const [invalidDescription, setInvalidDescription] = useState("")
-    
+    /* Fonction qui change la valeur des states en fonction de la valeur des champs */
     const handleChange = (e) => {
         setInvalidTitle("")
         setInvalidDescription("")
@@ -70,8 +60,9 @@ const UpdateFolder = () => {
         setInputValue({...inputValue, [name] : value})
     }
     
-    
+    /* Fonction qui soumet le formulaire */
     const handleSubmit = async (e) => {
+        
         e.preventDefault()
         
         try {
@@ -119,16 +110,21 @@ const UpdateFolder = () => {
     
     return (
         <main className="updatefolderpage-main">
-        
+             
+             {/***** Fil d'ariane *****/}
              <nav className="breadcrumbs">
                 <NavLink className="breadcrumbs-lastpage" to={`/user/monespacedetravail/dossier/${user.id}`} >Workspace</NavLink> <ChevronsRight size={32} />
                 <NavLink className="breadcrumbs-currentpage" to="#"> Modifier le dossier {previousData.title} </NavLink>
             </nav>
             
+            {/****** Contenu principal *****/}
             <section className="updatefolderpage-section">
+            
                 <h1>Modifier le dossier</h1>
                 
+                {/**** Formulaire *****/}
                 <form onSubmit={handleSubmit}>
+                
                     <fieldset className={`updatefolderpage-input-label ${invalidTitle}`}>
                         <input onChange={handleChange} value={inputValue.title} name="title" type="text" className="updatefolderpage-input" required />
                         <label htmlFor="title" >Titre du dossier</label>
@@ -139,11 +135,12 @@ const UpdateFolder = () => {
                         <label htmlFor="description" >Description</label>
                    </fieldset>
                     
+                    <button type="submit" className="updatefolderpage-form-button"> Valider </button>   
                     
-                    <button type="submit" className="updatefolderpage-form-button"> Valider </button>    
                 </form>
                 
             </section>
+            
         </main>
     )
 }

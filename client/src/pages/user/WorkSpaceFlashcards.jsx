@@ -223,12 +223,6 @@ const WorkSpaceFlashcards = () => {
             
             try {
                 
-                // setFinalResult({...finalResult, 
-                //     numbersGoodAnswers : parseInt(goodAnswer),
-                //     numbersQuestions : parseInt(allFlashcards.length),
-                //     goodAnswerFlashcards : goodAnsweredFlashcards,
-                //     badAnswerFlashcards : badAnsweredFlashcards
-                // })
                 
                 const result =  {
                     ...finalResult, numbersGoodAnswers : parseInt(goodAnswer),
@@ -258,11 +252,6 @@ const WorkSpaceFlashcards = () => {
             
         }
     }
-    
-    
-    
-
-    
     
     
     

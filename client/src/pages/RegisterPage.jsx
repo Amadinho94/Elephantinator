@@ -8,6 +8,7 @@ import {useAuth} from '../context/AuthContext'
 const RegisterPage = () => {
     
     const {user} = useAuth()
+    const navigate = useNavigate()
     
     const [inputValue, setInputValue] = useState({
         name : "",
@@ -15,14 +16,6 @@ const RegisterPage = () => {
         email : "",
         password : "",
     })
-    
-    const [passwordValidator, setPasswordValidator] = useState({
-        minLength: false,
-        uppercase : false,
-        lowercase : false,
-        specialCharacter : false
-    })
-    
     const [invalidName, setInvalidName] = useState("")
     const [invalidEmail, setInvalidEmail] = useState("")
     const [invalidUsername, setInvalidUsername] = useState("")
@@ -30,16 +23,23 @@ const RegisterPage = () => {
     const [invalidConfirmedPassword, setInvalidConfirmedPassword] = useState("")
     const [togglePWD, setTogglePWD] = useState(false)
     const [toggleConfirmedPWD, setToggleConfirmedPWD] = useState(false)
-    
     const [confirmedPassword, setConfirmedPassword] = useState("")
+    const [passwordValidator, setPasswordValidator] = useState({
+        minLength: false,
+        uppercase : false,
+        lowercase : false,
+        specialCharacter : false
+    })
     
-    const navigate = useNavigate()
     
     useEffect(() => {
+        
         scrollTo(0,0)
+        
     }, [])
     
     
+    /* Fonction qui change la valeur des states en fonction de la valeur des champs */
     const handleChange = (e) => {
         setInvalidName("")
         setInvalidUsername("")
@@ -81,16 +81,16 @@ const RegisterPage = () => {
     }
     
     
+    /* Fonction qui affiche ou cache la valeur des champs mot de passe */
     const togglePasswordVisibility = () => {
         setTogglePWD(!togglePWD)
     }
-    
-    
     const toggleConfirmedPasswordVisibility = () => {
         setToggleConfirmedPWD(!toggleConfirmedPWD)
     }
     
     
+    /* Fonction qui soumet le formulaire */
     const handleSubmit = async (e) => {
         e.preventDefault()
         
@@ -172,6 +172,7 @@ const RegisterPage = () => {
     }
     
     
+    /* Fonction qui affiche une croix rouge ou un check vert en fonction de la valeur de l'argument */
     const iconValidator = (isValid) => {
         return isValid ? <Check color="#14db22" /> : <X color="#db1414" />
     }
@@ -181,15 +182,22 @@ const RegisterPage = () => {
     return (
        <main className="registerpage-main">
             
+            {/*** Ternaire pour affichage de la page ****/}
             {user && user.userToken ? (
+            
                 <h1>Vous êtes déjà inscrit</h1>
+                
             )
                 :
             (
+                
                 <article className="registerpage-article">
+                
                       <h1>Créez votre compte</h1>
                       <p>Veuillez saisir les informations demandées</p>
-                      <form onSubmit={handleSubmit} >
+                      
+                      {/**** Formulaire ****/}
+                      <form onSubmit={handleSubmit}>
                           
                           <fieldset className={`registerpage-input-label ${invalidName}`}>
                             <input onChange={handleChange} value={inputValue.name} name="name" type="text" className="registerpage-input" required />
@@ -230,7 +238,7 @@ const RegisterPage = () => {
                           
                           </fieldset>
                           
-                          
+                          {/**** Section qui affiche si le mot de passe est valide ***/}
                           {passwordValidator.isFocus &&
                             <section className="registerpage-section-password-validator">
                                 <p className="registerpage-password-validator">{iconValidator(passwordValidator.lowercase)} 1 lettre minuscule minimum</p>
@@ -242,12 +250,15 @@ const RegisterPage = () => {
                           }
                           
                           <button type="submit" className="registerpage-button"> S'inscrire </button>
+                          
                           <p> Vous avez déjà un compte ? <NavLink className="registerpage-navlink-register" to="/connexion"> Connectez-vous ici </NavLink></p>
+                      
                       </form>
+                      
                 </article>
+                
             )}
-            
-            
+        
        </main>
     )
 }

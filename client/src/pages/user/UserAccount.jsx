@@ -10,11 +10,14 @@ const UserAccount = () => {
     
     const {user} = useAuth()
     const API_URL = import.meta.env.VITE_API_URL
+   
     
     useEffect(() => {
         scrollTo(0,0)
     }, [])
     
+    
+    /** Fonction pour supprimer compte utilisateur **/
     const handleDelete = async (e) => {
         e.preventDefault()
         
@@ -29,17 +32,28 @@ const UserAccount = () => {
     
     return (
         <main className="accountpage-main">
+            
           <section>
+                
+                {/*** En-tête de la page *****/}
                 <header className="accountpage-header-accountpage-header">
+                
                     <h1 className="accountpage-header-title">MON COMPTE</h1>
+                    
                     <figure className="accountpage-header-pp-container">
                         <img className="img-responsive" src={`${API_URL}/profilPicture/${user.profilPicture}`} alt={`Photo de profil de ${user.username}`} />
                     </figure>
+                    
                     <h2 className="accountpage-header-username">{user.username} {user.role === "admin" && <BadgeCheck color="#24d90d" />}</h2>
+                
                 </header>
+                
+                {/*** Contenu principal de la page *****/}
                 <section>
                     
+                    {/**** Section des informations de l'utilisateur *****/}
                     <section className="accountpage-section-userdata">
+                    
                         <h3 className="accountpage-section-title">Mes informations</h3>
                         <section className="accountpage-userinfo">
                              <p>Mon prénom</p>
@@ -50,20 +64,25 @@ const UserAccount = () => {
                             <p>Mon adresse email</p>
                             <p className="accountpage-user-name">{user.email}</p>
                         </section>
+                        
                     </section>
                     
+                    {/**** Section des boutons *****/}
                     <section className="accountpage-section-navlink">
+                    
                         <NavLink className="accountpage-section-updateprofil" to="/user/modifiermoncompte"> Modifier mon compte </NavLink>
                         <NavLink className="accountpage-section-updateprofil" to="/user/modifiermotdepasse"> Modifier mon mot de passe </NavLink>
                         
                         <button onClick={handleDelete} disabled={user.role === "admin"} className={`${user.role === "admin" ? "disabled-delete-user-button" : "accountpage-button-deleteaccount"}`} > Supprimer mon compte </button>
                         {user.role === "admin" && ( <p className="accountpage-disabled-message">Un administrateur ne peut pas supprimer son propre compte</p> )}
+                   
                     </section>
                     
                     
-                    
                 </section>
+                
           </section>
+          
         </main>
     )
 }

@@ -8,6 +8,10 @@ import { User, Lock , Eye , EyeOff } from 'lucide-react'
 
 const LogInPage = () => {
     
+    const {user} = useAuth()
+    const auth = useAuth()
+    const navigate = useNavigate()
+    
     const [inputValue, setInputValue] = useState({
         email : "",
         password : ""
@@ -17,30 +21,31 @@ const LogInPage = () => {
     const [togglePWD, setTogglePWD] = useState(false)
     
     
-    const navigate = useNavigate()
-    
-    const {user} = useAuth()
-    const auth = useAuth()
-    
     useEffect(() => {
+        
         scrollTo(0,0)
+        
     }, [])
     
     
-    
+    /* Fonction qui change la valeur des states en fonction de la valeur des champs */
     const handleChange = (e) => {
+        
         setInvalidEmail("")
         setInvalidPassword("")
         const {name, value} = e.target
         setInputValue({...inputValue, [name] : value})
+        
     }
     
     
+    /* Fonction qui cache ou affiche la valeur du champs mot de passe */
     const togglePasswordVisibility = () => {
         setTogglePWD(!togglePWD)
     }
     
     
+    /* Fonction qui soumet le formulaire */
     const handleSubmit = async (e) => {
         e.preventDefault()
         
@@ -86,19 +91,25 @@ const LogInPage = () => {
     }
     
     
-    
     return (
        <main className="loginpage-main">
             
             {user && user.userToken ? (
+            
                 <h1>Vous êtes déjà connecté</h1>
+                
             )
                 :
             (
+            
                 <article className="loginpage-article">
+                
                       <h1>Connectez-vous à votre compte</h1>
                       <p>Veuillez entrer votre nom d'utilisateur et votre mot de passe</p>
+                      
+                      {/*** Formulaire ***/}
                       <form onSubmit={handleSubmit}>
+                      
                           <fieldset className={`loginpage-input-label ${invalidEmail}`}>
                             <User className="input-icon" color="#ffffff" />
                             <input onChange={handleChange} value={inputValue.email} name="email" type="text" className="loginpage-input " required />
@@ -118,13 +129,15 @@ const LogInPage = () => {
                           
                           <button type="submit" className="loginpage-button"> Se connecter </button>
                           <p> Vous n'avez pas de compte ? <NavLink className="loginpage-navlink-register" to="/inscription"> inscrivez-vous ici </NavLink></p>
+                      
                       </form>
+                      
                 </article>
             
             )}
             
-            
        </main>
+       
     )
 }
 

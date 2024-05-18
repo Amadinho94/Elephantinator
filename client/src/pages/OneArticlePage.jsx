@@ -11,17 +11,20 @@ const OneArticlePage = () => {
     const {user} = useAuth()
     
     useEffect(() => {
+        
         scrollTo(0,0)
         
-        // SANS TRY AND CATCH
         const fetchData = async () => {
             const res = await axios.get(`/api/articles/getonearticle/${id}`)
             await setSelectedArticle(res.data)
         }
         
         fetchData()
+        
     }, [])
     
+    
+    // Tableau des articles du blog
     // const blogArticlesArray = [
     //     {
     //         id:1,
@@ -40,29 +43,39 @@ const OneArticlePage = () => {
     // ]
     // const selectedArticle = blogArticlesArray.find((oneArticle) => oneArticle.id === parseInt(id))
     
+    
     return (
         <>
-        <div className="home-scroll-inspector"></div>
-        <main className="container onearticlepage-main">
-            <article className="onearticlepage-article">
-                <h1>{selectedArticle.title}</h1>
-                <p>Ecrit par {selectedArticle.authorName}</p>
-                <p>Temps de lecture</p>
-                <p className="onearticlepage-article-content">{selectedArticle.paragraphs}</p>
-                <p>Publié le {new Date(selectedArticle.createdAt).toLocaleDateString()}</p>
-                <p>Nombre de commentaire</p>
-                <p>Note</p>
+            
+            {/***** Scroller inspector ****/}
+            <div className="home-scroll-inspector"></div>
+            
+            <main className="container onearticlepage-main">
                 
-                {user && !user.userToken && (
-                <>
-                    <p>Pour laisser un commentaire et mettre une note connectez-vous</p>
-                    <NavLink className="onearticlepage-calltoaction-signin" to="/connexion"> Se connecter </NavLink>
-                    <p>Vous n'avez pas de compte ?</p>
-                    <NavLink className="onearticlepage-calltoaction-register" to="/inscription"> S'inscrire </NavLink>
-                    </>
-                )} 
-            </article>
-        </main>
+                {/***** Contenu principal *****/}
+                <article className="onearticlepage-article">
+                
+                    <h1>{selectedArticle.title}</h1>
+                    <p>Ecrit par {selectedArticle.authorName}</p>
+                    <p>Temps de lecture</p>
+                    <p className="onearticlepage-article-content">{selectedArticle.paragraphs}</p>
+                    <p>Publié le {new Date(selectedArticle.createdAt).toLocaleDateString()}</p>
+                    <p>Nombre de commentaire</p>
+                    <p>Note</p>
+                    
+                    {user && !user.userToken && (
+                        <>
+                            <p>Pour laisser un commentaire et mettre une note connectez-vous</p>
+                            <NavLink className="onearticlepage-calltoaction-signin" to="/connexion"> Se connecter </NavLink>
+                            <p>Vous n'avez pas de compte ?</p>
+                            <NavLink className="onearticlepage-calltoaction-register" to="/inscription"> S'inscrire </NavLink>
+                        </>
+                    )}
+                    
+                </article>
+                
+            </main>
+        
         </>
     )
 }

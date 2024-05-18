@@ -13,10 +13,10 @@ const UserDashboard = () => {
     const [allResults, setAllResults] = useState([])
     const [allFolders, setAllFolders] = useState([])
     
+    
     useEffect(() => {
 
         scrollTo(0,0)
-        // document.body.style.overflow = ""
         
         const fetchData = async () => {
             try {
@@ -38,7 +38,10 @@ const UserDashboard = () => {
     
     return (
         <main className="userdashboard-main">
+        
             <h1>Tableau de bord {user.role === "admin" && `utilisateur`}</h1>
+            
+            {/********* En-tête de page *********/}
             <section className="userdashboard-header-section">
                     <figure className="userdashboard-pp-container">
                         <img className="img-responsive" src={`${API_URL}/profilPicture/${user.profilPicture}`} alt={`Photo de profil de ${user.username}`} />
@@ -46,9 +49,11 @@ const UserDashboard = () => {
                     <h2 className="profilepage-header-username">{user.username} {user.role === "admin" && <BadgeCheck color="#24d90d" />}</h2>
             </section>
             
-            
+           
+           {/********* Contenu principal de la page **********/} 
             <article className="userdashboard-article-flex">
-            
+                
+                {/******* Section 5 dernières révisions ********/}
                 <section className="userdashboard-sections">
                     <h3>5 dernières révisions</h3>
                     {allResults.length > 0 ? (
@@ -68,26 +73,33 @@ const UserDashboard = () => {
                     )}
                 </section>
                 
+                {/******* Section historiques de révisions des dossiers ********/}
                 <section className="userdashboard-sections">
+                
                     <h3>Historique des dossiers</h3>
-                        {allFolders.length > 0 ? (
-                            (allFolders.map((oneFolder) => (
-                                <NavLink key={oneFolder._id} className="userdashboard-folderlink" to={`/user/tableaudebord/historiquedossier/${oneFolder._id}`} > Historique de révision de {oneFolder.title} </NavLink>
-                            )))
-                        )
-                            :
-                        (
-                            <>
-                                <h1> Vous n'avez aucun dossier </h1> 
-                                <NavLink to="/user/monespacedetravail/creerdossier" className="userdashboard-allresults-button"> Créer un dossier </NavLink>
-                            </>
-                        )}
+                    
+                    {allFolders.length > 0 ? (
+                        (allFolders.map((oneFolder) => (
+                            <NavLink key={oneFolder._id} className="userdashboard-folderlink" to={`/user/tableaudebord/historiquedossier/${oneFolder._id}`} > Historique de révision de {oneFolder.title} </NavLink>
+                        )))
+                    )
+                        :
+                    (
+                        <>
+                            <h1> Vous n'avez aucun dossier </h1> 
+                            <NavLink to="/user/monespacedetravail/creerdossier" className="userdashboard-allresults-button"> Créer un dossier </NavLink>
+                        </>
+                    )}
+                        
                     <section>
                         
                     </section>
+                    
                 </section>
+                
             </article>
             
+            {/****** Lien vers page mon compte *******/}
             <article>
                 <NavLink to="/user/moncompte" className="userdashboard-myaccount-navlink"> Voir mon compte </NavLink>
             </article>

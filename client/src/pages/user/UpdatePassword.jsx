@@ -9,12 +9,13 @@ import { useNavigate , NavLink } from 'react-router-dom'
 
 const UpdatePassword = () => {
     
+    const navigate = useNavigate()
+    const {user, update} = useAuth()
+    
     const [userPassword, setUserPassword] = useState({
         previousPWD : "",
         newPWD : "",
     })
-    
-    const navigate = useNavigate()
     
     const {previousPWD, newPWD} = userPassword
     
@@ -26,6 +27,7 @@ const UpdatePassword = () => {
     const [toggleConfirmedPWD, setToggleConfirmedPWD] = useState(false)
     const [togglePreviousPWD, setTogglePreviousPWD] = useState(false)
     
+    /* State qui va servir à afficher une croix ou un check selon validiter du mot de passe saisit */
     const [passwordValidator, setPasswordValidator] = useState({
         minLength: false,
         uppercase : false,
@@ -34,14 +36,11 @@ const UpdatePassword = () => {
     })
     
     
-    const {user, update} = useAuth()
-    
-    
     useEffect(() => {
         scrollTo(0,0)
     }, [])
     
-    
+    /* Fonction qui mets à jour la valeur des states en fonction de la valeur des champs du formulaire */
     const handleChange = (e) => {
         
         setInvalidConfirmedPassword("")
@@ -84,22 +83,18 @@ const UpdatePassword = () => {
         }
     }
     
-    
+    /* Fonctions qui cache ou affiche la saisit dans les champs */
     const togglePasswordVisibility = () => {
         setTogglePWD(!togglePWD)
     }
-    
-    
     const toggleConfirmedPasswordVisibility = () => {
         setToggleConfirmedPWD(!toggleConfirmedPWD)
     }
-    
-    
     const togglePreviousPasswordVisibility = () => {
         setTogglePreviousPWD(!togglePreviousPWD)
     }
     
-    
+    /* Fonction qui soumet le formulaire */ 
     const handleSubmit = async (e) => {
         e.preventDefault()
         
@@ -163,7 +158,7 @@ const UpdatePassword = () => {
         }
     }
     
-    
+    /* Fonction qui retourne une croix ou un check en fonction de la valeur de l'argument */
     const iconValidator = (isValid) => {
         return isValid ? <Check color="#14db22" /> : <X color="#db1414" />
     }
@@ -172,16 +167,20 @@ const UpdatePassword = () => {
     return (
         <main className="updatepasswordpage-main">
             
+            {/******* Fil d'ariane ********/}
             <nav className="breadcrumbs">
                 <NavLink className="breadcrumbs-lastpage" to="/user/moncompte" >Mon compte</NavLink> <ChevronsRight size={32} />
                 <NavLink className="breadcrumbs-currentpage" to="#">Modifier mon mot de passe</NavLink>
             </nav>
             
+            {/****** Contenu principal *****/}
             <section className="updatepasswordpage-section">
+            
                 <h1>Modifier mon mot de passe</h1>
                 
+                {/**** Formulaire *******/}
                 <form onSubmit={handleSubmit}>
-                
+                    
                     <fieldset className={`updatepasswordpage-input-label ${invalidPreviousPassword}`}>
                     
                         {!togglePreviousPWD ? (
@@ -219,7 +218,7 @@ const UpdatePassword = () => {
                    
                    </fieldset>
                    
-                   
+                   {/**** Section qui affiche si le mot de passe est valide ***/}
                    {passwordValidator.isFocus &&
                         <section className="registerpage-section-password-validator">
                             <p className="registerpage-password-validator">{iconValidator(passwordValidator.lowercase)} 1 lettre minuscule minimum</p>
@@ -235,6 +234,7 @@ const UpdatePassword = () => {
                 </form>
                 
             </section>
+            
         </main>
     )
 }

@@ -73,6 +73,7 @@ export const register = async (req, res) => {
         res.status(200).json({message : "Inscription réussi"})
         
     } catch (e) {
+        
         console.log(e)
         res.status(400).json({message : "Impossible de procéder à votre inscription"})
     }
@@ -138,7 +139,9 @@ export const getAllUsers = async (req, res) => {
         const allUsers = await User.find({}).select("-password")
         
         res.status(200).json(allUsers)
+        
     } catch (e) {
+        
         res.status(400).json({message : "Echec de la récupération des utilisateurs"})
     }
 }
@@ -152,9 +155,6 @@ export const getOneUser = async (req, res) => {
         const currentUser = await User.findById(req.userId)
         const requestedUser = await User.findById(id).select("-password")
         
-        // if (currentUser.role !== "admin" && requestedUser.role === "admin") {
-        //     return res.status(200).json({message : "Access denied"})
-        // }
         
         if (currentUser.role !== "admin" && requestedUser.id !== req.userId) {
             return res.status(200).json({message : "Accès refusé"})
@@ -184,6 +184,7 @@ export const deleteOneUser = async (req, res) => {
         
         
         res.status(200).json({message : "Compte supprimé avec succès"})
+        
     } catch (e) {
         res.status(400).json({message : "Echec de la suppression du compte"})
     }

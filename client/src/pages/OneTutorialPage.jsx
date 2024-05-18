@@ -7,13 +7,7 @@ const OnetutorialPage = () => {
     const {id} = useParams()
     const {user} = useAuth()
     
-    console.log(user)
-    
-    useEffect(() => {
-        scrollTo(0,0)
-    }, [id])
-    
-    
+    /* Tableau des articles tutoriels */
     const tutorialArray = [
         { 
             id:3,
@@ -89,62 +83,79 @@ const OnetutorialPage = () => {
         }
     ]
     
+    
+    useEffect(() => {
+        
+        scrollTo(0,0)
+        
+    }, [])
+    
+    
     let oneTuto = tutorialArray.find((oneArticle) => oneArticle.id === parseInt(id))
 
 
-
     return (
-    <>
-      <div className="home-scroll-inspector"></div>
-      <main className="container onetutorialpage-main">
-            <article className="onetutorialpage-article" >
-                <h1 className="onetutorialpage-article-h1">{oneTuto.title}</h1>
+        <>
+          {/**** Le scroll inspector ******/}    
+          <div className="home-scroll-inspector"></div>
+          
+          {/***** Contenu principal ******/}
+          <main className="container onetutorialpage-main">
                 
-                <section>
-                   <h2>{oneTuto.paragtitle1}</h2>
-                   <p>{oneTuto.parag1}</p>
-                </section>
+                <article className="onetutorialpage-article" >
                 
-                <section>
-                   <h2>{oneTuto.paragtitle2}</h2>
-                   <p>{oneTuto.parag2}</p>
-                </section>
+                    <h1 className="onetutorialpage-article-h1">{oneTuto.title}</h1>
+                    
+                    <section>
+                       <h2>{oneTuto.paragtitle1}</h2>
+                       <p>{oneTuto.parag1}</p>
+                    </section>
+                    
+                    <section>
+                       <h2>{oneTuto.paragtitle2}</h2>
+                       <p>{oneTuto.parag2}</p>
+                    </section>
+                    
+                    <section>
+                       <h2>{oneTuto.paragtitle2}</h2>
+                       <p>{oneTuto.parag2}</p>
+                    </section>
+                    
+                    <section>
+                       <h2>{oneTuto.paragtitle3}</h2>
+                       <p>{oneTuto.parag3}</p>
+                    </section>
+                    
+                    <section>
+                       <h2>{oneTuto.paragtitle4}</h2>
+                       <p>{oneTuto.parag4}</p>
+                    </section>
+                    
+                    <section>
+                       <h2>{oneTuto.paragtitle5}</h2>
+                       <p>{oneTuto.parag5}</p>
+                    </section>
+                    
+                    <nav className="onetutorialpage-navlink-flex">
+                    
+                        {parseInt(id) >= 2 && (
+                            <NavLink className="onetutorialpage-navlink-nextprev" to={`/tutoriel/article/${oneTuto.id-1}`}> Article précédent </NavLink>
+                        )}
+                        
+                        {parseInt(id) < tutorialArray.length && (
+                            <NavLink className="onetutorialpage-navlink-nextprev" to={`/tutoriel/article/${oneTuto.id+1}`}> Article suivant </NavLink>
+                        )}
+
+                    </nav>
+                    
+                    {user && !user.userToken && (
+                        <NavLink className="onetutorialpage-navlink-calltoaction" to="/inscription"> Inscrivez-vous pour commencer </NavLink>
+                    )}
+                    
+                </article>
                 
-                <section>
-                   <h2>{oneTuto.paragtitle2}</h2>
-                   <p>{oneTuto.parag2}</p>
-                </section>
-                
-                <section>
-                   <h2>{oneTuto.paragtitle3}</h2>
-                   <p>{oneTuto.parag3}</p>
-                </section>
-                
-                <section>
-                   <h2>{oneTuto.paragtitle4}</h2>
-                   <p>{oneTuto.parag4}</p>
-                </section>
-                
-                <section>
-                   <h2>{oneTuto.paragtitle5}</h2>
-                   <p>{oneTuto.parag5}</p>
-                </section>
-                
-                <nav className="onetutorialpage-navlink-flex">
-                {parseInt(id) >= 2 && (
-                <NavLink className="onetutorialpage-navlink-nextprev" to={`/tutoriel/article/${oneTuto.id-1}`}> Article précédent </NavLink>
-                )}
-                {parseInt(id) < tutorialArray.length && (
-                <NavLink className="onetutorialpage-navlink-nextprev" to={`/tutoriel/article/${oneTuto.id+1}`}> Article suivant </NavLink>
-                )}
-                
-                </nav>
-                {user && !user.userToken && (
-                    <NavLink className="onetutorialpage-navlink-calltoaction" to="/inscription"> Inscrivez-vous pour commencer </NavLink>
-                )} 
-            </article>
-      </main>
-      </>
+            </main>
+          </>
     )
 }
 
