@@ -1,15 +1,18 @@
+/*********** GENERALITIES ***************/
 @import './tools/_variables.scss';
 @import './tools/_functions.scss';
-
-// GENERALITIES
 @import './stylesheets/generalities.scss';
 
+
+/************ COMPONENTS ****************/
 // HEADER COMPONENT
 @import './stylesheets/header.scss';
 
 // FOOTER COMPONENT
 @import './stylesheets/footer.scss';
 
+
+/**************** PAGES *********************/
 // HOME PAGE
 @import './stylesheets/home.scss';
 
@@ -34,10 +37,11 @@
 // TUTORIAL ARTICLE PAGE
 @import './stylesheets/tutorial-article.scss';
 
-// REGISTRATION PAGE
+// REGISTER PAGE
 @import './stylesheets/register.scss';
 
-// USER stylesheets
+
+/********** USER PAGES **********/
 // PROFILE PAGE
 @import './stylesheets/user/account.scss';
 
@@ -47,7 +51,8 @@
 // UPDATE ACCOUNT PAGE
 @import './stylesheets/user/updateaccount.scss';
 
-// USER WORKSPACE
+
+/******* USER WORKSPACE PAGES ********/
 // UPDATE PROFILE PAGE
 @import './stylesheets/user/workspace.scss';
 
@@ -73,7 +78,7 @@
 @import './stylesheets/user/allresults.scss';
 
 
-// ADMIN stylesheets
+/********** ADMIN PAGES ***********/
 // ADMIN DASHBOARD MAIN PAGE
 @import './stylesheets/admin/admindashboard.scss';
 

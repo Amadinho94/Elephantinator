@@ -1,14 +1,17 @@
-import {useState, useEffect} from "react"
-import {useParams, NavLink} from "react-router-dom"
+import { useState, useEffect } from "react"
+import { useParams, NavLink } from "react-router-dom"
 import axios from "axios"
-import {useAuth} from '../../context/AuthContext'
-import {token} from "../../context/token"
-import {toast} from "react-toastify"
-import { X, StickyNote, CircleEllipsis, Trash2, Pen, ChevronsLeft, ChevronsRight} from 'lucide-react';
+import { useAuth } from '../../context/AuthContext'
+import { token } from "../../context/token"
+import { toast } from "react-toastify"
+import { X, StickyNote, CircleEllipsis, Trash2, Pen, ChevronsLeft, ChevronsRight } from 'lucide-react';
 
 
 
 const WorkSpaceFlashcards = () => {
+    
+    const {user} = useAuth()
+    const {folderId} = useParams()
     
     
     /* State qui stocke l'id de la flashcard sur laquelle
@@ -36,10 +39,6 @@ const WorkSpaceFlashcards = () => {
     l'animation de retournement */
     const [flip, setFlip] = useState("")
     
-    
-    const {user} = useAuth()
-    const {folderId} = useParams()
-    
     const [allFlashcards, setAllFlashcards] = useState([])
     const [currentFolder, setCurrentFolder] = useState([])
     const [darkerBg, setDarkerBg] = useState("display-none")
@@ -57,8 +56,6 @@ const WorkSpaceFlashcards = () => {
         goodAnswerFlashcards : [],
         badAnswerFlashcards : []
     })
-    
-    
     
     
     useEffect(() => {
@@ -82,7 +79,6 @@ const WorkSpaceFlashcards = () => {
         
         fetchUserFlashcards()
     }, [toggle])
-    
     
     
     // Fonction qui fait apparaitre un modale qui est un menu pour une flashcard
@@ -309,7 +305,7 @@ const WorkSpaceFlashcards = () => {
                             
                             allFlashcards.map((oneFlashcard) => (
                           <>  
-                            <div  onClick={() => handleDisplay(oneFlashcard._id)} className="workspace-flashcard" key={oneFlashcard.id}>
+                            <div onClick={() => handleDisplay(oneFlashcard._id)} className="workspace-flashcard" key={oneFlashcard.id}>
                                 <StickyNote className="flashcard-icon"/>
                                 {oneFlashcard.rectoContent}
                                 <CircleEllipsis onClick={(e) => handleClick(e, oneFlashcard._id)} className="folder-menu-button" />
@@ -396,10 +392,8 @@ const WorkSpaceFlashcards = () => {
                         
                     </section>
                
-               
-               
-               
                 </section>
+                
             </section>
         
         </main>

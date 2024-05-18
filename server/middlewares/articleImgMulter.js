@@ -1,7 +1,7 @@
 import multer from 'multer'
 import path from 'path'
 
-
+/*** Vérificateur de type de fichier ****/
 const fileTypeCheck = (file, cb) => {
     const fileTypes = /png|jpg|jpeg|svg|webp/
     
@@ -15,6 +15,7 @@ const fileTypeCheck = (file, cb) => {
     }
 }
 
+/*** Lieu de stockage et nommage ****/
 const articleImageStorage = multer.diskStorage({
     
     destination: "./public/articleImage",
@@ -23,7 +24,9 @@ const articleImageStorage = multer.diskStorage({
     }
 })
 
+/*** Taille limite des fichier 3 Méga octets ***/
 const sizeLimits = 3145728
+
 
 const uploadArticleImage = multer({
     

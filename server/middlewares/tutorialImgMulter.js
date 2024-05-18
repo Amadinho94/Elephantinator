@@ -2,6 +2,7 @@ import multer from 'multer'
 import path from 'path'
 
 
+/*** Vérificateur de type de fichier ****/
 const fileTypeCheck = (file, cb) => {
     const fileTypes = /png|jpg|jpeg|svg|webp/
     
@@ -15,8 +16,12 @@ const fileTypeCheck = (file, cb) => {
     }
 }
 
+
+/*** Taille limite des fichier 3 Méga octets ***/
 const sizeLimits = 3145728
 
+
+/*** Lieu de stockage et nommage ****/
 const tutorialImageStorage = multer.diskStorage({
     
     destination: "./public/tutorialImage",
@@ -24,6 +29,8 @@ const tutorialImageStorage = multer.diskStorage({
         cb(null, `${Date.now()}-${(file.originalname.split(" ")).join("_")}`)
     }
 })
+
+
 
 const uploadTutorialImage = multer({
     

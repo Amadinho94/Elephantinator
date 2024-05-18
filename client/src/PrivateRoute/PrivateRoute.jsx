@@ -4,7 +4,6 @@ import {useEffect, useState} from "react"
 
 const PrivateRoute = ({roles}) => {
     
-        
     const {user} = useAuth()
 
     const isAuthorized = user && roles.includes(user.role)

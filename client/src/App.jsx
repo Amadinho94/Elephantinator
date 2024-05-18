@@ -1,6 +1,6 @@
-import  {Routes, Route} from 'react-router-dom'
-import '../src/sass/style.css'
+import  { Routes, Route } from 'react-router-dom'
 import PrivateRoute from './PrivateRoute/PrivateRoute'
+import '../src/sass/style.css'
 
 
 // COMPONENTS
@@ -19,7 +19,7 @@ import OneTutorialPage from './pages/OneTutorialPage'
 import NotFoundPage from './pages/NotFoundPage'
 import OneArticlePage from './pages/OneArticlePage'
 
-// USER PAGES (ADMIN AND USER)
+// ONLY USER AND ADMIN PAGES
 import WorkSpaceFolders from './pages/user/WorkSpaceFolders'
 import WorkSpaceFlashcards from './pages/user/WorkSpaceFlashcards'
 import UserAccount from './pages/user/UserAccount'
@@ -33,7 +33,7 @@ import UserDashboard from './pages/user/UserDashboard'
 import FolderResults from './pages/user/FolderResults'
 import AllResults from './pages/user/AllResults'
 
-// ADMIN PAGES
+// ONLY ADMIN PAGES
 import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminUsersDashboard from './pages/admin/AdminUsersDashboard'
 import AdminCreateUser from './pages/admin/AdminCreateUser'
@@ -51,7 +51,9 @@ const App = () => {
     
   return (
     <>
+    
      <Header />
+     
      <Routes>
            <Route path="/" element={<Home/>} />
            <Route path="/connexion" element={<LogInPage/>} />
@@ -98,7 +100,9 @@ const App = () => {
            
            
      </Routes>
+     
      <Footer />
+     
     </>
   )
 }
