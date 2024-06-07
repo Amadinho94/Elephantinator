@@ -88,7 +88,7 @@ const OnetutorialPage = () => {
         
         scrollTo(0,0)
         
-    }, [])
+    }, [id])
     
     
     let oneTuto = tutorialArray.find((oneArticle) => oneArticle.id === parseInt(id))
