@@ -152,20 +152,26 @@ const WorkSpaceFlashcards = () => {
     // Fonction pour supprimer une flashcard
     const handleDelete = async (flashcardIndex) => {
         
-        setDarkerBg("display-none")
-        setSelectedModal(null)
-        setToggle(!toggle)
-        document.body.style.overflow = ""
+        const confirmModal = window.confirm("Voulez-vous vraiment supprimer cette flashcard ?")
         
-        try {
+        if (confirmModal) {
             
-            const serverRes = await axios.delete(`/api/flashcards/delete/${flashcardIndex}`, {headers : token()})
+            setDarkerBg("display-none")
+            setSelectedModal(null)
+            setToggle(!toggle)
+            document.body.style.overflow = ""
             
-            return toast.success(serverRes.data.message)
+            try {
+                
+                const serverRes = await axios.delete(`/api/flashcards/delete/${flashcardIndex}`, {headers : token()})
+                
+                return toast.success(serverRes.data.message)
+                
+            } catch (e) {
+                
+                return toast.error(e.response.data.message)
+            }
             
-        } catch (e) {
-            
-            return toast.error(e.response.data.message)
         }
     }
     
@@ -274,7 +280,7 @@ const WorkSpaceFlashcards = () => {
             <section className="flashcards-workspace-section">
             
                 <h2>{`Dossier ${currentFolder.title}`}</h2>
-                <p>{`Description : ${currentFolder.description}`}</p>
+                {currentFolder.description && <p>{`Description : ${currentFolder.description}`}</p>}
                 
                 
                 

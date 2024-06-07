@@ -60,20 +60,26 @@ const WorkSpaceFolders = () => {
     
     // Fonction pour supprimer un dossier
     const handleDelete = async (folderIndex) => {
-        setDarkerBg("display-none")
-        setSelectedModal(null)
-        setToggle(!toggle)
-        document.body.style.overflow = ""
         
-        try {
+        const confirmModal = window.confirm("Voulez-vous vraiment supprimer ce dossier, cela entrainera la suppression de toutes les flashcards contenus dedans ?")
+        
+        if (confirmModal) {
             
-            const serverRes = await axios.delete(`/api/folders/delete/${folderIndex}`, {headers : token()})
+            setDarkerBg("display-none")
+            setSelectedModal(null)
+            setToggle(!toggle)
+            document.body.style.overflow = ""
             
-            console.log(serverRes.data.message)
-            return toast.success(serverRes.data.message)
-            
-        } catch (e) {
-            return toast.error(e.response.data.message)
+            try {
+                
+                const serverRes = await axios.delete(`/api/folders/delete/${folderIndex}`, {headers : token()})
+                
+                console.log(serverRes.data.message)
+                return toast.success(serverRes.data.message)
+                
+            } catch (e) {
+                return toast.error(e.response.data.message)
+            }
         }
     }
     

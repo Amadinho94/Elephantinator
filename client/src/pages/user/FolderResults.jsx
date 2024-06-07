@@ -45,33 +45,47 @@ const FolderResults = () => {
     /* Fonction pour supprimer un seul résultat de révision */
     const handleDeleteOne = async (resultIndex) => {
         
-        setToggle(!toggle)
+        const confirmModal = window.confirm("Voulez-vous vraiment supprimer ce résultat de révision ?")
         
-        try {
+        if (confirmModal) {
+        
+            setToggle(!toggle)
             
-            const serverRes = await axios.delete(`/api/results/deleteoneresult/${resultIndex}`, {headers : token()})
-            
-            return toast.success(serverRes.data.message)
-            
-        } catch (e) {
-            return toast.error(e.response.data.message)
+            try {
+                
+                const serverRes = await axios.delete(`/api/results/deleteoneresult/${resultIndex}`, {headers : token()})
+                
+                return toast.success(serverRes.data.message)
+                
+            } catch (e) {
+                return toast.error(e.response.data.message)
+            }
         }
+            
     }
     
     
     /* Fonction pour supprimer tout les résultats de révision */
     const handleDeleteAll = async () => {
-        setToggle(!toggle)
         
-        try {
+        const confirmModal = window.confirm("Voulez-vous vraiment supprimer tout l'historique des résultats de révision de ce dossier ?")
+        
+        if (confirmModal) {
+        
+            setToggle(!toggle)
             
-            const serverRes = await axios.delete(`/api/results/deleteallfolderresults/${folderId}`, {headers : token()})
+            try {
+                
+                const serverRes = await axios.delete(`/api/results/deleteallfolderresults/${folderId}`, {headers : token()})
+                
+                return toast.success(serverRes.data.message)
+                
+            } catch (e) {
+                return toast.error(e.response.data.message)
+            }
             
-            return toast.success(serverRes.data.message)
-            
-        } catch (e) {
-            return toast.error(e.response.data.message)
         }
+        
     }
     
     

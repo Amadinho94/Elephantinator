@@ -40,19 +40,51 @@ const AllResults = () => {
     /* Fonction qui supprime tout les résultats de révisions de l'historique */
     const handleDeleteAll = async () => {
         
-        setToggle(!toggle)
+        const confirmModal = window.confirm("Voulez-vous vraiment supprimer tout l'historique de vos résultats de révision ?")
         
-        try {
+        if (confirmModal) {
             
-            const serverRes = await axios.delete(`/api/results/deleteallresults/${userId}`, {headers : token()})
+            setToggle(!toggle)
             
-            return toast.success(serverRes.data.message)
+            try {
+                
+                const serverRes = await axios.delete(`/api/results/deleteallresults/${userId}`, {headers : token()})
+                
+                return toast.success(serverRes.data.message)
+                
+            } catch (e) {
+                
+                return toast.error(e.response.data.message)
             
-        } catch (e) {
-            return toast.error(e.response.data.message)
+            }
+            
         }
+            
     }
     
+    
+    /* Fonction pour supprimer un seul résultat de révision */
+    const handleDeleteOne = async (resultIndex) => {
+        
+        const confirmModal = window.confirm("Voulez-vous vraiment supprimer ce résultat de révision")
+        
+        if (confirmModal) {
+            
+            setToggle(!toggle)
+            
+            try {
+                
+                const serverRes = await axios.delete(`/api/results/deleteoneresult/${resultIndex}`, {headers : token()})
+                
+                return toast.success(serverRes.data.message)
+                
+            } catch (e) {
+                return toast.error(e.response.data.message)
+            }
+            
+        }
+        
+    }
     
     
     

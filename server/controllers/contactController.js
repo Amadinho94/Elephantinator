@@ -1,5 +1,6 @@
 import Contact from '../models/contactModel.js'
 
+
 // NOUVEAU CONTACT
 export const addContact = async (req, res) => {
     
@@ -56,6 +57,7 @@ export const addContact = async (req, res) => {
     }
 }
 
+
 // METTRE A JOUR LE STATUS D'UN CONTACT
 export const updateContactStatus = async (req, res) => {
     
@@ -84,6 +86,7 @@ export const updateContactStatus = async (req, res) => {
     }
 }
 
+
 // RECUPERER TOUT LES CONTACTS
 export const getAllContact = async (req, res) => {
     
@@ -97,6 +100,7 @@ export const getAllContact = async (req, res) => {
         res.status(400).json({message : "Echec dans la récupération des contacts"})
     }
 }
+
 
 // RECUPERER UN CONTACT
 export const getOneContact = async (req, res) => {
@@ -112,6 +116,7 @@ export const getOneContact = async (req, res) => {
         res.status(400).json({message : "Echec dans la récupération du contact"})
     }
 }
+
 
 // SUPPRIMER UN CONTACT
 export const deleteContact = async (req, res) => {

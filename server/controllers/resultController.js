@@ -4,7 +4,6 @@ import Folder from '../models/folderModel.js'
 
 // NEW RESULT CONTROLLER
 export const createResult = async (req, res) => {
-        console.log(req.body)
     
     try {
         
@@ -14,10 +13,9 @@ export const createResult = async (req, res) => {
         
         const userId = req.userId
         
-        // SECURITE ?
         
         const newResult = new Result({
-            numbersGoodAnswers, // parseint
+            numbersGoodAnswers, // parseint ?
             numbersQuestions, //
             goodAnswerFlashcards,
             badAnswerFlashcards,

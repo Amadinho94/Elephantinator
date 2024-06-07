@@ -40,6 +40,7 @@ const UpdatePassword = () => {
         scrollTo(0,0)
     }, [])
     
+    
     /* Fonction qui mets à jour la valeur des states en fonction de la valeur des champs du formulaire */
     const handleChange = (e) => {
         
@@ -83,6 +84,7 @@ const UpdatePassword = () => {
         }
     }
     
+    
     /* Fonctions qui cache ou affiche la saisit dans les champs */
     const togglePasswordVisibility = () => {
         setTogglePWD(!togglePWD)
@@ -94,74 +96,84 @@ const UpdatePassword = () => {
         setTogglePreviousPWD(!togglePreviousPWD)
     }
     
+    
     /* Fonction qui soumet le formulaire */ 
     const handleSubmit = async (e) => {
         e.preventDefault()
         
-        try {
+        const confirmModal = window.confirm("Voulez-vous vraiment effectuer ce changement de mot de passe ?")
+        
+        if (confirmModal) {
             
-            const checkPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*.-]).{8,300}$/
-            
-            if (previousPWD.trim() === ""
-            || newPWD.trim() === ""
-            || confirmedPWD.trim() === ""
-            ) {
-                return toast.error("Veuillez remplir tout les champs")
+            try {
                 
-            } else if (!checkPassword.test(previousPWD)) {
+                const checkPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*.-]).{8,300}$/
+                
+                if (previousPWD.trim() === ""
+                || newPWD.trim() === ""
+                || confirmedPWD.trim() === ""
+                ) {
+                    return toast.error("Veuillez remplir tout les champs")
+                    
+                } else if (!checkPassword.test(previousPWD)) {
+                    setInvalidPreviousPassword("invalid-value")
+                    return toast.error("Mot de passe invalide")
+                
+                } else if (!checkPassword.test(newPWD)) {
+                    setInvalidNewPassword("invalid-value")
+                    return toast.error("Mot de passe pas assez sécurisé")
+                
+                    
+                } else if (!checkPassword.test(newPWD)) {
+                    setInvalidNewPassword("invalid-value")
+                    return toast.error("Mot de passe pas assez sécurisé")
+                    
+                } else if (newPWD !== confirmedPWD) {
+                    setInvalidNewPassword("invalid-value")
+                    setInvalidConfirmedPassword("invalid-value")
+                    return toast.warning("Les mots de passe doivent être identique")
+                
+                    
+                } else if (newPWD === previousPWD) {
+                    setInvalidPreviousPassword("invalid-value")
+                    setInvalidNewPassword("invalid-value")
+                    setInvalidConfirmedPassword("invalid-value")
+                    return toast.warning("Veuillez choisir un nouveau mot de passe différent")
+                }
+                
+                const serverRes = await axios.put(`/api/users/resetpassword/${user.id}`, userPassword, {headers : token()})
+                
+                toast.success(serverRes.data.message)
+                
+                setUserPassword({
+                    previousPWD : "",
+                    newPWD : "",
+                })
+                
+                setConfirmedPWD("")
+                
+                setTimeout(() => {
+                    navigate("/user/moncompte")
+                }, 100)
+                
+                update()
+            } catch (e) {
                 setInvalidPreviousPassword("invalid-value")
-                return toast.error("Mot de passe invalide")
-            
-            } else if (!checkPassword.test(newPWD)) {
-                setInvalidNewPassword("invalid-value")
-                return toast.error("Mot de passe pas assez sécurisé")
-            
-                
-            } else if (!checkPassword.test(newPWD)) {
-                setInvalidNewPassword("invalid-value")
-                return toast.error("Mot de passe pas assez sécurisé")
-                
-            } else if (newPWD !== confirmedPWD) {
                 setInvalidNewPassword("invalid-value")
                 setInvalidConfirmedPassword("invalid-value")
-                return toast.warning("Les mots de passe doivent être identique")
-            
-                
-            } else if (newPWD === previousPWD) {
-                setInvalidPreviousPassword("invalid-value")
-                setInvalidNewPassword("invalid-value")
-                setInvalidConfirmedPassword("invalid-value")
-                return toast.warning("Veuillez choisir un nouveau mot de passe différent")
+                toast.error(e.response.data.message)
             }
             
-            const serverRes = await axios.put(`/api/users/resetpassword/${user.id}`, userPassword, {headers : token()})
-            
-            toast.success(serverRes.data.message)
-            
-            setUserPassword({
-                previousPWD : "",
-                newPWD : "",
-            })
-            
-            setConfirmedPWD("")
-            
-            setTimeout(() => {
-                navigate("/user/moncompte")
-            }, 100)
-            
-            update()
-        } catch (e) {
-            setInvalidPreviousPassword("invalid-value")
-            setInvalidNewPassword("invalid-value")
-            setInvalidConfirmedPassword("invalid-value")
-            toast.error(e.response.data.message)
         }
+        
     }
+    
     
     /* Fonction qui retourne une croix ou un check en fonction de la valeur de l'argument */
     const iconValidator = (isValid) => {
         return isValid ? <Check color="#14db22" /> : <X color="#db1414" />
     }
+    
     
     
     return (

@@ -65,46 +65,52 @@ const UpdateFolder = () => {
         
         e.preventDefault()
         
-        try {
+        const confirmModal = window.confirm("Voulez-vous vraiment effectuer ces changements ?")
+        
+        if (confirmModal) {
             
-            const {title, description} = inputValue
-            
-            if (title.trim() === "") {
-                setInvalidTitle("invalid-value")
+            try {
+                
+                const {title, description} = inputValue
+                
+                if (title.trim() === "") {
+                    setInvalidTitle("invalid-value")
+                    setInvalidDescription("invalid-value")
+                    return toast.error("Veuillez donner un titre à ce dossier")
+                } else if (title.length > 20) {
+                    setInvalidTitle("invalid-value")
+                    return toast.error("Veuillez saisir un titre plus court")
+                } else if (description.length > 3000) {
+                    setInvalidDescription("invalid-value")
+                    return toast.error("Veuillez saisir une description plus courte")
+                } else if (title.trim() === previousData.title
+                && description.trim() === previousData.description
+                ) {
+                    setInvalidTitle("invalid-value")
+                    setInvalidDescription("invalid-value")
+                    return toast.error("Vous n'avez fait aucune modification")
+                }
+                
+                const serverRes = await axios.put(`/api/folders/update/${folderId}`, inputValue, {headers: token()})
+                
+                setInputValue({
+                     title : "",
+                     description : "",
+                })
+                
+                setTimeout(() => {
+                    navigate(`/user/monespacedetravail/dossier/${user.id}`)
+                }, 500)
+                
+                toast.success(serverRes.data.message)
+                
+            } catch (e) {
+                 toast.error(e.response.data.message)
+                 setInvalidTitle("invalid-value")
                 setInvalidDescription("invalid-value")
-                return toast.error("Veuillez donner un titre à ce dossier")
-            } else if (title.length > 20) {
-                setInvalidTitle("invalid-value")
-                return toast.error("Veuillez saisir un titre plus court")
-            } else if (description.length > 3000) {
-                setInvalidDescription("invalid-value")
-                return toast.error("Veuillez saisir une description plus courte")
-            } else if (title.trim() === previousData.title
-            && description.trim() === previousData.description
-            ) {
-                setInvalidTitle("invalid-value")
-                setInvalidDescription("invalid-value")
-                return toast.error("Vous n'avez fait aucune modification")
             }
-            
-            const serverRes = await axios.put(`/api/folders/update/${folderId}`, inputValue, {headers: token()})
-            
-            setInputValue({
-                 title : "",
-                 description : "",
-            })
-            
-            setTimeout(() => {
-                navigate(`/user/monespacedetravail/dossier/${user.id}`)
-            }, 500)
-            
-            toast.success(serverRes.data.message)
-            
-        } catch (e) {
-             toast.error(e.response.data.message)
-             setInvalidTitle("invalid-value")
-            setInvalidDescription("invalid-value")
         }
+        
     }
     
     

@@ -59,8 +59,8 @@ const AdminArticlesDashboard = () => {
         setShowEditModal(false)
         setShowConfirmEditModal(false)
         document.body.style.overflow = ""
-        setUserToDelete(null)
-        setUserToEdit(null)
+        setArticleToDelete(null)
+        setArticleToEdit(null)
     }
     
     
@@ -81,7 +81,7 @@ const AdminArticlesDashboard = () => {
         
         try {
             
-            const serverRes = await axios.delete(`/api/articles//deleteonearticle/${articleToDelete}`, {headers : token()})
+            const serverRes = await axios.delete(`/api/articles/deleteonearticle/${articleToDelete}`, {headers : token()})
             
             setArticleToDelete(null)
             

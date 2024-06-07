@@ -69,56 +69,63 @@ const UpdateFlashcard = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         
-        try {
+        const confirmModal = window.confirm("Voulez-vous vraiment effectuer ces changements ?")
+        
+        if (confirmModal) {
             
-            const {title, rectoContent, versoContent} = inputValue
-            
-            if (rectoContent.trim() === "") {
-                setInvalidRecto("invalid-value")
-                return toast.error("Veuillez saisir le contenu du recto de la flashcard")
-            } else if (versoContent.trim() === "") {
-                setInvalidVerso("invalid-value")
-                return toast.error("Veuillez saisir le contenu du verso de la flashcard")
-            } else if (rectoContent.length > 150) {
-                setInvalidRecto("invalid-value")
-                return toast.error("Veuillez saisir un contenu plus court")
-            } else if (versoContent.length > 400) {
-                setInvalidVerso("invalid-value")
-                return toast.error("Veuillez saisir un contenu plus court")
-            } else if (title && title.length > 20) {
-                setInvalidTitle("invalid-value")
-                return toast.error("Veuillez saisir un titre plus courte")
-            } else if (rectoContent.trim() === previousFlashcard.rectoContent
-                && versoContent.trim() === previousFlashcard.versoContent
-                && title.trim() === previousFlashcard.title
-                ) {
-                setInvalidTitle("invalid-value")
+            try {
+                
+                const {title, rectoContent, versoContent} = inputValue
+                
+                if (rectoContent.trim() === "") {
+                    setInvalidRecto("invalid-value")
+                    return toast.error("Veuillez saisir le contenu du recto de la flashcard")
+                } else if (versoContent.trim() === "") {
+                    setInvalidVerso("invalid-value")
+                    return toast.error("Veuillez saisir le contenu du verso de la flashcard")
+                } else if (rectoContent.length > 150) {
+                    setInvalidRecto("invalid-value")
+                    return toast.error("Veuillez saisir un contenu plus court")
+                } else if (versoContent.length > 400) {
+                    setInvalidVerso("invalid-value")
+                    return toast.error("Veuillez saisir un contenu plus court")
+                } else if (title && title.length > 20) {
+                    setInvalidTitle("invalid-value")
+                    return toast.error("Veuillez saisir un titre plus courte")
+                } else if (rectoContent.trim() === previousFlashcard.rectoContent
+                    && versoContent.trim() === previousFlashcard.versoContent
+                    && title.trim() === previousFlashcard.title
+                    ) {
+                    setInvalidTitle("invalid-value")
+                     setInvalidVerso("invalid-value")
+                     setInvalidRecto("invalid-value")
+                    return toast.error("Vous n'avez fait aucune modification")
+                }
+                
+                const serverRes = await axios.put(`/api/flashcards/update/${flashcardId}`, inputValue, {headers : token()})
+                
+                setInputValue({
+                     title : "",
+                     rectoContent : "",
+                     versoContent : ""
+                })
+                
+                
+                setTimeout(() => {
+                    navigate(`/user/monespacedetravail/flashcard/${previousFlashcard.folderId}`)
+                }, 500)
+                
+                toast.success(serverRes.data.message)
+                
+            } catch (e) {
+                 toast.error(e.response.data.message)
+                 setInvalidTitle("invalid-value")
                  setInvalidVerso("invalid-value")
                  setInvalidRecto("invalid-value")
-                return toast.error("Vous n'avez fait aucune modification")
             }
             
-            const serverRes = await axios.put(`/api/flashcards/update/${flashcardId}`, inputValue, {headers : token()})
-            
-            setInputValue({
-                 title : "",
-                 rectoContent : "",
-                 versoContent : ""
-            })
-            
-            
-            setTimeout(() => {
-                navigate(`/user/monespacedetravail/flashcard/${previousFlashcard.folderId}`)
-            }, 500)
-            
-            toast.success(serverRes.data.message)
-            
-        } catch (e) {
-             toast.error(e.response.data.message)
-             setInvalidTitle("invalid-value")
-             setInvalidVerso("invalid-value")
-             setInvalidRecto("invalid-value")
         }
+        
     }
     
     

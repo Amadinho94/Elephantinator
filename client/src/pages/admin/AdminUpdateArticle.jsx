@@ -105,89 +105,92 @@ const AdminUpdateArticle = () => {
     
     /* Fonction qui mets à jour un article */ 
     const handleSubmit = async (e) => {
+        
         e.preventDefault()
         
+        const confirmModal = window.confirm("Voulez-vous vraiment effectuer ce changement ?")
         
-        try {
+        if (confirmModal) {
+        
+            try {
+                
+                const formData = new FormData();
+                
             
-            const formData = new FormData();
-            
-        
-            const {title, authorName, summary, paragraphs, articleImage} = inputValue
-            const {prevTitle, prevAuthorName, prevSummary, prevParagraphs} = previousValue
-            
-            
-        
-        
-        
-            if (title.trim() === "") {
-                setInvalidTitle("invalid-value")
-                return  toast.error("Veuillez saisir un titre pour l'article")
-            } else if (authorName.trim() === "") {
-                setInvalidAuthorName("invalid-value")
-                return  toast.error("Veuillez saisir le nom de l'auteur de l'article")
-            } else if (summary.trim() === "") {
-                setInvalidSummary("invalid-value")
-                return  toast.error("Veuillez saisir le résumé de l'article")
-            } else if (paragraphs.trim() === "") {
-                setInvalidParagraphs("invalid-value")
-                return  toast.error("Veuillez saisir le contenu de l'article")
-            } else if (title.length < 2) {
-                setInvalidTitle("invalid-value")
-                return  toast.error("Veuillez saisir un titre plus long")
-            } else if (title.length > 100) {
-                setInvalidTitle("invalid-value")
-                return toast.error("Veuillez saisir un titre plus court")
-            } else if (authorName.length < 2) {
-                setInvalidAuthorName("invalid-value")
-                return toast.error("Veuillez saisir un nom d'auteur plus long")
-            } else if (authorName.length > 25) {
-                setInvalidAuthorName("invalid-value")
-                return toast.error("Veuillez saisir un nom d'auteur plus court")
-            } else if (summary.length < 150) {
-                setInvalidSummary("invalid-textarea")
-                return toast.error("Veuillez saisir un résumé plus long")
-            } else if (summary.length > 1000) {
-                setInvalidSummary("invalid-textarea")
-                return toast.error("Veuillez saisir un résumé plus court")
-            } else if (paragraphs.length < 150) {
-                setInvalidParagraphs("invalid-textarea")
-                return toast.error("Veuillez saisir un contenu plus long")
-            } else if (paragraphs.length > 10000) {
-                setInvalidParagraphs("invalid-textarea")
-                return toast.error("Veuillez saisir un contenu plus court")
+                const {title, authorName, summary, paragraphs, articleImage} = inputValue
+                const {prevTitle, prevAuthorName, prevSummary, prevParagraphs} = previousValue
+                
+                
+                if (title.trim() === "") {
+                    setInvalidTitle("invalid-value")
+                    return  toast.error("Veuillez saisir un titre pour l'article")
+                } else if (authorName.trim() === "") {
+                    setInvalidAuthorName("invalid-value")
+                    return  toast.error("Veuillez saisir le nom de l'auteur de l'article")
+                } else if (summary.trim() === "") {
+                    setInvalidSummary("invalid-value")
+                    return  toast.error("Veuillez saisir le résumé de l'article")
+                } else if (paragraphs.trim() === "") {
+                    setInvalidParagraphs("invalid-value")
+                    return  toast.error("Veuillez saisir le contenu de l'article")
+                } else if (title.length < 2) {
+                    setInvalidTitle("invalid-value")
+                    return  toast.error("Veuillez saisir un titre plus long")
+                } else if (title.length > 100) {
+                    setInvalidTitle("invalid-value")
+                    return toast.error("Veuillez saisir un titre plus court")
+                } else if (authorName.length < 2) {
+                    setInvalidAuthorName("invalid-value")
+                    return toast.error("Veuillez saisir un nom d'auteur plus long")
+                } else if (authorName.length > 25) {
+                    setInvalidAuthorName("invalid-value")
+                    return toast.error("Veuillez saisir un nom d'auteur plus court")
+                } else if (summary.length < 150) {
+                    setInvalidSummary("invalid-textarea")
+                    return toast.error("Veuillez saisir un résumé plus long")
+                } else if (summary.length > 1000) {
+                    setInvalidSummary("invalid-textarea")
+                    return toast.error("Veuillez saisir un résumé plus court")
+                } else if (paragraphs.length < 150) {
+                    setInvalidParagraphs("invalid-textarea")
+                    return toast.error("Veuillez saisir un contenu plus long")
+                } else if (paragraphs.length > 10000) {
+                    setInvalidParagraphs("invalid-textarea")
+                    return toast.error("Veuillez saisir un contenu plus court")
+                }
+                
+                
+                formData.append("title", title);
+                formData.append("authorName", authorName);
+                formData.append("summary", summary);
+                formData.append("paragraphs", paragraphs);
+                formData.append("articleImage", articleImage);
+                
+                
+                
+                const serverRes = await axios.put(`/api/articles/editarticle/${articleId}`, formData, {headers : token()} )
+                
+                toast.success(serverRes.data.message)
+                
+                setPreviousValue({
+                    prevTitle : title,
+                    prevAuthorName : authorName,
+                    prevSummary : summary,
+                    prevParagraphs : paragraphs,
+                    prevArticleImage : articleImage
+                })
+                
+                
+                
+                setTimeout(() => {
+                    navigate("/admin/tableaudebord/gestionnairearticles")
+                }, 100)
+                
+                
+            } catch (e) {
+                toast.error(e.response.data.message)
             }
             
-            
-            formData.append("title", title);
-            formData.append("authorName", authorName);
-            formData.append("summary", summary);
-            formData.append("paragraphs", paragraphs);
-            formData.append("articleImage", articleImage);
-            
-            
-            
-            const serverRes = await axios.put(`/api/articles/editarticle/${articleId}`, formData, {headers : token()} )
-            
-            toast.success(serverRes.data.message)
-            
-            setPreviousValue({
-                prevTitle : title,
-                prevAuthorName : authorName,
-                prevSummary : summary,
-                prevParagraphs : paragraphs,
-                prevArticleImage : articleImage
-            })
-            
-            
-            
-            setTimeout(() => {
-                navigate("/admin/tableaudebord/gestionnairearticles")
-            }, 100)
-            
-            
-        } catch (e) {
-            toast.error(e.response.data.message)
         }
         
     }

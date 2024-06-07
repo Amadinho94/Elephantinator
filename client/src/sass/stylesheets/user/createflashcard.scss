@@ -26,9 +26,10 @@
   outline:none;
   margin-top:0;
   display:block;
-    @extend %centered-block;
-    width: 100%;
-    margin-bottom:2rem;
+  @extend %centered-block;
+  width: 100%;
+  margin-bottom:2rem;
+  font-size: 2rem;
 }
 
 .createflashcardpage-input-label textarea {
@@ -40,9 +41,10 @@
   outline:none;
   margin-top:0;
   display:block;
-    @extend %centered-block;
-    width: 100%;
-    margin-bottom:2rem;
+  font-size: 2rem;
+  @extend %centered-block;
+  width: 100%;
+  margin-bottom:2rem;
 }
 
 .createflashcardpage-input-label label {

@@ -66,100 +66,108 @@ const UpdateAccount = () => {
         }
     }
     
+    
     /* Fonction qui soumet le formulaire */
     const handleSubmit = async (e) => {
         
         e.preventDefault()
         
-        try {
-            
-            const formData = new FormData();
-            
-            const {name, username, email, profilPicture} = inputValue
-            const {prevName, prevUsername, prevEmail} = previousValue
-            
-            const checkEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+        const confirmModal = window.confirm("Voulez-vous vraiment effectuer ce changement ?")
         
+        if (confirmModal) {
+            
+            try {
+                
+                const formData = new FormData();
+                
+                const {name, username, email, profilPicture} = inputValue
+                const {prevName, prevUsername, prevEmail} = previousValue
+                
+                const checkEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+            
+            
+                const updateProfil = {};
+                
+                if (name.trim() === "") {
+                    setInvalidName("invalid-value")
+                    return toast.error("Veuillez renseigner votre prénom")
+                } else if (username.trim() === "") {
+                    setInvalidUsername("invalid-value")
+                    return toast.error("Veuillez renseigner un nom d'utilisateur")
+                } else if (email.trim() === "") {
+                    setInvalidEmail("invalid-value")
+                    return toast.error("Veuillez renseigner une adresse email")
+                } else if (name.length < 2) {
+                    setInvalidName("invalid-value")
+                    return toast.error("Veuillez saisir un prénom plus grand")
+                } else if (name.length > 25) {
+                    setInvalidName("invalid-value")
+                    return toast.error("Veuillez saisir un prénom plus petit")
+                } else if (username.length < 4) {
+                    setInvalidUsername("invalid-value")
+                    return toast.error("Veuillez choisir un nom d'utilisateur plus long")
+                } else if (username.length > 25) {
+                    setInvalidUsername("invalid-value")
+                    return toast.error("Veuillez choisir un nom d'utilisateur plus petit")
+                } else if (!checkEmail.test(email)) {
+                    setInvalidEmail("invalid-value")
+                    return toast.error("Veuillez saisir une adresse email valide")
+                }
+                
+                
+                if (prevName === name
+                && prevUsername === username
+                && prevEmail === email
+                && !toggle
+                ) {
+                    setInvalidName("invalid-value")
+                    setInvalidUsername("invalid-value")
+                    setInvalidEmail("invalid-value")
+                    setInvalidFile("invalid-value")
+                    return toast.error("Aucun changement opéré")
+                }
+                
+                
+                formData.append("name", name);
+                formData.append("username", username);
+                formData.append("email", email);
+                formData.append("profilPicture", profilPicture);
+                
+                
+                const serverRes = await axios.put("/api/users/updateprofil", formData, {headers : token()} )
+                
+                setPreviousValue({
+                    prevName : name,
+                    prevUsername : username,
+                    prevEmail : email
+                })
+                
+                setToggle(false)
+                
+                setInvalidName("validated-form")
+                setInvalidUsername("validated-form")
+                setInvalidEmail("validated-form")
+                setInvalidFile("validated-form")
+                
+                toast.success(serverRes.data.message)
+                
+                
+                setTimeout(() => {
+                    navigate("/user/moncompte")
+                }, 100)
+                
+                update()
+                
+            } catch (e) {
+                
+                toast.error(e.response.data.message)
+                
+            }
         
-            const updateProfil = {};
-            
-            if (name.trim() === "") {
-                setInvalidName("invalid-value")
-                return toast.error("Veuillez renseigner votre prénom")
-            } else if (username.trim() === "") {
-                setInvalidUsername("invalid-value")
-                return toast.error("Veuillez renseigner un nom d'utilisateur")
-            } else if (email.trim() === "") {
-                setInvalidEmail("invalid-value")
-                return toast.error("Veuillez renseigner une adresse email")
-            } else if (name.length < 2) {
-                setInvalidName("invalid-value")
-                return toast.error("Veuillez saisir un prénom plus grand")
-            } else if (name.length > 25) {
-                setInvalidName("invalid-value")
-                return toast.error("Veuillez saisir un prénom plus petit")
-            } else if (username.length < 4) {
-                setInvalidUsername("invalid-value")
-                return toast.error("Veuillez choisir un nom d'utilisateur plus long")
-            } else if (username.length > 25) {
-                setInvalidUsername("invalid-value")
-                return toast.error("Veuillez choisir un nom d'utilisateur plus petit")
-            } else if (!checkEmail.test(email)) {
-                setInvalidEmail("invalid-value")
-                return toast.error("Veuillez saisir une adresse email valide")
-            }
-            
-            
-            if (prevName === name
-            && prevUsername === username
-            && prevEmail === email
-            && !toggle
-            ) {
-                setInvalidName("invalid-value")
-                setInvalidUsername("invalid-value")
-                setInvalidEmail("invalid-value")
-                setInvalidFile("invalid-value")
-                return toast.error("Aucun changement opéré")
-            }
-            
-            
-            formData.append("name", name);
-            formData.append("username", username);
-            formData.append("email", email);
-            formData.append("profilPicture", profilPicture);
-            
-            
-            const serverRes = await axios.put("/api/users/updateprofil", formData, {headers : token()} )
-            
-            setPreviousValue({
-                prevName : name,
-                prevUsername : username,
-                prevEmail : email
-            })
-            
-            setToggle(false)
-            
-            setInvalidName("validated-form")
-            setInvalidUsername("validated-form")
-            setInvalidEmail("validated-form")
-            setInvalidFile("validated-form")
-            
-            toast.success(serverRes.data.message)
-            
-            
-            setTimeout(() => {
-                navigate("/user/moncompte")
-            }, 100)
-            
-            update()
-            
-        } catch (e) {
-            
-            toast.error(e.response.data.message)
-            
         }
         
     }
+    
     
     
     return (

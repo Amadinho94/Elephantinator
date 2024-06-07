@@ -33,6 +33,7 @@
   border:1px solid $accent-color;
   color: $accent-color;
   padding:1rem;
+  font-size: 2rem;
   border-radius:5px;
   outline:none;
   display:block;
@@ -67,27 +68,11 @@
 }
 
 
-
-// .adminformpage-select {
-//     display:block;
-//     border-radius:5px;
-//     @extend %centered-block;
-//     padding:1rem;
-//     width: 90%;
-//     margin-bottom:1rem;
-//     background:$transparent;
-//     color:$accent-color;
-//     font-size:1.5rem;
-// }
-
 .adminformpage-select:hover {
     cursor:pointer;
     background : $less-transparent;
 }
 
-// .adminformpage-select > option {
-//     color:black;
-// }
 
 .adminformpage-textarea {
     display:block;
@@ -99,6 +84,7 @@
     border-radius:10px;
     height:100px;
     background:transparent;
+    font-size: 2rem;
     color:$accent-color;
 }
 
@@ -156,10 +142,6 @@
     .adminformpage-input {
         width: 90%;
      }
-    
-    // .adminformpage-select {
-    //     width: 90%;
-    // }
 
     .adminformpage-textarea {
         width: 90%;

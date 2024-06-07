@@ -1,10 +1,12 @@
 import {NavLink} from 'react-router-dom'
 import {useEffect, useState} from 'react'
+import { useAuth } from '../context/AuthContext'
 import axios from 'axios'
 
 
 const Home = () => {
     
+    const { user } = useAuth()
     
     const [homeFirstBenefits, setHomeFirstBenefits] = useState({})
     const [homeSecondBenefits, setHomeSecondBenefits] = useState({})
@@ -97,7 +99,7 @@ const Home = () => {
               
                <h1 className="home-headline-title">Réussissez tout vos examens</h1>
                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, assumenda ratione sed voluptates odit repudiandae nesciunt eius nisi facilis tempore.</p>
-               <NavLink className="home-headline-calltoaction" to="/inscription"> Devenir un meilleur élève </NavLink>          
+               <NavLink className="home-headline-calltoaction" to={user && user.userToken ? `/user/monespacedetravail/dossier/${user.id}` : "/inscription"}> Devenir un meilleur élève </NavLink>          
               
            </header>
            
@@ -114,7 +116,7 @@ const Home = () => {
                         
                        <div key={oneTutorial.id} className="home-article-cards">
                            <div>
-                              <img className="img-responsive" src={oneTutorial.image} alt={`image du tutoriel ${oneTutorial.presentation}`}/>
+                              <img className="home-card-img-responsive" src={oneTutorial.image} alt={`image du tutoriel ${oneTutorial.presentation}`}/>
                            </div>
                            
                            <div>
@@ -133,7 +135,7 @@ const Home = () => {
               <section className="home-benefits-section">
                     <h1>Répétition espacée</h1>
                     <div className="home-benefits-flex-right">
-                        <img className="img-responsive home-benefits-img-left" src="../src/assets/img-article-repetition-V4.svg" alt="image de l'article sur les répétitions espacées" />
+                        <img className="home-benefits-img-responsive home-benefits-img-left" src="../src/assets/img-article-repetition-V4.svg" alt="image de l'article sur les répétitions espacées" />
                         <div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, doloremque numquam nulla laborum dolore ex rem necessitatibus est labore voluptates eos cumque temporibus neque esse in dicta alias velit aspernatur culpa omnis saepe illo nam quaerat itaque nobis voluptate tenetur doloribus architecto natus hic.</p>
                             <NavLink className="home-section-calltoaction" to={`/blog/article/${homeSecondBenefits._id}`}> En savoir plus </NavLink>
@@ -147,7 +149,7 @@ const Home = () => {
               <section className="home-benefits-section">
                     <h1>Rappels actifs</h1>
                     <div className="home-benefits-flex-left">
-                        <img className="img-responsive home-benefits-img-right" src="../src/assets/img-article-rappel-V4.svg" alt="image de l'article sur les rappels actifs"/>
+                        <img className="home-benefits-img-responsive home-benefits-img-right" src="../src/assets/img-article-rappel-V4.svg" alt="image de l'article sur les rappels actifs"/>
                         <div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, beatae, ad repellat in eius facilis optio molestias eveniet error aperiam quasi at excepturi aliquam earum cumque nam blanditiis repellendus temporibus placeat harum magni voluptate quam nobis labore itaque quibusdam nulla sequi accurdo</p>
                             <NavLink className="home-section-calltoaction" to={`/blog/article/${homeFirstBenefits._id}`}> En savoir plus </NavLink>

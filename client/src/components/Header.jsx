@@ -106,7 +106,14 @@ const Header = () => {
     
     // Function that call the logout function
     const handleLogout = () => {
-        logout()
+        
+        const confirmModal = window.confirm("Voulez-vous vraiment vous déconnecter ?")
+        
+        if (confirmModal) {
+            
+            logout()
+        
+        }
     }
     
     

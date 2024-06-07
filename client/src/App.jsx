@@ -67,7 +67,7 @@ const App = () => {
            <Route path="/*" element={<NotFoundPage />} />
            
            
-           {/*<Route path="/" element={<PrivateRoute roles={["admin", "user"]} />}>*/}
+           <Route path="/" element={<PrivateRoute roles={["admin", "user"]} />}>
               <Route path="user">
                    <Route path="moncompte" element={<UserAccount />} />
                    <Route path="modifiermotdepasse" element={<UpdatePassword />} />
@@ -82,10 +82,10 @@ const App = () => {
                    <Route path="tableaudebord/historiquedossier/:folderId" element={<FolderResults />} />
                    <Route path="tableaudebord/historiquerevision/:userId" element={<AllResults />} />
                </Route>
-           {/*</Route>*/}
+           </Route>
            
            
-           {/*<Route path="/" element={<PrivateRoute roles={["admin"]} />}>*/}
+           <Route path="/" element={<PrivateRoute roles={["admin"]} />}>
               <Route path="admin">
                    <Route path="tableaudebord" element={<AdminDashboard />} />
                    <Route path="tableaudebord/gestionnaireutilisateurs" element={<AdminUsersDashboard />} />
@@ -96,7 +96,7 @@ const App = () => {
                    <Route path="tableaudebord/gestionnairecontacts" element={<AdminContactsDashboard />} />
                    <Route path="tableaudebord/gestionnairecontacts/contact/:contactId" element={<AdminContact />} />
                </Route>
-           {/*</Route>*/}
+           </Route>
            
            
      </Routes>

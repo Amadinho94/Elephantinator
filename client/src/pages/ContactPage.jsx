@@ -22,8 +22,8 @@ const ContactPage = () => {
         scrollTo(0,0)
         
         setInputValue({
-            username : user.name,
-            email : user.email,
+            username : user && user.name,
+            email : user && user.email,
             subjectMessage : "",
             message : ""
         })
@@ -38,23 +38,29 @@ const ContactPage = () => {
         setInvalidMessage("")
         const {name, value} = e.target
         
-        if (name === "subjectMessage"
-        || name === "message") {
-           setInputValue({...inputValue, [name] : value}) 
+        if (user && user.userToken) {
+            if (name === "subjectMessage"
+            || name === "message") {
+               setInputValue({...inputValue, [name] : value}) 
+            }
+        } else {
+            setInputValue({...inputValue, [name] : value})
         }
+        
         
     }
     
     
     /* Fonction qui soumet le formulaire */
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        
+         e.preventDefault()
+         
+            
         try {
             
              const {username, email, subjectMessage, message} = inputValue
              const checkEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-             
+                     
              if (email.trim() === ""
                 || username.trim() === ""
                 || message.trim() === ""
@@ -91,30 +97,27 @@ const ContactPage = () => {
              } else if (message.length > 3000) {
                  setInvalidMessage("invalid-textarea")
                  return toast.error("Veuillez saisir un message plus cours")
-             } else if (user.name !== username
-             || user.email !== email) {
-                 setInvalidName("invalid-value")
-                 setInvalidEmail("invalid-value")
-                 return toast.error("Votre nom ou votre adresse email ne correspond pas avec celui de votre compte")
              }
-            
              
-            
-            
              const serverRes = await axios.post('/api/contacts/new', inputValue)
              
-             toast.success(serverRes.data.message)
              
              setInputValue({
-                username : user.name,
-                email : user.email,
+                username : user && user.name,
+                email : user && user.email,
                 subjectMessage : "",
                 message : ""
              })
              
+             return toast.success(serverRes.data.message)
+             
         } catch (e) {
-            toast.error(e.response.data.message)
+            
+            return toast.error(e.response.data.message)
+            
         }
+
+        
     }
     
     
